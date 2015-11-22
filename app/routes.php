@@ -16,11 +16,12 @@ Route::get('/', ['as' => 'getHome', 'uses' => 'MasterController@getHome']);
 Route::get('/error', ['as' => 'getError', 'uses' => 'MasterController@getError']);
 Route::get('/register', ['as' => 'getRegister', 'uses' => 'UserController@getRegister']);
 Route::get('/login', ['as' => 'getLogin', 'uses' => 'UserController@getLogin']);
+Route::post('/checkusername', ['as' => 'postCheckUsername', 'uses' => 'UserController@postCheckUsername']);
 
 Route::group(['prefix' => 'ranking'], function()
 {
 	Route::get('/', ['as' => 'getRankingHome', 'uses' => 'RankingController@getRankingHome']);
-	Route::get('/rankinglist', ['as' => 'getRankingList', 'uses' => 'RankingController@getRankingList']);
+	Route::get('/game={game_id}/ranking', ['as' => 'getRankingList', 'uses' => 'RankingController@getRankingList']);
 });
 
 Route::group(['prefix' => 'subscribers'], function()

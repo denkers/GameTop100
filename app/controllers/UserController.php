@@ -83,4 +83,25 @@ class UserController extends MasterController
 	{
 		return View::make('user.profile');
 	}
+
+	public function postCheckUsername()
+	{
+		$avail_msg			=	'Username is available';
+		$unavail_msg		=	'Username is taken';
+
+		$validator			=	Validator::make(Input::all(),
+		[	
+			'username_req'	=>	'required'
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $invalid_input_msg);
+		else
+		{
+			if(User::where('username', '=', Input::get('username_req'))->exists())
+				return MasterController::encodeReturn(false, $unavail_msg);
+			else
+				return MasterController::encodeReturn(true, $avail_msg);
+		}
+	}
 }

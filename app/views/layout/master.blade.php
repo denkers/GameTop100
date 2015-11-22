@@ -8,6 +8,8 @@
 			{{ HTML::style('css/main.css'); }}
 		@show
 
+		<title>MegaTop100 - @yield('title_postfix')</title>
+
 		@section('js')
 			{{ HTML::script('dependencies/jquery.min.js'); }}
 			{{ HTML::script('dependencies/bootstrap.min.js'); }}

@@ -20,8 +20,10 @@ class CreateSitesTable extends Migration {
 			$table->string('address');
 			$table->boolean('isPremium');
 			$table->string('owner', 18);
+			$table->integer('game_id')->unsigned()->nullable();
 			$table->timestamps();
 			$table->foreign('owner')->references('username')->on('users')->onDelete('cascade');
+			$table->foreign('game_id')->references('id')->on('games')->onDelete('set null');
 		});
 	}
 

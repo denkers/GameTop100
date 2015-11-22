@@ -1,8 +1,7 @@
-@extends('layout.master)
+@extends('layout.master')
 
-@section('head')
-	@parent
-	<title>MegaTop100 - Login</title>
+@section('title_postfix')
+Login
 @stop
 
 @section('js')
@@ -25,7 +24,7 @@
 				</div>
 				
 				<!-- LOGIN FORM -->
-				<form id='login_form' method='post' action='{{ URL::route("postLogin"); }}'>
+				<form id='login_form' method='post' action=''>
 		
 					<!-- USERNAME FIELD -->
 					<div class='form-group'>

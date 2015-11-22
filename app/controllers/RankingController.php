@@ -6,4 +6,10 @@ class RankingController extends MasterController
 	{
 		return View::make('ranking.home');
 	}		
+
+	public function getRankingList($game_id)
+	{
+		$sites	=	SitesModel::getSitesForGame($game_id);
+		return $sites;
+	}
 }
