@@ -5,6 +5,7 @@ Login
 @stop
 
 @section('js')
+	@parent
 	{{ HTML::script('javascript/user/user_management.js'); }} 
 @stop
 
@@ -24,14 +25,14 @@ Login
 				</div>
 				
 				<!-- LOGIN FORM -->
-				<form id='login_form' method='post' action=''>
+				<form id='login_form' method='post' action='{{ URL::route("postLogin"); }}'>
 		
 					<!-- USERNAME FIELD -->
 					<div class='form-group'>
 						<div class='input-group'>
 							<span class='input-group-addon'><span class='glyphicon glyphicon-user'></span></span>
 							<input type='text' id='username_field' class='form-control' 
-							name='login_username' placeholder='Enter your username'/>
+							name='login_id' placeholder='Enter your username'/>
 						</div>
 					</div>	
 
@@ -40,7 +41,14 @@ Login
 						<div class='input-group'>
 							<span class='input-group-addon'><span class='glyphicon glyphicon-lock'></span></span>
 							<input type='password' id='password_field' class='form-control'
-							name='login_password' placeholder='Enter your password' />
+							name='login_pass' placeholder='Enter your password' />
+						</div>
+					</div>
+
+					<!-- REMEMBER FIELD -->
+					<div class='form-group'>
+						<div class='checkbox'>
+							<label><input type='checkbox' name='login_remember'>Remember me</label>
 						</div>
 					</div>
 

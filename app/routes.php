@@ -17,6 +17,9 @@ Route::get('/error', ['as' => 'getError', 'uses' => 'MasterController@getError']
 Route::get('/register', ['as' => 'getRegister', 'uses' => 'UserController@getRegister']);
 Route::get('/login', ['as' => 'getLogin', 'uses' => 'UserController@getLogin']);
 Route::post('/checkusername', ['as' => 'postCheckUsername', 'uses' => 'UserController@postCheckUsername']);
+Route::post('/login', ['as' => 'postLogin', 'uses' => 'UserController@postLogin']);
+Route::post('/register', ['as' => 'postRegister', 'uses' => 'UserController@postRegister']);
+
 
 Route::group(['prefix' => 'ranking'], function()
 {
@@ -32,9 +35,6 @@ Route::group(['prefix' => 'subscribers'], function()
 
 Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 {
-	Route::post('/login', ['as' => 'postLogin', 'uses' => 'UserController@postLogin']);
-	Route::post('/register', ['as' => 'postRegister', 'uses' => 'UserController@postRegister']);
-
 	Route::group(['prefix' => 'profile'], function()
 	{
 		Route::get('/', ['as' => 'getProfile', 'uses' => 'UserController@getProfile']);

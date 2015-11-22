@@ -41,17 +41,19 @@ Ranking
 					</h3>
 				</div>
 
-				<div class='ranking_container panel panel-default'>
+				<div class='ranking_container panel panel-default col-md-9'>
 					<div class='panel-body'>
 						<?php $ranking_test_list = SitesModel::getSitesForGame(1); ?>
 						<div class='list-group'>
 							@if(isset($ranking_test_list))
 								@foreach($ranking_test_list as $ranking_test_item)				
 									<div class='list-group-item clearfix ranking_item'>
-										<div class='rank_profile'>
+										<div class='rank_profile col-md-9'>
 											<!-- RANK NUMBER -->
 											<div class='col-md-2 rank_details'>
-											
+												<h5 class='rank_no_text'>
+													1
+												</h5>
 											</div>
 		
 											<!-- SITE DETAILS -->
@@ -73,6 +75,13 @@ Ranking
 												</div>
 											</div>
 										</div>
+
+										<div class='vote_details' class='col-md-3'>
+											<h3 class='vote_text'>
+												<span class='site_upvotes'>5</span> <span class='glyphicon glyphicon-thumbs-up'></span>
+												<span class='site_downvotes'>10</span> <span class='glyphicon glyphicon-thumbs-down'></span>
+											</h3>
+										</div> 
 									</div>
 								@endforeach
 							@endif

@@ -15,19 +15,23 @@ class UserController extends MasterController
 		$validator = Validator::make(Input::all(), 
 		[
 			'login_id'		=>	'required|exists:users,username',
-			'login_pass'	=>	'required|min:16'
+			'login_pass'	=>	'required|max:16'
 		]);
 
 		if($validator->fails())
-			return MasterController::encodeReturn(false, $invalid_input_msg);
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
 			$user_id		=	Input::get('login_id');
 			$user_pass		=	Input::get('login_pass');
-			$remember_user	=	Input::has('remember_user');
-			$attempt		=	Auth::attempt($user_id, $user_pass, $remember_user);
+			$remember_user	=	Input::has('login_remember');
+			$attempt		=	Auth::attempt
+			([
+				'username'	=>	$user_id,
+				'password'	=>	$user_pass
+			], $remember_user);
 
-			if($attempt())
+			if($attempt)
 				return MasterController::encodeReturn(true, $success_message);
 			else
 				return MasterController::encodeReturn(false, $fail_message);
@@ -50,12 +54,12 @@ class UserController extends MasterController
 		$validator			=	Validator::make(Input::all(),
 		[
 			'register_user'		=>	'required|min:4|max:18',
-			'register_pass'		=>	'required|min:6|max|18',
+			'register_pass'		=>	'required|min:6|max:18',
 			'register_email'	=>	'required|email'
 		]);
 		
 		if($validator->fails())
-			return MasterController::encodeReturn(false, $invalid_input_msg);
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
 			$reg_username	=	Input::get('register_user');
@@ -68,7 +72,7 @@ class UserController extends MasterController
 			{	
 				$user			=	new User();
 				$user->username	=	$reg_username;
-				$user->password	=	$reg_pass;
+				$user->password	=	Hash::make($reg_pass);
 				$user->email	=	$reg_email;
 
 				if($user->save())
@@ -95,7 +99,7 @@ class UserController extends MasterController
 		]);
 
 		if($validator->fails())
-			return MasterController::encodeReturn(false, $invalid_input_msg);
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
 			if(User::where('username', '=', Input::get('username_req'))->exists())

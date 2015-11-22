@@ -24,6 +24,12 @@ Register
 		</div>
 
 		<div class='panel panel-default register_panel'>
+			<!-- REGISTER STATUS ALERT -->
+			<div id='register_alert' class='alert alert-dismissable fade in'>
+				<strong>Register notice</strong>
+				<p id='register_alert_msg'></p>
+			</div>
+
 			<div class='panel-body'>
 				<form id='register_form' method='post' action='{{ URL::route("postRegister"); }}'>
 
@@ -95,7 +101,7 @@ Register
 
 					<div class='register_controls btn-group'>
 						<button class='btn btn-default' id='register_cancel_btn'>Cancel</button>
-						<button class='btn btn-success' id='register_cancel_btn'>Register</button>
+						<button class='btn btn-success' id='register_submit_btn'>Register</button>
 					</div>
 				</form>
 			</div>

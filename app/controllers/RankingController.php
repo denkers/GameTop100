@@ -9,7 +9,7 @@ class RankingController extends MasterController
 
 	public function getRankingList($game_id)
 	{
-		$sites	=	SitesModel::getSitesForGame($game_id);
+		$sites	=	SitesModel::getSitesForGame($game_id)->orderBy('name')->get();
 		return $sites;
 	}
 }

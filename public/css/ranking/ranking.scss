@@ -35,3 +35,30 @@
 {
 	padding-left:5em;
 }
+
+.vote_details
+{
+	border-left:1px solid #ccc !important;
+}
+
+.rank_details
+{
+	border-right:1px solid #ccc !important;
+}
+
+.vote_text
+{
+	text-align:center;
+}
+
+.rank_no_text
+{
+	background-color:black;
+	color:white;
+	width:25px;
+	height:25px;
+	border-radius:25px;
+	line-height:25px;
+	text-align:center;
+	border:2px solid rgba(255,255,255,0.4);
+}

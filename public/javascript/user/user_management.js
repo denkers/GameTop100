@@ -6,6 +6,7 @@ $(function()
 		var data	=	$(this).serialize();
 		var url		=	$(this).attr('action');
 
+		console.log(data);
 		$.ajax
 		({
 			url: url,
@@ -39,6 +40,36 @@ $(function()
 	$('#pass_match_field').focusout(function(e)
 	{
 		checkPasswordMatches();
+	});
+
+	$('#register_form').submit(function(e)
+	{
+		e.preventDefault();
+		var url		=	$(this).attr('action');
+		var data	=	$(this).serialize();
+
+		$.ajax
+		({
+			url: url,
+			data: data,
+			method: 'POST',
+			dataType: 'json',
+			success: function(response)
+			{
+				showReturnMessage($('#register_alert'), response.status, response.message, $('#register_alert_msg'));
+			},
+
+			error: function(xhr, response, error)
+			{
+				console.log(xhr.responseText);
+			}
+		});
+	});
+
+	$('#register_submit_btn').click(function(e)
+	{
+		e.preventDefault();
+		$('#register_form').submit();
 	});
 
 	$('#username_field').focusout(function(e)
