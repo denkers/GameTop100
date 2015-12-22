@@ -34,3 +34,12 @@ function initTooltips()
 	$('[data-toggle="tooltip"]').tooltip({ container: 'body' });
 }
 
+
+$(function()
+{
+	$('#nav_register_btn').click(function(e)
+	{
+		e.preventDefault();
+		$('#register_modal').modal('show');
+	});
+});

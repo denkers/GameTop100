@@ -1,5 +1,8 @@
 $(function()
 {
+
+	$('#register_alert').hide();
+
 	$('#login_form').submit(function(e)
 	{
 		e.preventDefault();

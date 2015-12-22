@@ -10,7 +10,7 @@ Ranking
 @stop
 
 @section('js')
-	@show
+	@parent
 	{{ HTML::script('javascript/ranking/ranking.js'); }}	
 @stop
 

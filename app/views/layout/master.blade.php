@@ -14,6 +14,7 @@
 			{{ HTML::script('dependencies/jquery.min.js'); }}
 			{{ HTML::script('dependencies/bootstrap.min.js'); }}
 			{{ HTML::script('javascript/main.js'); }}
+			{{ HTML::script('javascript/user/user_management.js'); }}
 		@show
 	</head>
 
@@ -45,11 +46,14 @@
 						</li>
 					
 
-						<!-- REGISTER NAV BTN -->
+						<!-- REGISTER NAV BTN 
+						<li>
+							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
+						</li> -->
+						@else
 						<li>
 							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
 						</li>
-						@else
 							<li>
 								<a href='#' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
 							</li>
@@ -67,5 +71,20 @@
 			</div>
 		</nav>	
 		@yield('content')
+		
+		<div class='modal fade' id='register_modal' role='dialog'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+						<button class='close' data-dismiss='modal'>&times;</button>
+						<h4 class='modal-title'>Registration</h4>
+					</div>
+
+					<div class='modal-body'>
+						@include('user.register')
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
