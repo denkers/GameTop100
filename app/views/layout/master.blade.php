@@ -43,12 +43,25 @@
 						<li>
 							<a href='{{ URL::route("getLogin"); }}' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
 						</li>
-						@endif
+					
 
 						<!-- REGISTER NAV BTN -->
 						<li>
 							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
 						</li>
+						@else
+							<li>
+								<a href='#' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
+							</li>
+
+							<li>
+								<a href='#' id='nav_logout_btn'><span class='glyphicon glyphicon-cog'></span> Settings</a>
+							</li>
+
+							<li>
+								<a href='#' id='nav_logout_btn'><span class='glyphicon glyphicon-remove'></span> Logout</a>
+							</li>
+						@endif
 					</ul>
 				</div>
 			</div>
