@@ -36,14 +36,10 @@
 	padding-left:5em;
 }
 
-.vote_details
+
+.site_details
 {
 	border-left:1px solid #ccc !important;
-}
-
-.rank_details
-{
-	border-right:1px solid #ccc !important;
 }
 
 .vote_text
@@ -51,14 +47,26 @@
 	text-align:center;
 }
 
-.rank_no_text
+.rank_profile
+{
+	padding-left:0;
+}
+
+.rank_display
 {
 	background-color:black;
 	color:white;
-	width:25px;
-	height:25px;
-	border-radius:25px;
-	line-height:25px;
+	width:40px;
+	height:40px;
+	border-radius:40px;
+	line-height:35px;
 	text-align:center;
 	border:2px solid rgba(255,255,255,0.4);
+	font-size:20px;
+	transition:0.2s ease-in-out;
+}
+
+.rank_display:hover
+{
+	opacity:0.8;
 }

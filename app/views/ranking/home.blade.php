@@ -51,7 +51,7 @@ Ranking
 										<div class='rank_profile col-md-9'>
 											<!-- RANK NUMBER -->
 											<div class='col-md-2 rank_details'>
-												<h5 class='rank_no_text'>
+												<h5 class='rank_display'>
 													1
 												</h5>
 											</div>
@@ -78,8 +78,8 @@ Ranking
 
 										<div class='vote_details' class='col-md-3'>
 											<h3 class='vote_text'>
-												<span class='site_upvotes'>5</span> <span class='glyphicon glyphicon-thumbs-up'></span>
-												<span class='site_downvotes'>10</span> <span class='glyphicon glyphicon-thumbs-down'></span>
+												<span class='site_in'>5</span> <span class='glyphicon glyphicon-arrow-up'></span>
+												<span class='site_out'>10</span> <span class='glyphicon glyphicon-arrow-down'></span>
 											</h3>
 										</div> 
 									</div>
