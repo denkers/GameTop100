@@ -39,9 +39,11 @@
 						</li>
 	
 						<!-- LOGIN NAV BTN -->	
+						@if(!Auth::check())
 						<li>
 							<a href='{{ URL::route("getLogin"); }}' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
 						</li>
+						@endif
 
 						<!-- REGISTER NAV BTN -->
 						<li>
