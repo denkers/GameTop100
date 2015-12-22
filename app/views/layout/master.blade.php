@@ -41,9 +41,9 @@
 	
 						<!-- LOGIN NAV BTN -->	
 						@if(!Auth::check())
-						<li>
+					<!--	<li>
 							<a href='{{ URL::route("getLogin"); }}' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
-						</li>
+						</li> -->
 					
 
 						<!-- REGISTER NAV BTN 
@@ -51,6 +51,9 @@
 							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
 						</li> -->
 						@else
+						<li>
+							<a href='{{ URL::route("getLogin"); }}' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
+						</li>
 						<li>
 							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
 						</li>
