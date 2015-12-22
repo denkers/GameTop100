@@ -23,3 +23,10 @@ body
   src: url('../resources/fonts/glyphicons-halflings-regular.eot');
   src: url('../resources/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../resources/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../resources/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../resources/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
+
+
+.register_controls
+{	
+	left:50%;
+	transform:translateX(-50%);
+}

@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,kBACA;EACC,IAAI,EAAC,GAAG;EACR,SAAS,EAAC,gBAAgB",
-"sources": ["user_management.scss"],
-"names": [],
-"file": "user_management.css"
-}
