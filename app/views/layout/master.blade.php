@@ -77,11 +77,30 @@
 				<div class='modal-content'>
 					<div class='modal-header'>
 						<button class='close' data-dismiss='modal'>&times;</button>
-						<h4 class='modal-title'>Registration</h4>
+						<h4 class='modal-title'>Registration
+							<br><small>Create your MegaTop100 account</small>
+						</h4>
 					</div>
 
 					<div class='modal-body'>
 						@include('user.register')
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='modal fade' id='login_modal' role='dialog'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+						<button class='close' data-dismiss='modal'>&times;</button>
+						<h4 class='modal-title'>Sign-in
+							<br><small>Enter your MegaTop100 account credentials</small>
+						</h4>
+					</div>
+
+					<div class='modal-body'>
+						@include('user.login')
 					</div>
 				</div>
 			</div>

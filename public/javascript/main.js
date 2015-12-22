@@ -42,4 +42,10 @@ $(function()
 		e.preventDefault();
 		$('#register_modal').modal('show');
 	});
+
+	$('#nav_login_btn').click(function(e)
+	{
+		e.preventDefault();
+		$('#login_modal').modal('show');
+	});
 });
