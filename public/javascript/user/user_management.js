@@ -46,33 +46,29 @@ $(function()
 		$('#logout_modal').modal('show');
 		var url	=	$(this).attr('href');
 
-		$.ajax
-		({
-			url: url,
-			method: 'GET',
-			dataType: 'json',
-			success: function(response)
-			{
-				if(response.status)
+		setTimeout(function()
+		{
+			$.ajax
+			({
+				url: url,
+				method: 'GET',
+				dataType: 'json',
+				error: function(xhr, response, error)
+				{
+					console.log(xhr.responseText);
+				},
+
+				complete: function(response)
 				{
 					$('.auth_nav').hide();					
 					$('.guest_nav').hide();
 					$('.guest_nav').removeClass('hide');
 					$('.guest_nav').fadeIn('fast');						
 					$('.auth_nav').addClass('hide');
+					$('#logout_modal').modal('hide');
 				}
-			},
-
-			error: function(xhr, response, error)
-			{
-				console.log(xhr.responseText);
-			},
-
-			complete: function(response)
-			{
-				$('#logout_modal').modal('hide');
-			}
-		});
+			});
+		}, 2000);
 	});
 
 	$('#login_btn').click(function(e)
