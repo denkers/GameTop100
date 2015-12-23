@@ -37,6 +37,10 @@ function initTooltips()
 
 $(function()
 {
+	$('#register_alert').hide();
+
+	$('#login_alert').hide();
+
 	$('#nav_register_btn').click(function(e)
 	{
 		e.preventDefault();

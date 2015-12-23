@@ -102,6 +102,15 @@ $(function()
 			success: function(response)
 			{
 				showReturnMessage($('#register_alert'), response.status, response.message, $('#register_alert_msg'));
+
+				if(response.status)
+				{
+					setTimeout(function()
+					{
+						$('#register_modal').modal('hide');
+					}, 2000);
+				}
+					
 			},
 
 			error: function(xhr, response, error)
@@ -115,6 +124,12 @@ $(function()
 	{
 		e.preventDefault();
 		$('#register_form').submit();
+	});
+
+	$('#register_cancel_btn').click(function(e)
+	{
+		e.preventDefault();
+		$('#register_modal').modal('hide');
 	});
 
 	$('#username_field').focusout(function(e)
