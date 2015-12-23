@@ -53,12 +53,12 @@
 						@else
 							<!-- MANAGEMENT NAV -->
 							<li>
-								<a href='#' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
+								<a href='{{ URL::route(""); }}' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
 							</li>
 
 							<!-- SETTINS NAV -->
 							<li>
-								<a href='#' id='nav_logout_btn'><span class='glyphicon glyphicon-cog'></span> Settings</a>
+								<a href='{{ URL::route("getUserSettings"); }]' id='nav_logout_btn'><span class='glyphicon glyphicon-cog'></span> Settings</a>
 							</li>
 
 							<!-- LOGOUT NAV -->

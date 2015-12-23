@@ -39,15 +39,14 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 	Route::group(['prefix' => 'profile'], function()
 	{
 		Route::get('/', ['as' => 'getProfile', 'uses' => 'UserController@getProfile']);
-		Route::get('/settings', ['as' => 'getUserSettings', 'uses' => 'UserController@getSettings']);
 	});
 
 	Route::group(['prefix' => 'sites'], function()
 	{
+		Route::get('/', ['as' => 'getMySites', 'uses' => 'SiteController@getMySites']);
 		Route::post('/add', ['as' => 'postAddSite', 'uses' => 'SiteController@postAddSite']);
 		Route::post('/remove', ['as' => 'postRemoveSite', 'uses' => 'SiteController@postRemoveSite']);
 		Route::post('/edit', ['as' => 'postEditSite', 'uses' => 'SiteController@postEditSite']);
-		Route::get('/mysites', ['as' => 'getMySites', 'uses' => 'SiteController@getMySites']);
 		Route::post('/makepremium', ['as' => 'postMakePremiumSite', 'uses' => 'SiteController@postMakePremiumSite']);
 
 		Route::group(['prefix' => 'site={site_id}'], function()
