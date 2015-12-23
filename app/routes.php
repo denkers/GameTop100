@@ -36,6 +36,7 @@ Route::group(['prefix' => 'subscribers'], function()
 Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 {
 	Route::get('/logout', ['as' => 'getLogout', 'uses' => 'UserController@getLogout']);
+	Route::get('/settings', ['as' => 'getUserSettings', 'uses' => 'UserController@getUserSettings']);
 	Route::group(['prefix' => 'profile'], function()
 	{
 		Route::get('/', ['as' => 'getProfile', 'uses' => 'UserController@getProfile']);

@@ -38,39 +38,52 @@
 						<li>
 							<a href='{{ URL::route("getRankingHome"); }}' id='nav_ranking_btn'><span class='glyphicon glyphicon-star'></span> Ranking</a>
 						</li>
-	
+
+						<? 
+							$auth_user		=	Auth::check(); 
+							$guest_class	=	$auth_user? 'hide' : '';
+							$auth_class		=	!$auth_user? 'hide' : '';	
+						?>
+
 						<!-- LOGIN NAV BTN -->	
-						@if(!Auth::check())
-						<li>
+						<li class='guest_nav {{ $guest_class }}'>
 							<a href='{{ URL::route("getLogin"); }}' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
 						</li>
 						
 						<!-- REGISTER NAV BTN -->
-						<li>
+						<li class='guest_nav {{ $guest_class }}'>
 							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
 						</li>
 
-						@else
 							<!-- MANAGEMENT NAV -->
-							<li>
-								<a href='{{ URL::route("getMySites"); }}' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
+							<li class='auth_nav {{ $auth_class }}'>
+								<a href='{{ URL::route("getMySites"); }}' id='nav_management_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
 							</li>
 
 							<!-- SETTINS NAV -->
-							<li>
-								<a href='{{ URL::route("getUserSettings"); }]' id='nav_logout_btn'><span class='glyphicon glyphicon-cog'></span> Settings</a>
+							<li class='auth_nav {{ $auth_class }}'>
+								<a href='{{ URL::route("getUserSettings"); }}' id='nav_settings_btn'><span class='glyphicon glyphicon-cog'></span> Settings</a>
 							</li>
 
 							<!-- LOGOUT NAV -->
-							<li>
+							<li class='auth_nav {{ $auth_class }}'>
 								<a href='{{ URL::route("getLogout"); }}' id='nav_logout_btn'><span class='glyphicon glyphicon-remove'></span> Logout</a>
-							</li>
-						@endif
+							</li>	
 					</ul>
 				</div>
 			</div>
 		</nav>	
 		@yield('content')
+
+		<div class='modal fade' id='logout_modal' role='dialog'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-body'>
+						<h3 class='logout_modal_message'>Please wait one moment</h3>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class='modal fade' id='register_modal' role='dialog'>
 			<div class='modal-dialog'>

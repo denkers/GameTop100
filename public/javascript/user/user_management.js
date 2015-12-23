@@ -1,10 +1,5 @@
 $(function()
 {
-
-	$('#register_alert').hide();
-
-	$('#login_alert').hide();
-
 	$('#login_form').submit(function(e)
 	{
 		e.preventDefault();
@@ -20,13 +15,62 @@ $(function()
 			dataType: 'json',
 			success: function(response)
 			{
-				showReturnMessage($('#login_alert'), response.status, 
-					response.message, $('#login_alert_msg'));
+
+				if(!response.status)
+				{
+					showReturnMessage($('#login_alert'), response.status, 
+						response.message, $('#login_alert_msg'));
+				}
+			
+				else
+				{
+					$('#login_modal').modal('hide');
+					$('.guest_nav').hide();
+					$('.auth_nav').hide();
+					$('.auth_nav').removeClass('hide');
+					$('.auth_nav').fadeIn('fast');
+					$('.guest_nav').addClass('hide');
+				}
 			},
 
 			error: function(xhr, response, error)
 			{
 				console.log(xhr.responseText);
+			}
+		});
+	});
+
+	$('#nav_logout_btn').click(function(e)
+	{
+		e.preventDefault();
+		$('#logout_modal').modal('show');
+		var url	=	$(this).attr('href');
+
+		$.ajax
+		({
+			url: url,
+			method: 'GET',
+			dataType: 'json',
+			success: function(response)
+			{
+				if(response.status)
+				{
+					$('.auth_nav').hide();					
+					$('.guest_nav').hide();
+					$('.guest_nav').removeClass('hide');
+					$('.guest_nav').fadeIn('fast');						
+					$('.auth_nav').addClass('hide');
+				}
+			},
+
+			error: function(xhr, response, error)
+			{
+				console.log(xhr.responseText);
+			},
+
+			complete: function(response)
+			{
+				$('#logout_modal').modal('hide');
 			}
 		});
 	});

@@ -116,7 +116,12 @@ class UserController extends MasterController
 
 	public function getLogout()
 	{
-		Auth::logout();
-		return Redirect::route('getRankingHome');
+		$success_msg		=	'User successfully logged out';
+		$fail_msg			=	'Failed to log user out';
+
+		if(Auth::logout())
+			return MasterController::encodeReturn(true, $success_msg);
+		else
+			return MasterController::encodeReturn(false, $fail_msg);
 	}
 }
