@@ -88,6 +88,11 @@ class UserController extends MasterController
 		return View::make('user.profile');
 	}
 
+	public function getUserSettings()
+	{
+		
+	}
+
 	public function postCheckUsername()
 	{
 		$avail_msg			=	'Username is available';

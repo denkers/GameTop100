@@ -39,6 +39,7 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 	Route::group(['prefix' => 'profile'], function()
 	{
 		Route::get('/', ['as' => 'getProfile', 'uses' => 'UserController@getProfile']);
+		Route::get('/settings', ['as' => 'getUserSettings', 'uses' => 'UserController@getSettings']);
 	});
 
 	Route::group(['prefix' => 'sites'], function()
