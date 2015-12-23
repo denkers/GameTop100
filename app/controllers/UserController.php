@@ -90,7 +90,7 @@ class UserController extends MasterController
 
 	public function getUserSettings()
 	{
-		
+		return View::make('user.settings');	
 	}
 
 	public function postCheckUsername()
