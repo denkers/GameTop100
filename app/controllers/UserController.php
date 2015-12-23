@@ -108,4 +108,10 @@ class UserController extends MasterController
 				return MasterController::encodeReturn(true, $avail_msg);
 		}
 	}
+
+	public function getLogout()
+	{
+		Auth::logout();
+		return Redirect::route('getRankingHome');
+	}
 }
