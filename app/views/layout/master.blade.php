@@ -53,7 +53,7 @@
 						@else
 							<!-- MANAGEMENT NAV -->
 							<li>
-								<a href='{{ URL::route(""); }}' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
+								<a href='{{ URL::route("getMySites"); }}' id='nav_logout_btn'><span class='glyphicon glyphicon-signal'></span> Management</a>
 							</li>
 
 							<!-- SETTINS NAV -->

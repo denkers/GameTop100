@@ -62,7 +62,7 @@ class SiteController extends MasterController
 
 	public function getMySites()
 	{
-
+		return View::make('user.sites');
 	}
 
 	public function getSiteVote()
