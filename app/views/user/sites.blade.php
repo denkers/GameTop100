@@ -19,10 +19,10 @@
 	var site_fetch_url	=	'{{ URL::route("getMySiteList"); }}';
 </script>
 
-<div id='site_list_container' class='container'>
+<div id='site_list_container' class='container col-md-5'>
 	<!-- MAIN SITE CONTROLS -->
 	<div id='site_controls'>
-		<div class='button-group'>
+		<div class='btn-group'>
 			<!-- ADD SITE CONTROL -->
 			<button id='add_site_btn' class='btn btn-default'>
 				<a href='{{ URL::route("postAddSite"); }}'>
@@ -39,10 +39,10 @@
 
 
 	<!-- SITE LIST -->
-	<div class='list-group site_group'>
+	<ul class='list-group site_group'>
 		@foreach($site_list as $site)
-			<a class='list-group-item list_site_item clearifx' href='{{ URL::route("getSite", $site->id); }}'>
-				<div class='list_site_item_container'>
+			<li class='list-group-item list_site_item clearifx'>
+				<div class='list_site_item_container row'>
 					<!-- SITE DETAILS -->
 					<div class='site_item_details col-md-8'>
 						<h5 class='list_site_title'>{{ $site->title; }}
@@ -54,18 +54,48 @@
 					<div class='site_item_controls col-md-4'>
 
 						<!-- REMOVE SITE CONTROl -->
-						<a class='site_control_link' id='remove_site_control' href='{{ URL::route("postRemoveSite", $site->id); }}'>
+						<a class='site_control_link plain_link' id='remove_site_control' href='{{ URL::route("postRemoveSite", $site->id); }}'>
 							<span class='glyphicon glyphicon-remove'></span>
 						</a>
 	
 						<!-- EDIT SITE CONTROL -->	
-						<a class='site_control_link' id='edit_site_control' href='{{ URL::route("postEditSite", $site->id); }}'>
+						<a class='site_control_link plain_link' id='edit_site_control' href='{{ URL::route("postEditSite", $site->id); }}'>
 							<span class='glyphicon glyphicon-pencil'></span>
+						</a>
+
+						<!-- PREMIUM SITE CONROL -->
+						<a class='site_control_link plain_link' id='premium_site_control' href='{{ URL::route("postMakePremiumSite", $site->id); }}'>
+							<span class='glyphicon glyphicon-star'></span>
+						</a>
+
+						<!-- VIEW SITE CONTROL -->
+						<a class='site_control_link plain_link' id='view_site_control' href='{{ URL::route("getSite", $site->id); }}'>
+							<span class='glyphicon glyphicon-share-alt'></span>
 						</a>
 					</div>
 				</div>
-			</a>
+
+				<!-- SITE VIEW CONTAINER -->
+				<div class='site_view_container'>
+					
+				</div>
+			</li>
 		@endforeach
+	</ul>
+</div>
+
+<div class='modal fade confirm_modal' id='remove_site_modal' role='dialog'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-body'>
+				<h4>Are you sure you want to remove this site?</h4>
+
+				<div class='btn-group'>
+					<button class='btn btn-default' data-dismiss='modal'>Cancel</button>
+					<button class='btn btn-danger' id='remove_site_confirm'>Remove</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 

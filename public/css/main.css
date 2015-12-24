@@ -17,4 +17,10 @@ body {
   left: 50%;
   transform: translateX(-50%); }
 
+.confirm_modal {
+  text-align: center; }
+
+.plain_link {
+  color: inherit; }
+
 /*# sourceMappingURL=main.css.map */
