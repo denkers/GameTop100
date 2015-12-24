@@ -2,7 +2,7 @@
 
 @section('head')
 	@parent
-	{{ HTML::style('css/user/site_manage.css'); }}	
+	{{ HTML::style('css/user/sites_manage.css'); }}	
 @stop
 
 @section('title_postfix')
@@ -48,8 +48,15 @@
 		@foreach($site_list as $site)
 			<li class='list-group-item list_site_item clearifx'>
 				<div class='list_site_item_container row'>
+					<!-- SITE RANK DETAILS -->
+					<div class='site_rank_details col-md-1'>
+						<div class='rank_display'>
+							2
+						</div>
+					</div>
+
 					<!-- SITE DETAILS -->
-					<div class='site_item_details col-md-8'>
+					<div class='site_item_details col-md-7'>
 						<h5 class='list_site_title'>{{ $site->title; }}
 							<br><small>{{ $site->description; }}</small>
 						</h5>					
