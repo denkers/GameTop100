@@ -81,7 +81,7 @@
 						</a>
 
 						<!-- VIEW SITE CONTROL -->
-						<a class='site_control_link plain_link' id='view_site_control' href='{{ URL::route("getSite", $site->id); }}'>
+						<a class='site_control_link plain_link' id='view_site_control' href='{{ $site->address }}'>
 							<span class='glyphicon glyphicon-share-alt'></span>
 						</a>
 					</div>
