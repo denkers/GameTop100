@@ -20,10 +20,28 @@
 </script>
 
 <div id='site_list_container' class='container'>
+	<!-- MAIN SITE CONTROLS -->
+	<div id='site_controls'>
+		<div class='button-group'>
+			<!-- ADD SITE CONTROL -->
+			<button id='add_site_btn' class='btn btn-default'>
+				<a href='{{ URL::route("postAddSite"); }}'>
+					<span class='glyphicon glyphicon-plus'></span> Add
+				</a>
+			</button>
+
+			<!-- PREMIUM SITE CONTROL -->
+			<button id='premium_site_btn' class='btn btn-default'>
+				<span class='glyphicon glyphicon-star'></span> Premium
+			</button>
+		</div>
+	</div>
+
+
 	<!-- SITE LIST -->
-	<ul class='list-group site_group'>
+	<div class='list-group site_group'>
 		@foreach($site_list as $site)
-			<li class='list-group-item list_site_item clearifx'>
+			<a class='list-group-item list_site_item clearifx'>
 				<div class='list_site_item_container'>
 					<!-- SITE DETAILS -->
 					<div class='site_item_details col-md-8'>
@@ -34,19 +52,21 @@
 
 					<!-- SITE CONTROLS -->
 					<div class='site_item_controls col-md-4'>
-						<!-- ADD SITE CONTROl -->
-						<a class='site_control_link' id='add_site_control' href='#'>
-							<span class='glyphicon glyphicon-plus'></span>
+
+						<!-- REMOVE SITE CONTROl -->
+						<a class='site_control_link' id='remove_site_control' href='{{ URL::route("postRemoveSite", $site->id); }}'>
+							<span class='glyphicon glyphicon-remove'></span>
 						</a>
 	
-						<a class='site_control_link' id='remove_site_control' href='#'>
-							<span class='glyphicon glyphicon-remove'></span>
+						<!-- EDIT SITE CONTROL -->	
+						<a class='site_control_link' id='edit_site_control' href='{{ URL::route("postEditSite", $site->id); }}'>
+							<span class='glyphicon glyphicon-pencil'></span>
 						</a>
 					</div>
 				</div>
-			</li>
+			</a>
 		@endforeach
-	</ul>
+	</div>
 </div>
 
 @stop

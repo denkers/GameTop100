@@ -66,6 +66,11 @@ class SiteController extends MasterController
 		return View::make('user.sites')->with('site_list', $site_list);
 	}
 
+	public function getSite()
+	{
+		
+	}
+
 	public function getMySiteList()
 	{
 		$site_list	=	SitesModel::getSitesForUser(Auth::user()->username)
@@ -73,7 +78,6 @@ class SiteController extends MasterController
 						->get();
 
 		return $site_list;
-
 	}
 
 	public function getSiteVote()

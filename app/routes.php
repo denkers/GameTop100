@@ -48,9 +48,14 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 		Route::get('/all', ['as' => 'getMySiteList', 'uses' => 'SiteController@getMySiteList']);
 
 		Route::post('/add', ['as' => 'postAddSite', 'uses' => 'SiteController@postAddSite']);
-		Route::post('/remove', ['as' => 'postRemoveSite', 'uses' => 'SiteController@postRemoveSite']);
-		Route::post('/edit', ['as' => 'postEditSite', 'uses' => 'SiteController@postEditSite']);
-		Route::post('/makepremium', ['as' => 'postMakePremiumSite', 'uses' => 'SiteController@postMakePremiumSite']);
+
+		Route::group(['prefix' => 'site={site_id}'], function()
+		{
+			Route::get('/view', ['as' => 'getSite', 'uses' => 'SiteController@getSite']);
+			Route::post('/remove', ['as' => 'postRemoveSite', 'uses' => 'SiteController@postRemoveSite']);
+			Route::post('/edit', ['as' => 'postEditSite', 'uses' => 'SiteController@postEditSite']);
+			Route::post('/makepremium', ['as' => 'postMakePremiumSite', 'uses' => 'SiteController@postMakePremiumSite']);
+		});
 
 		Route::group(['prefix' => 'site={site_id}'], function()
 		{
