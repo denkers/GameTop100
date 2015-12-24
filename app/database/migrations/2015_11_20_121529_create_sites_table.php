@@ -18,6 +18,7 @@ class CreateSitesTable extends Migration {
 			$table->string('title', 30);
 			$table->string('description', 200);
 			$table->string('address');
+			$table->string('banner')->nullable()->default(null);
 			$table->boolean('isPremium');
 			$table->string('owner', 18);
 			$table->integer('game_id')->unsigned()->nullable();

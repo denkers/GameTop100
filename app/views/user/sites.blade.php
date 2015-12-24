@@ -48,6 +48,12 @@
 		@foreach($site_list as $site)
 			<li class='list-group-item list_site_item clearifx'>
 				<div class='list_site_item_container row'>
+
+					<!-- SITE BANNER -->
+					<div class='site_banner col-md-12'>
+	
+					</div>
+
 					<!-- SITE RANK DETAILS -->
 					<div class='site_rank_details col-md-1'>
 						<div class='rank_display'>
