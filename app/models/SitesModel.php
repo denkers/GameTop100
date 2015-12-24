@@ -7,5 +7,10 @@ class SitesModel extends Eloquent
 	public static function getSitesForGame($game_id)
 	{
 		return self::where('game_id', '=', $game_id)->get();
+	}
+	
+	public static function getSitesForUser($user_id)
+	{
+		return self::where('owner', '=', $user_id);
 	}	
 }

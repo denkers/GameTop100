@@ -45,6 +45,8 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 	Route::group(['prefix' => 'sites'], function()
 	{
 		Route::get('/', ['as' => 'getMySites', 'uses' => 'SiteController@getMySites']);
+		Route::get('/all', ['as' => 'getMySiteList', 'uses' => 'SiteController@getMySiteList']);
+
 		Route::post('/add', ['as' => 'postAddSite', 'uses' => 'SiteController@postAddSite']);
 		Route::post('/remove', ['as' => 'postRemoveSite', 'uses' => 'SiteController@postRemoveSite']);
 		Route::post('/edit', ['as' => 'postEditSite', 'uses' => 'SiteController@postEditSite']);
@@ -56,5 +58,4 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 			Route::post('/vote', ['as' => 'postSiteVote', 'uses' => 'SiteController@postSiteVote']);
 		});
 	});
-
 });

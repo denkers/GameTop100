@@ -15,5 +15,15 @@
 @stop
 
 @section('content')
+<script>
+	var site_fetch_url	=	'{{ URL::route("getMySiteList"); }}';
+</script>
+
+<div id='site_list_container'>
+	<pre>{{ print_r($site_list); }}</pre>
+
+	<ul class='list-group'>
+	</ul>
+</div>
 
 @stop

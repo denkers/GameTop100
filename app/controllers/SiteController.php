@@ -62,7 +62,18 @@ class SiteController extends MasterController
 
 	public function getMySites()
 	{
-		return View::make('user.sites');
+		$site_list	=	$this->getMySiteList();
+		return View::make('user.sites')->with('site_list', $site_list);
+	}
+
+	public function getMySiteList()
+	{
+		$site_list	=	SitesModel::getSitesForUser(Auth::user()->username)
+						->orderBy('title')
+						->get();
+
+		return $site_list;
+
 	}
 
 	public function getSiteVote()
