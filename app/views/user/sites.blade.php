@@ -41,7 +41,7 @@
 	<!-- SITE LIST -->
 	<div class='list-group site_group'>
 		@foreach($site_list as $site)
-			<a class='list-group-item list_site_item clearifx'>
+			<a class='list-group-item list_site_item clearifx' href='{{ URL::route("getSite", $site->id); }}'>
 				<div class='list_site_item_container'>
 					<!-- SITE DETAILS -->
 					<div class='site_item_details col-md-8'>

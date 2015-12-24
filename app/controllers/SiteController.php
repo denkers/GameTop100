@@ -57,7 +57,31 @@ class SiteController extends MasterController
 
 	public function postEditSite()
 	{
+		$success_msg	=	'Successfully edited site';
+		$fail_msg		=	'Failed to edit site';
 
+		$validator		=	Validator::make(Input::all(),
+		[
+			's_id'		=>	'required|exists:sites,id',
+			's_title'	=>	'required|max:30',
+			's_desc'	=>	'required|max:120',
+			's_add'		=>	'required'
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $invalid_input_msg);
+		else
+		{
+			$site				=	SitesModel::find(Input::get('site_id'));
+			$site->title		=	Input::get('s_title');
+			$site->description	=	Input::get('s_desc');
+			$site->address		=	Input::get('s_add');
+
+			if($site->save())
+				return MasterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);		
+		}
 	}
 
 	public function getMySites()
@@ -68,7 +92,7 @@ class SiteController extends MasterController
 
 	public function getSite()
 	{
-		
+		return SitesModel::where('id', '=', $site_id)->first();		
 	}
 
 	public function getMySiteList()
