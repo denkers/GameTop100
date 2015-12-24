@@ -20,6 +20,11 @@
 </script>
 
 <div id='site_list_container' class='container col-md-5'>
+	<div class='page-header'>
+		<h3>Manage sites
+			<br><small>Add, remove and edit your sites</small>
+		</h3>
+	</div>
 	<!-- MAIN SITE CONTROLS -->
 	<div id='site_controls'>
 		<div class='btn-group'>
@@ -36,7 +41,7 @@
 			</button>
 		</div>
 	</div>
-
+	<br>
 
 	<!-- SITE LIST -->
 	<ul class='list-group site_group'>
@@ -87,6 +92,11 @@
 <div class='modal fade confirm_modal' id='remove_site_modal' role='dialog'>
 	<div class='modal-dialog'>
 		<div class='modal-content'>
+			<div class='modal-header'>
+				<button class='close' data-dismiss='modal'>&times;</button>
+				<h3 class='modal-title'>Confirm removal</h3>
+			</div>
+
 			<div class='modal-body'>
 				<h4>Are you sure you want to remove this site?</h4>
 

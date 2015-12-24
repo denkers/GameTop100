@@ -33,7 +33,10 @@ body
 
 .confirm_modal
 {
-	text-align:center;
+	.modal-body
+	{
+		text-align:center;
+	}
 }
 
 .plain_link

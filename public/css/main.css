@@ -17,7 +17,7 @@ body {
   left: 50%;
   transform: translateX(-50%); }
 
-.confirm_modal {
+.confirm_modal .modal-body {
   text-align: center; }
 
 .plain_link {
