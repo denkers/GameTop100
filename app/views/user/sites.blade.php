@@ -95,7 +95,28 @@
 
 				<!-- SITE VIEW CONTAINER -->
 				<div class='site_view_container'>
-					
+					<form class='site_exit_form' href='{{ URL::route("postEditSite"); }}'>
+						<div class='input-group'>
+							<label>Site title</label>
+							<input class='form-control' type='text' name='s_title' required />
+						</div>
+
+						<div class='input-group'>
+							<label>Site description</label>
+							<textarea class='form-control' required name='s_desc'></textarea>
+						</div>
+
+						<div class='input-group'>
+							<label>Site URL</label>
+							<input class='form-control' type='text' name='s_add' required />
+						</div>
+
+						<div class='input-group'>
+							<label>Game</label>
+							<select name='s_game' class='form-control'>
+							</select>
+						</div>
+					</form>
 				</div>
 			</li>
 		@endforeach
