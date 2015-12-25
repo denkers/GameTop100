@@ -113,7 +113,11 @@
 
 						<div class='input-group'>
 							<label>Game</label>
+							<?php $games_list	=	GamesModel::getGames(); ?>
 							<select name='s_game' class='form-control'>
+								@foreach($games_list as $game)
+									<option value='{{ $game->id }}'>{{ $game->name; }}</option>
+								@endforeach
 							</select>
 						</div>
 					</form>
