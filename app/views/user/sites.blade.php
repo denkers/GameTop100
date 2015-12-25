@@ -94,7 +94,7 @@
 				</div>
 
 				<!-- SITE VIEW CONTAINER -->
-				<div class='site_view_container'>
+				<div class='site_view_container col-md-12'>
 					<form class='site_exit_form' href='{{ URL::route("postEditSite"); }}'>
 						<div class='input-group'>
 							<label>Site title</label>
@@ -114,12 +114,15 @@
 						<div class='input-group'>
 							<label>Game</label>
 							<?php $games_list	=	GamesModel::getGames(); ?>
+							<pre>{{ print_r(SitesModel::with('games')->get()[0]['games']); }}</pre>
 							<select name='s_game' class='form-control'>
 								@foreach($games_list as $game)
 									<option value='{{ $game->id }}'>{{ $game->name; }}</option>
 								@endforeach
 							</select>
 						</div>
+						<button class='btn btn-default' id='cancel_site_btn'>Back</button>
+						<button class='btn btn-primary' id='save_site_btn'>Save</button>
 					</form>
 				</div>
 			</li>
