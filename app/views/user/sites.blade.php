@@ -77,7 +77,7 @@
 						</a>
 	
 						<!-- EDIT SITE CONTROL -->	
-						<a class='site_control_link plain_link' id='edit_site_control' href='{{ URL::route("postEditSite", $site->id); }}'>
+						<a class='site_control_link plain_link' id='edit_site_control' href='{{ URL::route("getSite", $site->id); }}'>
 							<span class='glyphicon glyphicon-pencil'></span>
 						</a>
 
@@ -114,7 +114,6 @@
 						<div class='input-group'>
 							<label>Game</label>
 							<?php $games_list	=	GamesModel::getGames(); ?>
-							<pre>{{ print_r(SitesModel::with('games')->get()[0]['games']); }}</pre>
 							<select name='s_game' class='form-control'>
 								@foreach($games_list as $game)
 									<option value='{{ $game->id }}'>{{ $game->name; }}</option>

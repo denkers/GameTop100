@@ -92,7 +92,8 @@ class SiteController extends MasterController
 
 	public function getSite()
 	{
-		return SitesModel::where('id', '=', $site_id)->first();		
+		$site_id	=	Route::current()->parameters['site_id'];
+		return SitesModel::where('id', '=', $site_id)->with('games')->get();	
 	}
 
 	public function getMySiteList()
