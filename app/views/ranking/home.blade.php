@@ -78,11 +78,20 @@ Ranking
 
 										<div class='vote_details col-md-3'>
 											<h3 class='vote_text'>
-												<span class='site_in'>5</span> <span class='glyphicon glyphicon-arrow-up'></span>
-												<span class='site_out'>10</span> <span class='glyphicon glyphicon-arrow-down'></span>
-												<span class='site_comments_group'>
-													<span class='site_comments'>0</span> <span class='glyphicon glyphicon-comment'></span>
+												<!-- SITE IN VOTES -->
+												<span class='site_in_group' data-toggle='tooltip' data-placement='bottom' data-title='Site in-votes'>
+													<span class='site_in'>5</span> <span class='glyphicon glyphicon-arrow-up'></span>
 												</span>
+
+												<!-- SITE OUT VOTES -->
+												<span class='site_out_group' data-toggle='tooltip' data-placement='bottom' data-title='Site out-votes'>
+													<span class='site_out'>10</span> <span class='glyphicon glyphicon-arrow-down'></span>
+												</span>
+
+												<!-- SITE COMMENTS -->
+												<a class='site_comments_group' href='{{ URL::route("getSiteComments"); }}' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
+													<span class='site_comments'>0</span> <span class='glyphicon glyphicon-comment'></span>
+												</a>
 											</h3>
 										</div> 
 										<div class='site_comments_container col-md-12'>
