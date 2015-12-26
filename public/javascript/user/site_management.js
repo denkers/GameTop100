@@ -2,6 +2,8 @@ $(function()
 {
 	$('.site_view_container').hide();
 
+	$('#site_alert');
+
 	$('.remove_site_control').click(function(e)
 	{
 		e.preventDefault();
@@ -25,7 +27,8 @@ $(function()
 			dataType: 'json',
 			success: function(response)
 			{
-				console.log(response);
+				showReturnMessage($('#site_alert'), response.status, 
+						response.message, $('#site_alert_msg'));
 			},
 
 			error: function(xhr, response, error)	

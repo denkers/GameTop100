@@ -43,6 +43,11 @@
 	</div>
 	<br>
 
+	<div class='alert alert-dismissable fade in' id='site_alert'>
+		<strong>Site notice</strong>
+		<p id='site_alert_msg'></p>
+	</div>
+
 	<!-- SITE LIST -->
 	<ul class='list-group site_group'>
 		@foreach($site_list as $site)
