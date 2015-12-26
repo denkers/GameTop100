@@ -55,6 +55,12 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 			Route::post('/remove', ['as' => 'postRemoveSite', 'uses' => 'SiteController@postRemoveSite']);
 			Route::post('/edit', ['as' => 'postEditSite', 'uses' => 'SiteController@postEditSite']);
 			Route::post('/makepremium', ['as' => 'postMakePremiumSite', 'uses' => 'SiteController@postMakePremiumSite']);
+
+			Route::group(['prefix' => 'comments'], function()
+			{
+				Route::get('/all', ['as' => 'getSiteComments', 'uses' => 'SiteController@getSiteComments']);
+				Route::post('/add', ['as' => 'postAddSiteComment', 'uses' => 'SiteController@postAddSiteComment']);
+			});
 		});
 
 		Route::group(['prefix' => 'site={site_id}'], function()
