@@ -51,7 +51,7 @@ $(function()
 		});
 	});	
 
-	$('#edit_site_control').click(function(e)
+	$('.edit_site_control').click(function(e)
 	{
 		e.preventDefault();
 		var url	=	$(this).attr('href');
