@@ -72,29 +72,29 @@
 					<div class='site_item_controls col-md-4'>
 
 						<!-- REMOVE SITE CONTROl -->
-						<a class='site_control_link plain_link' id='remove_site_control' href='{{ URL::route("postRemoveSite", $site->id); }}'>
+						<a class='site_control_link plain_link remove_site_control' href='{{ URL::route("postRemoveSite", $site->id); }}'>
 							<span class='glyphicon glyphicon-remove'></span>
 						</a>
 	
 						<!-- EDIT SITE CONTROL -->	
-						<a class='site_control_link plain_link' id='edit_site_control' href='{{ URL::route("getSite", $site->id); }}'>
+						<a class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", $site->id); }}'>
 							<span class='glyphicon glyphicon-pencil'></span>
 						</a>
 
 						<!-- PREMIUM SITE CONROL -->
-						<a class='site_control_link plain_link' id='premium_site_control' href='{{ URL::route("postMakePremiumSite", $site->id); }}'>
+						<a class='site_control_link plain_link premium_site_control' href='{{ URL::route("postMakePremiumSite", $site->id); }}'>
 							<span class='glyphicon glyphicon-star'></span>
 						</a>
 
 						<!-- VIEW SITE CONTROL -->
-						<a class='site_control_link plain_link' id='view_site_control' href='{{ $site->address }}'>
+						<a class='site_control_link plain_link view_site_control' href='{{ $site->address }}'>
 							<span class='glyphicon glyphicon-share-alt'></span>
 						</a>
 					</div>
 				</div>
 
 				<!-- SITE VIEW CONTAINER -->
-				<div class='site_view_container col-md-12'>
+				<div class='site_view_container col-md-12' data-siteid='{{ $site->id; }}'>
 					<form class='site_exit_form' href='{{ URL::route("postEditSite"); }}'>
 						<div class='input-group'>
 							<label>Site title</label>
