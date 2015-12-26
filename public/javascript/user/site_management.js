@@ -16,7 +16,7 @@ $(function()
 		e.preventDefault();
 		var container	=	$('.active_remove');
 		var url			=	container.find('.remove_site_control').attr('href');
-		var id			=	container.find('.site_view_container').attr('data-siteid');
+		var id			=	container.find('input[name="s_id"]').attr('value');
 		var data		=	{ 's_id' : id };
 
 		$.ajax
@@ -71,5 +71,33 @@ $(function()
 		e.preventDefault();
 		var container	=	$(this).closest('.site_view_container');
 		container.slideUp('fast');
+	});
+
+	$('.save_site_btn').click(function(e)
+	{
+		e.preventDefault();
+		var form	=	$(this).closest('.site_edit_form');
+		var url		=	form.attr('action');
+		var data	=	form.serialize();
+
+		$.ajax
+		({
+			url: url,
+			data: data,
+			method: 'POST',
+			dataType: 'json',
+			success: function(response)
+			{
+				showReturnMessage($('#site_alert'), response.status, 
+						response.message, $('#site_alert_msg'));
+
+
+			},
+
+			error: function(xhr, response, error)
+			{
+				console.log(xhr.responseText);
+			}
+		});
 	});
 });

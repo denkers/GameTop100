@@ -69,10 +69,10 @@ class SiteController extends MasterController
 		]);
 
 		if($validator->fails())
-			return MasterController::encodeReturn(false, $invalid_input_msg);
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$site				=	SitesModel::find(Input::get('site_id'));
+			$site				=	SitesModel::find(Input::get('s_id'));
 			$site->title		=	Input::get('s_title');
 			$site->description	=	Input::get('s_desc');
 			$site->address		=	Input::get('s_add');

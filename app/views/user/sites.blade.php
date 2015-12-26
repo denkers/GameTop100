@@ -99,8 +99,9 @@
 				</div>
 
 				<!-- SITE VIEW CONTAINER -->
-				<div class='site_view_container col-md-12' data-siteid='{{ $site->id; }}'>
-					<form class='site_exit_form' href='{{ URL::route("postEditSite"); }}'>
+				<div class='site_view_container col-md-12'> 
+					<form class='site_edit_form' action='{{ URL::route("postEditSite"); }}' method='post'>
+						<input type='hidden' name='s_id' value='{{ $site->id }}' />
 						<div class='input-group'>
 							<label>Site title</label>
 							<input class='form-control' type='text' name='s_title' required />
