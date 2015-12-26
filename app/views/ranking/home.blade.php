@@ -76,12 +76,17 @@ Ranking
 											</div>
 										</div>
 
-										<div class='vote_details' class='col-md-3'>
+										<div class='vote_details col-md-3'>
 											<h3 class='vote_text'>
 												<span class='site_in'>5</span> <span class='glyphicon glyphicon-arrow-up'></span>
 												<span class='site_out'>10</span> <span class='glyphicon glyphicon-arrow-down'></span>
+												<span class='site_comments_group'>
+													<span class='site_comments'>0</span> <span class='glyphicon glyphicon-comment'></span>
+												</span>
 											</h3>
 										</div> 
+										<div class='site_comments_container col-md-12'>
+										</div>
 									</div>
 								@endforeach
 							@endif
