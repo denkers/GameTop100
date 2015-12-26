@@ -39,14 +39,14 @@ class SiteController extends MasterController
 
 		$validator			=	Validator::make(Input::all(),
 		[
-			'site_id'	=>	'required|exists:sites,id'
+			's_id'	=>	'required|exists:sites,id'
 		]);
 
 		if($validator->fails())
-			return MasterController::encodeReturn(false, $invalid_input_msg);
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$site		=	SitesModel::find(Input::get('site_id'));	
+			$site		=	SitesModel::find(Input::get('s_id'));	
 			
 			if($site->delete())
 				return MasterController::encodeReturn(true, $success_message);
