@@ -59,11 +59,17 @@ $(function()
 
 		$.getJSON(url, function(response)
 		{
-			response  = response[0];
 			container.slideDown('fast');
-			container.find('input[name="s_desc"]').val(response.description);
+			container.find('textarea[name="s_desc"]').text(response.description);
 			container.find('input[name="s_title"]').val(response.title);
 			container.find('input[name="s_add"]').val(response.address);
 		});
+	});
+
+	$('.cancel_site_btn').click(function(e)
+	{
+		e.preventDefault();
+		var container	=	$(this).closest('.site_view_container');
+		container.slideUp('fast');
 	});
 });

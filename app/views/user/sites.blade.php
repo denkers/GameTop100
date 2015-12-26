@@ -125,8 +125,8 @@
 								@endforeach
 							</select>
 						</div>
-						<button class='btn btn-default' id='cancel_site_btn'>Back</button>
-						<button class='btn btn-primary' id='save_site_btn'>Save</button>
+						<button class='btn btn-default cancel_site_btn'>Back</button>
+						<button class='btn btn-primary save_site_btn'>Save</button>
 					</form>
 				</div>
 			</li>
