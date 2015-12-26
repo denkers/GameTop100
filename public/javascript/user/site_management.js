@@ -96,11 +96,11 @@ $(function()
 			dataType: 'json',
 			success: function(response)
 			{
-				container.slideUp('fast', function()
-				{
-					showReturnMessage($('#site_alert'), response.status, 
-							response.message, $('#site_alert_msg'));
-				});
+				if(response.status)
+					container.slideUp('fast');
+
+				showReturnMessage($('#site_alert'), response.status, 
+					response.message, $('#site_alert_msg'));
 			},
 
 			error: function(xhr, response, error)
