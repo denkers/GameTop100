@@ -29,11 +29,24 @@ $(function()
 			{
 				showReturnMessage($('#site_alert'), response.status, 
 						response.message, $('#site_alert_msg'));
+
+				if(response.status)
+				{
+					container.fadeOut('fast', function()
+					{
+						container.remove();
+					});
+				}
 			},
 
 			error: function(xhr, response, error)	
 			{
 				console.log(xhr.responseText);
+			},
+
+			complete: function(response)
+			{
+				$('#remove_site_modal').modal('hide');
 			}
 		});
 	});	
