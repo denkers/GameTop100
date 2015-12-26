@@ -55,15 +55,22 @@ $(function()
 	{
 		e.preventDefault();
 		var url			=	$(this).attr('href');
-		var container	=	$(this).closest('.list_site_item').find('.site_view_container');	
+		var container	=	$(this).closest('.list_site_item').find('.site_view_container');
 
-		$.getJSON(url, function(response)
+		if(container.is(':visible'))
+		container.slideUp('fast');	
+
+		else
 		{
-			container.slideDown('fast');
-			container.find('textarea[name="s_desc"]').text(response.description);
-			container.find('input[name="s_title"]').val(response.title);
-			container.find('input[name="s_add"]').val(response.address);
-		});
+			$.getJSON(url, function(response)
+			{
+				container.slideDown('fast');
+				container.find('textarea[name="s_desc"]').text(response.description);
+				container.find('input[name="s_title"]').val(response.title);
+				container.find('input[name="s_add"]').val(response.address);
+			
+			});
+		}
 	});
 
 	$('.cancel_site_btn').click(function(e)
@@ -76,9 +83,10 @@ $(function()
 	$('.save_site_btn').click(function(e)
 	{
 		e.preventDefault();
-		var form	=	$(this).closest('.site_edit_form');
-		var url		=	form.attr('action');
-		var data	=	form.serialize();
+		var form		=	$(this).closest('.site_edit_form');
+		var url			=	form.attr('action');
+		var data		=	form.serialize();
+		var container	=	$(this).closest('.site_view_container').slideUp('fast');	
 
 		$.ajax
 		({
@@ -88,10 +96,11 @@ $(function()
 			dataType: 'json',
 			success: function(response)
 			{
-				showReturnMessage($('#site_alert'), response.status, 
-						response.message, $('#site_alert_msg'));
-
-
+				container.slideUp('fast', function()
+				{
+					showReturnMessage($('#site_alert'), response.status, 
+							response.message, $('#site_alert_msg'));
+				});
 			},
 
 			error: function(xhr, response, error)
