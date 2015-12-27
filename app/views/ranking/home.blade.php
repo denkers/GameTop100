@@ -103,26 +103,36 @@ Ranking
 											@foreach($site_comments as $comment)
 												<br>
 												<div class='row comment_item'>
-													<div class='col-md-2'>
+													<div class='col-md-1'>
 														<a href='#' class='comment_writter'>{{ $comment->writter_id; }}</a>
 													</div>
 
-													<div class='col-md-7'>
+													<div class='col-md-6'>
 														<p class='comment_content'>{{ $comment->content; }}</p>
 													</div>
 
-													<div class='col-md-3'>
-														@for($i = 0; $i < $comment->site_rating; $i++)
-															<span class='glyphicon glyphicon-star'></span>
-														@endfor
-	
-														@if($comment->site_rating != -1)
-															@for($i = $comment->site_rating; $i < 5; $i++)
-																<span class='glyphicon glyphicon-star-empty'></span>
+													<div class='col-md-5'>
+														<div class='site_rating_container col-md-6'>
+															@for($i = 0; $i < $comment->site_rating; $i++)
+																<span class='glyphicon glyphicon-star'></span>
 															@endfor
-														@endif
+		
+															@if($comment->site_rating != -1)
+																@for($i = $comment->site_rating; $i < 5; $i++)
+																	<span class='glyphicon glyphicon-star-empty'></span>
+																@endfor
+															@endif
+														</div>
 
-														<span class='comment_rating'>{{ ($comment->comment_rating > 0? '+' : '') . $comment->comment_rating; }}</span>
+														<div class='comment_rating_container col-md-6'>
+															<div class='col-md-1'>
+																<span class='comment_rating'>{{ ($comment->comment_rating > 0? '+' : '') . $comment->comment_rating; }}</span>
+															</div>
+															<div class='comment_rating_controls col-md-3'>
+																<span class='glyphicon glyphicon-chevron-up comment_control comment_upvote'></span>
+																<span class='glyphicon glyphicon-chevron-down comment_control comment_downvote'></span>
+															</div>	
+														</div>
 													</div>
 												<div>
 											@endforeach	
