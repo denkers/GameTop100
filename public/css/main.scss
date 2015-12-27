@@ -43,3 +43,21 @@ body
 {
 	color:inherit;
 }
+
+.site_comments_container
+{
+	margin-top:2em;
+
+	.show_comments_container
+	{
+		text-align:center;
+	}
+
+	.show_comments_msg
+	{
+		&:hover
+		{
+			opacity:0.6;
+		}
+	}
+}
