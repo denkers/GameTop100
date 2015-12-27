@@ -52,6 +52,7 @@
   .site_comments_container .show_comments_container {
     text-align: center; }
   .site_comments_container .show_comments_msg:hover {
-    opacity: 0.6; }
+    opacity: 0.6;
+    cursor: pointer; }
 
 /*# sourceMappingURL=ranking.css.map */

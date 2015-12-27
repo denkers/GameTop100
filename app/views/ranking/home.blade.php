@@ -43,10 +43,11 @@ Ranking
 
 				<div class='ranking_container panel panel-default col-md-9'>
 					<div class='panel-body'>
-						<?php $ranking_list = SitesModel::getSitesForGame(1); ?>
+						<?php $ranking_list	=	SitesModel::getSitesForGame(1); ?>
 						<div class='list-group'>
 							@if(isset($ranking_list))
-								@foreach($ranking_list as $ranking_item)				
+								@foreach($ranking_list as $ranking_item)		
+									<?php $site_comments	=	SiteCommentsModel::getCommentsForSite($ranking_item['id']);  ?>
 									<div class='list-group-item clearfix ranking_item'>
 										<div class='rank_profile col-md-9'>
 											<!-- RANK NUMBER -->
@@ -90,12 +91,11 @@ Ranking
 
 												<!-- SITE COMMENTS -->
 												<a class='site_comments_group' href='{{ URL::route("getSiteComments"); }}' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
-													<span class='site_comments'>0</span> <span class='glyphicon glyphicon-comment'></span>
+													<span class='site_comments'>{{ count($site_comments); }}</span> <span class='glyphicon glyphicon-comment'></span>
 												</a>
 											</h3>
 										</div> 
 										<div class='site_comments_container col-md-12'>
-											<?php $site_comments	=	SiteCommentsModel::getCommentsForSite($ranking_item['id']); ?>
 											<div class='show_comments_container'>
 												<hr>
 												<span class='show_comments_msg'>Showing {{ count($site_comments)  }} comments</span>

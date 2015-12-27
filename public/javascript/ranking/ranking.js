@@ -16,7 +16,7 @@ $(function()
 		});	
 	});
 
-	$('.site_comments_group').click(function(e)
+	$('.site_comments_group, .show_comments_msg').click(function(e)
 	{
 		e.preventDefault();
 		var comments_container	=	$(this).closest('.ranking_item').find('.site_comments_container');
