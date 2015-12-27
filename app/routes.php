@@ -66,6 +66,7 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 					Route::post('/vote', ['as' => 'postVoteComment', 'uses' => 'SiteController@postVoteComment']);
 					Route::post('/remove', ['as' => 'postRemoveComment', 'uses' => 'SiteController@postRemoveComment']);
 					Route::post('/edit', ['as' => 'postEditComment', 'uses' => 'SiteController@postEditComment']);
+					Route::post('/report', ['as' => 'postReportComment', 'uses' => 'SiteController@postReportComment']);
 				});
 			});
 		});

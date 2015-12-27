@@ -140,4 +140,9 @@ class SiteController extends MasterController
 	{
 		
 	}
+
+	public function postReportComment()
+	{
+
+	}
 }

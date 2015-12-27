@@ -112,18 +112,6 @@ Ranking
 													</div>
 
 													<div class='col-md-5'>
-														<div class='site_rating_container col-md-6'>
-															@for($i = 0; $i < $comment->site_rating; $i++)
-																<span class='glyphicon glyphicon-star'></span>
-															@endfor
-		
-															@if($comment->site_rating != -1)
-																@for($i = $comment->site_rating; $i < 5; $i++)
-																	<span class='glyphicon glyphicon-star-empty'></span>
-																@endfor
-															@endif
-														</div>
-
 														<div class='comment_rating_container col-md-6'>
 															<div class='col-md-1'>
 																<span class='comment_rating'>{{ ($comment->comment_rating > 0? '+' : '') . $comment->comment_rating; }}</span>
@@ -132,6 +120,10 @@ Ranking
 																<span class='glyphicon glyphicon-chevron-up comment_control comment_upvote'></span>
 																<span class='glyphicon glyphicon-chevron-down comment_control comment_downvote'></span>
 															</div>	
+														</div>
+
+														<div class='comment_controls_container col-md-6'>
+
 														</div>
 													</div>
 												<div>
