@@ -23,11 +23,4 @@ body {
 .plain_link {
   color: inherit; }
 
-.site_comments_container {
-  margin-top: 2em; }
-  .site_comments_container .show_comments_container {
-    text-align: center; }
-  .site_comments_container .show_comments_msg:hover {
-    opacity: 0.6; }
-
 /*# sourceMappingURL=main.css.map */

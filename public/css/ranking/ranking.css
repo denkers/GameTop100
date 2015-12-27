@@ -47,4 +47,11 @@
 .rank_display:hover {
   opacity: 0.8; }
 
+.site_comments_container {
+  margin-top: 2em; }
+  .site_comments_container .show_comments_container {
+    text-align: center; }
+  .site_comments_container .show_comments_msg:hover {
+    opacity: 0.6; }
+
 /*# sourceMappingURL=ranking.css.map */

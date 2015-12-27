@@ -97,10 +97,24 @@ Ranking
 										<div class='site_comments_container col-md-12'>
 											<?php $site_comments	=	SiteCommentsModel::getCommentsForSite($ranking_item['id']); ?>
 											<div class='show_comments_container'>
+												<hr>
 												<span class='show_comments_msg'>Showing {{ count($site_comments)  }} comments</span>
 											</div>
 											@foreach($site_comments as $comment)
+												<br>
+												<div class='row comment_item'>
+													<div class='col-md-2'>
+														<a href='#' class='comment_writter'>{{ $comment->writter_id; }}</a>
+													</div>
 
+													<div class='col-md-7'>
+														<p class='comment_content'>{{ $comment->content; }}</p>
+													</div>
+
+													<div class='col-md-3'>
+														<p class='comment_rating'>+10</p>
+													</div>
+												<div>
 											@endforeach	
 										</div>
 									</div>
