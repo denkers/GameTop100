@@ -90,7 +90,7 @@ Ranking
 												</span>
 
 												<!-- SITE COMMENTS -->
-												<a class='site_comments_group' href='{{ URL::route("getSiteComments"); }}' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
+												<a class='site_comments_group plain_link' href='{{ URL::route("getSiteComments"); }}' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
 													<span class='site_comments'>{{ count($site_comments); }}</span> <span class='glyphicon glyphicon-comment'></span>
 												</a>
 											</h3>
