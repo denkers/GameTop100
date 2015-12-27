@@ -112,7 +112,17 @@ Ranking
 													</div>
 
 													<div class='col-md-3'>
-														<p class='comment_rating'>+10</p>
+														@for($i = 0; $i < $comment->site_rating; $i++)
+															<span class='glyphicon glyphicon-star'></span>
+														@endfor
+	
+														@if($comment->site_rating != -1)
+															@for($i = $comment->site_rating; $i < 5; $i++)
+																<span class='glyphicon glyphicon-star-empty'></span>
+															@endfor
+														@endif
+
+														<span class='comment_rating'>{{ ($comment->comment_rating > 0? '+' : '') . $comment->comment_rating; }}</span>
 													</div>
 												<div>
 											@endforeach	
