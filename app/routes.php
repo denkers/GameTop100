@@ -60,6 +60,13 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 			{
 				Route::get('/all', ['as' => 'getSiteComments', 'uses' => 'SiteController@getSiteComments']);
 				Route::post('/add', ['as' => 'postAddSiteComment', 'uses' => 'SiteController@postAddSiteComment']);
+
+				Route::group(['prefix' => 'comment={comment_id}'], function()
+				{
+					Route::post('/vote', ['as' => 'postVoteComment', 'uses' => 'SiteController@postVoteComment']);
+					Route::post('/remove', ['as' => 'postRemoveComment', 'uses' => 'SiteController@postRemoveComment']);
+					Route::post('/edit', ['as' => 'postEditComment', 'uses' => 'SiteController@postEditComment']);
+				});
 			});
 		});
 

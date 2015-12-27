@@ -125,4 +125,19 @@ class SiteController extends MasterController
 	{
 
 	}
+
+	public function postVoteComment()
+	{
+		
+	}
+
+	public function postEditComment()
+	{
+
+	}
+
+	public function postRemoveComment()
+	{
+		
+	}
 }
