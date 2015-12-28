@@ -153,9 +153,41 @@ class SiteController extends MasterController
 		
 	}
 
+	private function userCanComment($commentModel)
+	{
+		$user	=	Auth::user();
+		return $commentModel->writter_id == $user->username || $user->isAdmin;
+	}
+
 	public function postEditComment()
 	{
+		$success_msg		=	'Successfully edited comment';
+		$fail_msg			=	'Failed to edit comment';
 
+		$validator			=	Validator::make(Input::all(),
+		[
+			'comment_id'		=>	'required|exists:site_comments,id',
+			'comment_content'	=>	'required|max:300',
+			'comment_rating'	=>	'required|max:5'
+		]);
+		
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$comment					=	SiteCommentsModel::find(Input::get('comment_id'));
+
+			if(!$this->userCanComment($comment))
+				return MasterController::encodeReturn(false, $fail_msg);
+
+			$comment->content			=	Input::get('comment_content');
+			$comment->comment_rating	=	Input::get('comment_rating');
+
+			if($comment->save())
+				return MasterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);
+		}
 	}
 
 	public function postRemoveComment()
@@ -173,10 +205,16 @@ class SiteController extends MasterController
 		else
 		{
 			$comment		=	SiteCommentsModel::find(Input::get('comment_id'));
-			if($comment->delete())
-				return MasterController::encodeReturn(true, $success_msg);
-			else
+			if(!$this->userCanComment($comment))
 				return MasterController::encodeReturn(false, $fail_msg);
+
+			else
+			{
+				if($comment->delete())
+					return MasterController::encodeReturn(true, $success_msg);
+				else
+					return MasterController::encodeReturn(false, $fail_msg);
+			}
 		}
 	}
 
