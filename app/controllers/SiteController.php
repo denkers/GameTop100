@@ -123,7 +123,29 @@ class SiteController extends MasterController
 
 	public function postAddSiteComment()
 	{
+		$success_msg	=	'Successfully added comment';
+		$fail_msg		=	'Failed to add comment';
 
+		$validator		=	Validator::make(Input::all(), 
+		[
+			'comment_content'	=>	'required|max:300',
+			'comment_site'		=>	'required|exists:sites,id'
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$comment				=	new SiteCommentsModel();
+			$comment->site_id		=	Input::get('comment_site');
+			$comment->writter_id	=	Auth::user()->username;
+			$comment->content		=	Input::get('comment_content');
+
+			if($comment->save())
+				return MasterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);
+		}
 	}
 
 	public function postVoteComment()
@@ -138,7 +160,24 @@ class SiteController extends MasterController
 
 	public function postRemoveComment()
 	{
+		$success_msg		=	'Successfully removed comment';
+		$fail_msg			=	'Failed to remove comment';
 		
+		$validator			=	Validator::make(Input::all(),
+		[
+			'comment_id'	=>	'required|exists:site_comments,id'
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$comment		=	SiteCommentsModel::find(Input::get('comment_id'));
+			if($comment->delete())
+				return MasterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);
+		}
 	}
 
 	public function postReportComment()

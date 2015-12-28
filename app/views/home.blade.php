@@ -6,5 +6,4 @@
 @stop
 
 @section('content')
-	
 @stop
