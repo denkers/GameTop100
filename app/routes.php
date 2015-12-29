@@ -63,7 +63,7 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 
 				Route::group(['prefix' => 'comment={comment_id}'], function()
 				{
-					Route::post('/vote', ['as' => 'postVoteComment', 'uses' => 'SiteController@postVoteComment']);
+					Route::post('/rate', ['as' => 'postRateComment', 'uses' => 'SiteController@postRateComment']);
 					Route::post('/remove', ['as' => 'postRemoveComment', 'uses' => 'SiteController@postRemoveComment']);
 					Route::post('/edit', ['as' => 'postEditComment', 'uses' => 'SiteController@postEditComment']);
 					Route::post('/report', ['as' => 'postReportComment', 'uses' => 'SiteController@postReportComment']);

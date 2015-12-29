@@ -148,7 +148,7 @@ class SiteController extends MasterController
 		}
 	}
 
-	public function postVoteComment()
+	public function postRateComment()
 	{
 		
 	}

@@ -1,11 +1,14 @@
 (function()
 {
-	angular.module('main').controller('mainController', function($scope)
+	angular.module('main').controller('mainController', function($scope, $uibModal, $log)
 	{
-		$scope.show	=	true;
-		$scope.closeAlert	=	function()
+		$scope.open	=	function()
 		{
-			$scope.show		=	false;
+			var modal	=	$uibModal.open
+			({
+				animation: true,
+				templateUrl: 'template/modal/window.html'	
+			});
 		};
 	});
 })();
