@@ -1,1 +1,1 @@
-var app	=	angular.module('mega-top-100', []);
+var app	=	angular.module('mega-top-100', [ 'ui.bootstrap' ]);

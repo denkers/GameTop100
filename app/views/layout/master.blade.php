@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang='en-us' data-ng-app=''>
+<html lang='en-us' data-ng-app='mega-top-100'>
 	<head>
 		@section('head')
 		<meta charset='utf-8' />
@@ -12,7 +12,7 @@
 
 		@section('js')
 			{{ HTML::script('dependencies/angular.js'); }}
-i			{{ HTML::script('dependencies/bootstrap.min.js'); }}
+i			{{ HTML::script('dependencies/ui-bootstrap.min.js'); }}
 			{{ HTML::script('javascript/modules/app.js'); }}
 		@show
 	</head>
