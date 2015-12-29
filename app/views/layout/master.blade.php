@@ -95,7 +95,6 @@
 					</div>
 
 					<div class='modal-body'>
-						@include('user.register')
 					</div>
 				</div>
 			</div>

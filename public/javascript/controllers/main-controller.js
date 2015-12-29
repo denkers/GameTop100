@@ -7,7 +7,8 @@
 			var modal	=	$uibModal.open
 			({
 				animation: true,
-				templateUrl: 'templates/user/login.blade.php',
+				windowClass: 'modal fade in',
+				templateUrl: 'templates/user/register.blade.php',
 				controller: 'popupController',
 				size: 'lg',
 			});
