@@ -12,7 +12,8 @@
 
 		@section('js')
 			{{ HTML::script('dependencies/angular.js'); }}
-			{{ HTML::script('dependencies/bootstrap.min.js'); }}
+i			{{ HTML::script('dependencies/bootstrap.min.js'); }}
+			{{ HTML::script('javascript/modules/app.js'); }}
 		@show
 	</head>
 
