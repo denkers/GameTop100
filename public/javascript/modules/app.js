@@ -1,1 +1,5 @@
-var app	=	angular.module('mega-top-100', [ 'ui.bootstrap' ]);
+angular.module('main', 
+[ 
+	'ui.bootstrap',
+	'ui.bootstrap.tpls'
+]);
