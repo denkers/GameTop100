@@ -112,7 +112,6 @@
 					</div>
 
 					<div class='modal-body'>
-						@include('user.login')
 					</div>
 				</div>
 			</div>

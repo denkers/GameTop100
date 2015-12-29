@@ -7,8 +7,15 @@
 			var modal	=	$uibModal.open
 			({
 				animation: true,
-				templateUrl: 'template/modal/window.html'	
+				templateUrl: 'templates/user/login.blade.php',
+				controller: 'popupController',
+				size: 'lg',
 			});
 		};
+	});
+
+	angular.module('main').controller('popupController', function($scope)
+	{
+		
 	});
 })();

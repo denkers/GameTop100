@@ -11,4 +11,8 @@
 @stop
 
 @section('content')
+
+<div data-ng-controller='mainController'>
+<button data-ng-click='open()'>Click</button>
+</div>
 @stop
