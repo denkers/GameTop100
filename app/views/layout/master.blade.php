@@ -11,11 +11,8 @@
 		<title>MegaTop100 - @yield('title_postfix')</title>
 
 		@section('js')
-			<!--{{ HTML::script('dependencies/jquery.min.js'); }}-->
 			{{ HTML::script('dependencies/angular.js'); }}
 			{{ HTML::script('dependencies/bootstrap.min.js'); }}
-<!--			{{ HTML::script('javascript/main.js'); }}
-			{{ HTML::script('javascript/user/user_management.js'); }} -->
 		@show
 	</head>
 
