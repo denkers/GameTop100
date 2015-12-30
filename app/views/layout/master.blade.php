@@ -14,6 +14,7 @@
 			{{ HTML::script('dependencies/angular.js'); }}
 			{{ HTML::script('dependencies/ui-bootstrap-tpls.min.js'); }}
 			{{ HTML::script('javascript/modules/app.js'); }}
+			{{ HTML::script('javascript/directives/message-modal-directive.js'); }}
 			{{ HTML::script('javascript/controllers/user-controller.js'); }}
 			{{ HTML::script('javascript/controllers/nav-controller.js'); }}
 		@show
@@ -67,8 +68,8 @@
 							</li>
 
 							<!-- LOGOUT NAV -->
-							<li class='auth_nav {{ $auth_class }}'>
-								<a href='{{ URL::route("getLogout"); }}' id='nav_logout_btn'><span class='glyphicon glyphicon-remove'></span> Logout</a>
+							<li class='auth_nav'>
+								<a href='{{ URL::route("getLogout"); }}' data-ng-click='openLogout(); $event.preventDefault()' id='nav_logout_btn'><span class='glyphicon glyphicon-remove'></span> Logout</a>
 							</li>	
 					</ul>
 				</div>

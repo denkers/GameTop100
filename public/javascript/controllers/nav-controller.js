@@ -23,5 +23,16 @@
 				size: 'lg'
 			});
 		};
+
+		$scope.openLogout	=	function()
+		{
+			var logoutModal	=	$uibModal.open
+			({
+				animation: true,
+				template: '<message-modal title="Sign-out" message="Signing out, one moment please"></message-modal>',
+				controller: 'userController',
+				size: 'lg'
+			});
+		};
 	});
 })();
