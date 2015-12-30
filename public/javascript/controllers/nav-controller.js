@@ -36,7 +36,7 @@
 
 			setTimeout(function()
 			{
-				$rootScope.$broadcast('logoutReq', ['qwe']);
+				$rootScope.$broadcast('logoutReq', []);
 			}, 3000);
 		};
 	});

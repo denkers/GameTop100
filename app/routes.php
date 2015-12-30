@@ -15,7 +15,6 @@
 Route::get('/', ['as' => 'getHome', 'uses' => 'MasterController@getHome']);
 Route::get('/error', ['as' => 'getError', 'uses' => 'MasterController@getError']);
 Route::get('/register', ['as' => 'getRegister', 'uses' => 'UserController@getRegister']);
-Route::get('/login', ['as' => 'getLogin', 'uses' => 'UserController@getLogin']);
 Route::post('/checkusername', ['as' => 'postCheckUsername', 'uses' => 'UserController@postCheckUsername']);
 Route::post('/login', ['as' => 'postLogin', 'uses' => 'UserController@postLogin']);
 Route::post('/register', ['as' => 'postRegister', 'uses' => 'UserController@postRegister']);

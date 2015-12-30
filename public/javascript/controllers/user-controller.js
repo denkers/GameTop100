@@ -36,7 +36,6 @@
 
 		$scope.$on('logoutReq', function(event, args)
 		{
-			console.log('request');
 			$scope.logout();
 		});
 	});

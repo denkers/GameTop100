@@ -49,7 +49,7 @@
 
 						<!-- LOGIN NAV BTN -->	
 						<li class='guest_nav {{ $guest_class }}'>
-							<a href='{{ URL::route("getLogin"); }}' data-ng-click='openLogin(); $event.preventDefault()' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
+							<a href='' data-ng-click='openLogin(); $event.preventDefault()' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
 						</li>
 						
 						<!-- REGISTER NAV BTN -->
@@ -68,8 +68,8 @@
 							</li>
 
 							<!-- LOGOUT NAV -->
-							<li class='auth_nav'>
-								<a href='{{ URL::route("getLogout"); }}' data-ng-click='openLogout(); $event.preventDefault()' id='nav_logout_btn'><span class='glyphicon glyphicon-remove'></span> Logout</a>
+							<li class='auth_nav {{ $auth_class }}'>
+								<a href='' data-ng-click='openLogout(); $event.preventDefault()' id='nav_logout_btn'><span class='glyphicon glyphicon-remove'></span> Logout</a>
 							</li>	
 					</ul>
 				</div>

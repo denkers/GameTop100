@@ -2,11 +2,6 @@
 
 class UserController extends MasterController
 {
-	public function getLogin()
-	{
-		return View::make('user.login');
-	}
-
 	public function postLogin()
 	{
 		$success_message	=	'Successfully logged in';
@@ -116,6 +111,9 @@ class UserController extends MasterController
 
 	public function getLogout()
 	{
+		$success_msg	=	'Successfully logged out';
+
 		Auth::logout();
+		return MasterController::encodeReturn(true, $success_msg);
 	}
 }
