@@ -1,6 +1,6 @@
 (function()
 {
-	angular.module('main').controller('navController', function($scope, $uibModal, $log)
+	angular.module('main').controller('navController', function($scope, $rootScope, $uibModal, $log)
 	{
 		$scope.openLogin	=	function()
 		{
@@ -33,6 +33,11 @@
 				controller: 'userController',
 				size: 'lg'
 			});
+
+			setTimeout(function()
+			{
+				$rootScope.$broadcast('logoutReq', ['qwe']);
+			}, 3000);
 		};
 	});
 })();
