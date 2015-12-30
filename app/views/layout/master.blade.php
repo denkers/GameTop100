@@ -14,12 +14,14 @@
 			{{ HTML::script('dependencies/angular.js'); }}
 			{{ HTML::script('dependencies/ui-bootstrap-tpls.min.js'); }}
 			{{ HTML::script('javascript/modules/app.js'); }}
+			{{ HTML::script('javascript/controllers/user-controller.js'); }}
+			{{ HTML::script('javascript/controllers/nav-controller.js'); }}
 		@show
 	</head>
 
 	<body>
 		<!-- NAVIGATION -->		
-		<nav class='navbar navbar-inverse navbar-fixed-top'>
+		<nav class='navbar navbar-inverse navbar-fixed-top' data-ng-controller='navController'>
 			<div class='container'>
 				<div class='navbar-header'>
 					<a class='navbar-brand'>MegaTop100</a>
@@ -46,12 +48,12 @@
 
 						<!-- LOGIN NAV BTN -->	
 						<li class='guest_nav {{ $guest_class }}'>
-							<a href='{{ URL::route("getLogin"); }}' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
+							<a href='{{ URL::route("getLogin"); }}' data-ng-click='openLogin(); $event.preventDefault()' id='nav_login_btn'><span class='glyphicon glyphicon-lock'></span> Login</a>
 						</li>
 						
 						<!-- REGISTER NAV BTN -->
 						<li class='guest_nav {{ $guest_class }}'>
-							<a href='{{ URL::route("getRegister"); }}' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
+							<a href='{{ URL::route("getRegister"); }}' data-ng-click='openRegister(); $event.preventDefault()' id='nav_register_btn'><span class='glyphicon glyphicon-plus'></span> Register</a>
 						</li>
 
 							<!-- MANAGEMENT NAV -->
