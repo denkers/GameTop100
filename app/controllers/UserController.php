@@ -14,17 +14,17 @@ class UserController extends MasterController
 
 		$validator = Validator::make(Input::all(), 
 		[
-			'login_id'		=>	'required|exists:users,username',
-			'login_pass'	=>	'required|max:16'
+			'username'		=>	'required|exists:users,username',
+			'password'		=>	'required|max:16'
 		]);
 
 		if($validator->fails())
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$user_id		=	Input::get('login_id');
-			$user_pass		=	Input::get('login_pass');
-			$remember_user	=	Input::has('login_remember');
+			$user_id		=	Input::get('username');
+			$user_pass		=	Input::get('password');
+			$remember_user	=	Input::has('remember');
 			$attempt		=	Auth::attempt
 			([
 				'username'	=>	$user_id,
