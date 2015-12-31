@@ -1,21 +1,21 @@
 (function()
 {
-	angular.module('main').controller('navController', function($scope, $rootScope, $uibModal, $log)
+	angular.module('main').controller('navController', function($scope, $rootScope, $log)
 	{
 		$scope.openLogin	=	function()
 		{	
-			$rootScope.openModal($uibModal, null, 'templates/user/login.blade.php', 'userController');
+			$rootScope.openModal(null, 'templates/user/login.blade.php', 'userController');
 		};
 
 		$scope.openRegister	=	function()
 		{	
-			$rootScope.openModal($uibModal, null, 'templates/user/register.blade.php', 'userController');
+			$rootScope.openModal(null, 'templates/user/register.blade.php', 'userController');
 		};
 
 		$scope.openLogout	=	function()
 		{
 			var template	=	'<message-modal title="Sign-out" message="Signing out, one moment please"></message-modal>';
-			$rootScope.openModal($uibModal, template, null, 'userController');
+			$rootScope.openModal(template, null, 'userController');
 
 			setTimeout(function()
 			{

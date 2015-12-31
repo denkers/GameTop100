@@ -1,4 +1,5 @@
 <div class='modal-header'>
+	<button class='close' data-ng-click='$root.closeModal()'>&times;</button>
 	<h4 class='modal-title'>Register</h4>
 </div>
 
@@ -76,7 +77,7 @@
 		</div>
 
 		<div class='register_controls btn-group'>
-			<button class='btn btn-default' id='register_cancel_btn'>Cancel</button>
+			<button class='btn btn-default' id='register_cancel_btn' data-ng-click='$root.closeModal(); $event.preventDefault()'>Cancel</button>
 			<button class='btn btn-success' id='register_submit_btn' data-ng-click='register(); $event.preventDefault()'>Register</button>
 		</div>
 	</form>

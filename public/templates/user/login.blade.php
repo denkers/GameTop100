@@ -1,5 +1,5 @@
 <div class='modal-header'>
-	<button class='close'>&times;</button>
+	<button class='close' data-ng-click='$root.closeModal()'>&times;</button>
 	<h4 class='modal-title'>Sign-in</h4>
 </div>
 

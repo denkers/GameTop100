@@ -12,11 +12,11 @@ angular.module('main',
 	$httpProvider.defaults.headers.post['Content-Type']	=	'application/x-www-form-urlencoded';	
 });
 
-angular.module('main').run(function($rootScope)
+angular.module('main').run(function($rootScope, $uibModal, $uibModalStack)
 {
-	$rootScope.openModal	=	function(modalInstance, template, templateUrl, controller)
+	$rootScope.openModal	=	function(template, templateUrl, controller)
 	{
-		modalInstance.open
+		$uibModal.open
 		({
 			animation:true,
 			template: template,
@@ -26,8 +26,8 @@ angular.module('main').run(function($rootScope)
 		});
 	};
 
-	$rootScope.closeModal	=	function(modalInstance)
+	$rootScope.closeModal	=	function()
 	{
-		modalInstance.dismiss('cancel');
+		$uibModalStack.dismissAll();
 	};
 });
