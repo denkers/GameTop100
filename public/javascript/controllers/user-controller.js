@@ -2,8 +2,10 @@
 {
 	angular.module('main').controller('userController', function($scope, $http, $httpParamSerializer)
 	{
-		$scope.loginData	=	{};
-		$scope.registerData	=	{};
+		$scope.loginData		=	{};
+		$scope.registerData		=	{};
+		$scope.loginResponse	=	null;
+		$scope.registerResponse	=	null;
 
 		$scope.login		=	function()
 		{
@@ -14,7 +16,7 @@
 				method: 'POST'
 			}).success(function(response)
 			{
-				console.log(response.message);
+				$scope.loginResponse	=	response;
 			})
 			.error(function(response)
 			{
@@ -32,7 +34,7 @@
 
 			}).success(function(response)
 			{
-				console.log(response);
+				$scope.registerResponse	=	response;
 
 			}).error(function(response)
 			{

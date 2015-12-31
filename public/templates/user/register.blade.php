@@ -5,10 +5,11 @@
 
 <div class='modal-body'>
 	<!-- REGISTER STATUS ALERT -->
-	<div id='register_alert' class='alert alert-dismissable fade in'>
-	<strong>Register notice</strong>
-	<p id='register_alert_msg'></p>
-	</div>
+	<uib-alert data-ng-show='registerResponse' close='registerResponse = null' 
+	type='<% registerResponse.status? "success" : "danger" %>'>
+		<span class='<% registerResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+			<% registerResponse.message %>
+	</uib-alert>
 
 	<form id='register_form' method='post' action='{{ URL::route("postRegister"); }}'>
 

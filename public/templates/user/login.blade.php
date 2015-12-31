@@ -5,10 +5,9 @@
 
 <div class='modal-body'>
 <!-- LOGIN STATUS ALERT -->
-<div id='login_alert' class='alert alert-dismissable fade in'>
-	<strong>Login notice</strong>
-	<p id='login_alert_msg'></p>
-</div>
+<uib-alert type='<% loginResponse.status? "success" : "danger" %>' data-ng-show='loginResponse' close='loginResponse = null'>
+	<span class='<% loginResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> <% loginResponse.message %>
+</uib-alert>
 
 <!-- LOGIN FORM -->
 <form id='login_form'> 
