@@ -1,6 +1,6 @@
 (function()
 {
-	angular.module('main').controller('userController', function($scope, $http, $httpParamSerializer)
+	angular.module('main').controller('userController', function($scope, $rootScope, $http, $httpParamSerializer)
 	{
 		$scope.loginData		=	{};
 		$scope.registerData		=	{};
@@ -17,6 +17,14 @@
 			}).success(function(response)
 			{
 				$scope.loginResponse	=	response;
+
+				if(response.status)
+				{
+					setTimeout(function()
+					{
+						$rootScope.closeModal();
+					}, 2000);
+				}
 			})
 			.error(function(response)
 			{
