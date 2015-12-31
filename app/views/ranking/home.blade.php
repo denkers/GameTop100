@@ -18,22 +18,20 @@ Ranking
 @section('content')
 <script>
 	var site_list_url	=	'{{ URL::route("getRankingSiteList"); }}';
+	var game_list_url	=	'{{ URL::route("getGameList"); }}';
 </script>
 
 <div data-ng-controller='rankingController'>
 	<div id='home_content'>
 		<div id='game_nav'>
 			<ul id='games_list' class='list-group'>
-				<?php $game_list = GamesModel::getGames(); ?>
-				@if(isset($game_list))
-					@foreach($game_list as $game)
-						<div data-gameid='{{ $game["id"]; }}' class='list-group-item game_list_item clearfix'>
-							<div class='game_item_container'>
-								<a href='{{ URL::route("getRankingList", [$game["id"]]); }}' class='game_item_link'><h4>{{ $game['name'] }}</h4></a>
-							</div>
-						</div>
-					@endforeach	
-				@endif
+				<div class='list-group-item game_list_item clearfix' data-ng-repeat='game in game_list'>
+					<div class='game_item_container'>
+						<a href='' class='game_item_link'>
+							<h4><% game.name %></h4>
+						</a>
+					</div>
+				</div>
 			</ul>
 		</div>
 
