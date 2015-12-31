@@ -21,8 +21,7 @@
 				<div class='col-md-8'>
 					<div class='input-group'>
 						<span data-checkurl='{{ URL::route("postCheckUsername"); }}' class='input-group-addon' id='user_avail_addon'>Availability</span>
-						<input type='text' id='username_field' class='form-control' name='register_user' placeholder='Username'
-						data-toggle='tooltip' data-placement='right' data-trigger='focus' data-title='Username 6-18 alphanumeric characters' />
+						<input type='text' id='username_field' class='form-control' name='register_user' placeholder='Username'					data-toggle='tooltip' data-placement='right' data-trigger='focus' data-title='Username 6-18 alphanumeric characters' data-ng-model='registerData.username'/>
 					</div>
 				</div>
 			</div>
@@ -38,8 +37,7 @@
 				<div class='col-md-8'>
 					<div class='input-group'>
 						<span class='input-group-addon' id='pass_str_ind'>Strength</span>
-						<input type='password' id='pass_field' class='form-control' name='register_pass' placeholder='Password'
-						data-toggle='tooltip' data-placement='right' data-trigger='focus' data-title='Strong password 6-18 alphanumeric characters' />
+						<input type='password' id='pass_field' class='form-control' name='register_pass' placeholder='Password' data-ng-model='registerData.password' data-toggle='tooltip' data-placement='right' data-trigger='focus' data-title='Strong password 6-18 alphanumeric characters' />
 					</div>
 				</div>
 			</div>
@@ -72,14 +70,14 @@
 
 				<div class='col-md-8'>
 					<input type='email' class='form-control' name='register_email' placeholder='Email'
-					data-toggle='tooltip' data-placement='right' data-trigger='focus' data-title='Valid email address to confirm registration' />
+					data-toggle='tooltip' data-placement='right' data-trigger='focus' data-title='Valid email address to confirm registration' data-ng-model='registerData.email'/>
 				</div>
 			</div>
 		</div>
 
 		<div class='register_controls btn-group'>
 			<button class='btn btn-default' id='register_cancel_btn'>Cancel</button>
-			<button class='btn btn-success' id='register_submit_btn'>Register</button>
+			<button class='btn btn-success' id='register_submit_btn' data-ng-click='register(); $event.preventDefault()'>Register</button>
 		</div>
 	</form>
 </div>

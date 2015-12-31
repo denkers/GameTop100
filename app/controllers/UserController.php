@@ -48,18 +48,18 @@ class UserController extends MasterController
 
 		$validator			=	Validator::make(Input::all(),
 		[
-			'register_user'		=>	'required|min:4|max:18',
-			'register_pass'		=>	'required|min:6|max:18',
-			'register_email'	=>	'required|email'
+			'username'		=>	'required|min:4|max:18',
+			'password'		=>	'required|min:6|max:18',
+			'email'			=>	'required|email'
 		]);
 		
 		if($validator->fails())
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$reg_username	=	Input::get('register_user');
-			$reg_pass		=	Input::get('register_pass');
-			$reg_email		=	Input::get('register_email');
+			$reg_username	=	Input::get('username');
+			$reg_pass		=	Input::get('password');
+			$reg_email		=	Input::get('email');
 
 			if(User::where('username', '=', $reg_username)->exists())
 				return MasterController::encodeReturn(false, $user_exists);
