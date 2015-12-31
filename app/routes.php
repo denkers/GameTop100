@@ -19,6 +19,11 @@ Route::post('/checkusername', ['as' => 'postCheckUsername', 'uses' => 'UserContr
 Route::post('/login', ['as' => 'postLogin', 'uses' => 'UserController@postLogin']);
 Route::post('/register', ['as' => 'postRegister', 'uses' => 'UserController@postRegister']);
 
+Route::group(['prefix' => 'games'], function()
+{
+	Route::get('/', ['as' => 'getGames', 'uses' => 'HomeController@getGames']);
+	Route::get('/list', ['as' => 'getGameList', 'uses' => 'HomeController@getGameList']);
+});
 
 Route::group(['prefix' => 'ranking'], function()
 {

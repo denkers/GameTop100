@@ -20,4 +20,13 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 
+	public function getGames()
+	{
+		
+	}
+
+	public function getGameList()
+	{
+		return GamesModel::getGames();
+	}
 }
