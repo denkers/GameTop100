@@ -227,4 +227,10 @@ class SiteController extends MasterController
 	{
 		return SitesModel::getSitesForGame(1)->orderBy('title')->get();
 	}
+
+	public function getRankingHome()
+	{
+		return View::make('ranking.home');
+	}		
+
 }

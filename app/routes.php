@@ -25,12 +25,6 @@ Route::group(['prefix' => 'games'], function()
 	Route::get('/list', ['as' => 'getGameList', 'uses' => 'HomeController@getGameList']);
 });
 
-Route::group(['prefix' => 'ranking'], function()
-{
-	Route::get('/', ['as' => 'getRankingHome', 'uses' => 'RankingController@getRankingHome']);
-	Route::get('/game={game_id}/ranking', ['as' => 'getRankingList', 'uses' => 'RankingController@getRankingList']);
-});
-
 Route::group(['prefix' => 'subscribers'], function()
 {
 	Route::post('/subscribe', ['as' => 'postUserSubscribe', 'uses' => 'UserController@postUserSubscribe']);
@@ -64,10 +58,12 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 
 		Route::group(['prefix' => 'ranking'], function()
 		{
+			Route::get('/', ['as' => 'getRankingHome', 'uses' => 'SiteController@getRankingHome']);
 			Route::get('/all', ['as' => 'getRankingSiteList', 'uses' => 'SiteController@getRankingSiteList']);
 
 			Route::group(['prefix' => 'site={site_id}'], function()
 			{
+				Route::get('/view', ['as' => 'getSite', 'uses' => 'SiteController@getSite']);
 				Route::group(['prefix' => 'comments'], function()
 				{
 					Route::get('/all', ['as' => 'getSiteComments', 'uses' => 'SiteController@getSiteComments']);
