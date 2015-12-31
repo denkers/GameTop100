@@ -59,6 +59,8 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 
 		Route::group(['prefix' => 'ranking'], function()
 		{
+			Route::get('/all', ['as' => 'getRankingSiteList', 'uses' => 'SiteController@getRankingSiteList']);
+
 			Route::group(['prefix' => 'site={site_id}'], function()
 			{
 				Route::group(['prefix' => 'comments'], function()

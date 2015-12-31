@@ -11,11 +11,16 @@ Ranking
 
 @section('js')
 	@parent
-	{{ HTML::script('javascript/ranking/ranking.js'); }}	
+	{{ HTML::script('javascript/controllers/ranking-controller.js'); }}	
 @stop
 
 
 @section('content')
+<script>
+	var site_list_url	=	'{{ URL::route("getRankingSiteList"); }}';
+</script>
+
+<div data-ng-controller='rankingController'>
 	<div id='home_content'>
 		<div id='game_nav'>
 			<ul id='games_list' class='list-group'>
@@ -140,5 +145,5 @@ Ranking
 			</div>
 		</div>
 	</div> 
-
+</div>
 @stop
