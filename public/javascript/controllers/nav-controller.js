@@ -3,36 +3,19 @@
 	angular.module('main').controller('navController', function($scope, $rootScope, $uibModal, $log)
 	{
 		$scope.openLogin	=	function()
-		{
-			var loginModal	=	$uibModal.open
-			({
-				animation: true,
-				templateUrl: 'templates/user/login.blade.php',
-				controller: 'userController',
-				size: 'lg'
-			});
+		{	
+			$rootScope.openModal($uibModal, null, 'templates/user/login.blade.php', 'userController');
 		};
 
 		$scope.openRegister	=	function()
-		{
-			var registerModal	=	$uibModal.open
-			({
-				animation: true,
-				templateUrl: 'templates/user/register.blade.php',
-				controller: 'userController',
-				size: 'lg'
-			});
+		{	
+			$rootScope.openModal($uibModal, null, 'templates/user/register.blade.php', 'userController');
 		};
 
 		$scope.openLogout	=	function()
 		{
-			var logoutModal	=	$uibModal.open
-			({
-				animation: true,
-				template: '<message-modal title="Sign-out" message="Signing out, one moment please"></message-modal>',
-				controller: 'userController',
-				size: 'lg'
-			});
+			var template	=	'<message-modal title="Sign-out" message="Signing out, one moment please"></message-modal>';
+			$rootScope.openModal($uibModal, template, null, 'userController');
 
 			setTimeout(function()
 			{
