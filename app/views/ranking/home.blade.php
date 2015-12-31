@@ -23,7 +23,7 @@ Ranking
 <div data-ng-controller='rankingController'>
 	<div id='home_content'>
 		<div id='game_nav'>
-			<ul id='games_list' class='list-group' data-ng-init='game_data = {{ GamesModel::getGames(); }}'>
+			<ul id='games_list' class='list-group'>
 				<?php $game_list = GamesModel::getGames(); ?>
 				@if(isset($game_list))
 					@foreach($game_list as $game)
@@ -91,17 +91,17 @@ Ranking
 											</span>
 
 											<!-- SITE COMMENTS -->
-											<a class='site_comments_group plain_link' href='{{ URL::route("getSiteComments"); }}' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
-												<span class='site_comments'><% comment_list.length %></span> <span class='glyphicon glyphicon-comment'></span>
+											<a class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
+												<span class='site_comments'><% ranking_item.comments.length %></span> <span class='glyphicon glyphicon-comment'></span>
 											</a>
 										</h3>
 									</div> 
 									<div class='site_comments_container col-md-12'>
 										<div class='show_comments_container'>
 											<hr>
-											<span class='show_comments_msg'>Showing <% comment_list.length %> comments</span>
+											<span class='show_comments_msg'>Showing <% ranking_item.comments.length %> comments</span>
 										</div>
-											<div class='row comment_item' data-ng-repeat='comment in comment_list'>
+											<div class='row comment_item' data-ng-repeat='comment in ranking_item.comments'>
 												<div class='col-md-1'>
 													<a href='#' class='comment_writter'><% comment.writter_id %></a>
 												</div>
