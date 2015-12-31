@@ -3,7 +3,8 @@
 	angular.module('main').controller('userController', function($scope, $http, $httpParamSerializer)
 	{
 		$scope.loginData	=	{};
-		
+		$scope.registerData	=	{};
+
 		$scope.login		=	function()
 		{
 			$http
@@ -18,7 +19,25 @@
 			.error(function(response)
 			{
 				console.log(response);
-			})
+			});
+		};
+
+		$scope.register		=	function()
+		{
+			$http
+			({
+				url: 'register',
+				data: $httpParamSerializer($scope.registerData),
+				method: 'POST'
+
+			}).success(function(response)
+			{
+				console.log(response);
+
+			}).error(function(response)
+			{
+				console.log(response);
+			});
 		};
 
 		$scope.logout		=	function()
