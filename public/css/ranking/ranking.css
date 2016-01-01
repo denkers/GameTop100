@@ -48,7 +48,8 @@
   opacity: 0.8; }
 
 .site_comments_container {
-  margin-top: 2em; }
+  margin-top: 2em;
+  transition: 0.4s ease-in-out; }
   .site_comments_container .show_comments_container {
     text-align: center; }
   .site_comments_container .show_comments_msg:hover {

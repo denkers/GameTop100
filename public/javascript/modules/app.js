@@ -1,5 +1,6 @@
 angular.module('main', 
-[ 
+[
+	'ngAnimate',
 	'ui.bootstrap',
 	'ui.bootstrap.tpls'
 ], function($interpolateProvider)

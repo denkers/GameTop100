@@ -94,6 +94,8 @@ Ranking
 											</a>
 										</h3>
 									</div> 
+
+									<!-- SITE COMMENTS CONTAINER -->
 									<div class='site_comments_container col-md-12' uib-collapse='!ranking_item.showComments'>
 										<div class='show_comments_container'>
 											<hr>
