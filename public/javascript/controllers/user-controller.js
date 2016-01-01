@@ -11,7 +11,7 @@
 		{
 			$http
 			({
-				url: 'login',
+				url: root_url + '/login',
 				data: $httpParamSerializer($scope.loginData),
 				method: 'POST'
 			}).success(function(response)
@@ -36,7 +36,7 @@
 		{
 			$http
 			({
-				url: 'register',
+				url: root_url + '/register',
 				data: $httpParamSerializer($scope.registerData),
 				method: 'POST'
 
@@ -52,7 +52,7 @@
 
 		$scope.logout		=	function()
 		{
-			$http.get('user/logout')
+			$http.get(root_url + '/user/logout')
 			.success(function(response)
 			{
 				console.log(response);

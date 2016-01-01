@@ -1,6 +1,6 @@
 (function()
 {
-	angular.module('main').controller('rankingController', function($scope, $http)
+	angular.module('main').controller('siteController', function($scope, $http)
 	{
 		$scope.loadRankingList	=	function()
 		{

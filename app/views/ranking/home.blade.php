@@ -21,7 +21,7 @@ Ranking
 	var game_list_url	=	'{{ URL::route("getGameList"); }}';
 </script>
 
-<div data-ng-controller='rankingController'>
+<div data-ng-controller='siteController'>
 	<div id='home_content'>
 		<div id='game_nav'>
 			<ul id='games_list' class='list-group'>
