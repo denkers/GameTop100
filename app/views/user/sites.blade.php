@@ -83,7 +83,7 @@
 							</a>
 		
 							<!-- EDIT SITE CONTROL -->	
-							<a class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", 1) }}'>
+							<a data-ng-click='site.showViewContainer = !site.showViewContainer; $event.preventDefault()' class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", 1) }}'>
 								<span class='glyphicon glyphicon-pencil'></span>
 							</a>
 
@@ -100,7 +100,7 @@
 					</div>
 
 					<!-- SITE VIEW CONTAINER -->
-					<div class='site_view_container col-md-12'> 
+					<div uib-collapse='!site.showViewContainer' class='site_view_container col-md-12'> 
 						<form class='site_edit_form' action='{{ URL::route("postEditSite"); }}' method='post'>
 							<input type='hidden' name='s_id' value='<% site.id %>' />
 							<div class='input-group'>

@@ -11,7 +11,7 @@ Ranking
 
 @section('js')
 	@parent
-	{{ HTML::script('javascript/controllers/ranking-controller.js'); }}	
+	{{ HTML::script('javascript/controllers/site-controller.js'); }}	
 @stop
 
 
