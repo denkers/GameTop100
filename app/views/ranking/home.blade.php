@@ -89,12 +89,12 @@ Ranking
 											</span>
 
 											<!-- SITE COMMENTS -->
-											<a class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments'>
+											<a class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments' data-ng-click='ranking_item.showComments = !ranking_item.showComments'>
 												<span class='site_comments'><% ranking_item.comments.length %></span> <span class='glyphicon glyphicon-comment'></span>
 											</a>
 										</h3>
 									</div> 
-									<div class='site_comments_container col-md-12'>
+									<div class='site_comments_container col-md-12' uib-collapse='!ranking_item.showComments'>
 										<div class='show_comments_container'>
 											<hr>
 											<span class='show_comments_msg'>Showing <% ranking_item.comments.length %> comments</span>
