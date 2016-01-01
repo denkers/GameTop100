@@ -47,9 +47,11 @@
 .rank_display:hover {
   opacity: 0.8; }
 
+.site_comments_group:hover {
+  cursor: pointer; }
+
 .site_comments_container {
-  margin-top: 2em;
-  transition: 0.4s ease-in-out; }
+  margin-top: 2em; }
   .site_comments_container .show_comments_container {
     text-align: center; }
   .site_comments_container .show_comments_msg:hover {

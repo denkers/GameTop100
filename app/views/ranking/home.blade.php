@@ -99,7 +99,9 @@ Ranking
 									<div class='site_comments_container col-md-12' uib-collapse='!ranking_item.showComments'>
 										<div class='show_comments_container'>
 											<hr>
-											<span class='show_comments_msg'>Showing <% ranking_item.comments.length %> comments</span>
+											<span class='show_comments_msg' data-ng-click='ranking_item.showComments = !ranking_item.showComments'>
+												Showing <% ranking_item.comments.length %> comments
+											</span>
 										</div>
 											<div class='row comment_item' data-ng-repeat='comment in ranking_item.comments'>
 												<div class='col-md-1'>

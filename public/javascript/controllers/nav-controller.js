@@ -4,12 +4,12 @@
 	{
 		$scope.openLogin	=	function()
 		{	
-			$rootScope.openModal(null, 'templates/user/login.blade.php', 'userController');
+			$rootScope.openModal(null, root_url + '/templates/user/login.blade.php', 'userController');
 		};
 
 		$scope.openRegister	=	function()
 		{	
-			$rootScope.openModal(null, 'templates/user/register.blade.php', 'userController');
+			$rootScope.openModal(null, root_url + '/templates/user/register.blade.php', 'userController');
 		};
 
 		$scope.openLogout	=	function()

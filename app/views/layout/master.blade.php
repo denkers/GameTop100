@@ -11,6 +11,10 @@
 		<title>MegaTop100 - @yield('title_postfix')</title>
 
 		@section('js')
+		<script>
+			var root_url	=	'{{ URL::to("/"); }}';
+		</script>
+
 			{{ HTML::script('dependencies/angular.js'); }}
 			{{ HTML::script('dependencies/angular-animate.min.js'); }}
 			{{ HTML::script('dependencies/ui-bootstrap-tpls.min.js'); }}

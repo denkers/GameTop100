@@ -71,11 +71,14 @@
 	opacity:0.8;
 }
 
+.site_comments_group:hover
+{
+	cursor:pointer;
+}
 
 .site_comments_container
 {
 	margin-top:2em;
-	transition:0.4s ease-in-out;
 
 	.show_comments_container
 	{
