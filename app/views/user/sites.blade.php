@@ -16,7 +16,7 @@
 
 @section('content')
 <script>
-	var site_fetch_url	=	'{{ URL::route("getMySiteList"); }}';
+	var fetch_site_url	=	'{{ URL::route("getMySiteList"); }}';
 </script>
 
 <div data-ng-controller='siteManagementController'>
@@ -51,8 +51,7 @@
 
 		<!-- SITE LIST -->
 		<ul class='list-group site_group'>
-			@foreach($site_list as $site)
-				<li class='list-group-item list_site_item clearifx'>
+				<li data-ng-repeat='site in site_list' class='list-group-item list_site_item clearifx'>
 					<div class='list_site_item_container row'>
 
 						<!-- SITE BANNER -->
@@ -69,8 +68,8 @@
 
 						<!-- SITE DETAILS -->
 						<div class='site_item_details col-md-7'>
-							<h5 class='list_site_title'>{{ $site->title; }}
-								<br><small>{{ $site->description; }}</small>
+							<h5 class='list_site_title'><% site.title %>
+								<br><small><% site.description %></small>
 							</h5>					
 						</div>
 
@@ -78,22 +77,22 @@
 						<div class='site_item_controls col-md-4'>
 
 							<!-- REMOVE SITE CONTROl -->
-							<a class='site_control_link plain_link remove_site_control' href='{{ URL::route("postRemoveSite", $site->id); }}'>
+							<a class='site_control_link plain_link remove_site_control' href='{{ URL::route("postRemoveSite", 1); }}'>
 								<span class='glyphicon glyphicon-remove'></span>
 							</a>
 		
 							<!-- EDIT SITE CONTROL -->	
-							<a class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", $site->id); }}'>
+							<a class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", 1) }}'>
 								<span class='glyphicon glyphicon-pencil'></span>
 							</a>
 
 							<!-- PREMIUM SITE CONROL -->
-							<a class='site_control_link plain_link premium_site_control' href='{{ URL::route("postMakePremiumSite", $site->id); }}'>
+							<a class='site_control_link plain_link premium_site_control' href='{{ URL::route("postMakePremiumSite",1); }}'>
 								<span class='glyphicon glyphicon-star'></span>
 							</a>
 
 							<!-- VIEW SITE CONTROL -->
-							<a class='site_control_link plain_link view_site_control' href='{{ $site->address }}'>
+							<a class='site_control_link plain_link view_site_control' href='<% site.address %>'>
 								<span class='glyphicon glyphicon-share-alt'></span>
 							</a>
 						</div>
@@ -102,7 +101,7 @@
 					<!-- SITE VIEW CONTAINER -->
 					<div class='site_view_container col-md-12'> 
 						<form class='site_edit_form' action='{{ URL::route("postEditSite"); }}' method='post'>
-							<input type='hidden' name='s_id' value='{{ $site->id }}' />
+							<input type='hidden' name='s_id' value='<% site.id %>' />
 							<div class='input-group'>
 								<label>Site title</label>
 								<input class='form-control' type='text' name='s_title' required />
@@ -132,7 +131,6 @@
 						</form>
 					</div>
 				</li>
-			@endforeach
 		</ul>
 	</div>
 
