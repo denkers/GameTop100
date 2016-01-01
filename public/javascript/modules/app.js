@@ -13,7 +13,7 @@ angular.module('main',
 	$httpProvider.defaults.headers.post['Content-Type']	=	'application/x-www-form-urlencoded';	
 });
 
-angular.module('main').run(function($rootScope, $uibModal, $uibModalStack)
+angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http)
 {
 	$rootScope.openModal	=	function(template, templateUrl, controller)
 	{
@@ -30,5 +30,17 @@ angular.module('main').run(function($rootScope, $uibModal, $uibModalStack)
 	$rootScope.closeModal	=	function()
 	{
 		$uibModalStack.dismissAll();
+	};
+
+	$rootScope.getData		=	function(url, callBack)
+	{
+		$http.get(url).success(function(response)
+		{
+			callBack(response);
+
+		}).error(function(response)
+		{
+			console.log(response);
+		});
 	};
 });

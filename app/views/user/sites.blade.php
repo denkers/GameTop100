@@ -16,7 +16,8 @@
 
 @section('content')
 <script>
-	var fetch_site_url	=	'{{ URL::route("getMySiteList"); }}';
+	var site_list_url	=	'{{ URL::route("getMySiteList"); }}';
+	var game_list_url	=	'{{ URL::route("getGameList"); }}';
 </script>
 
 <div data-ng-controller='siteManagementController'>
@@ -119,11 +120,8 @@
 
 							<div class='input-group'>
 								<label>Game</label>
-								<?php $games_list	=	GamesModel::getGames(); ?>
 								<select name='s_game' class='form-control'>
-									@foreach($games_list as $game)
-										<option value='{{ $game->id }}'>{{ $game->name; }}</option>
-									@endforeach
+									<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
 								</select>
 							</div>
 							<button class='btn btn-default cancel_site_btn'>Back</button>

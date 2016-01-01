@@ -1,15 +1,15 @@
 (function()
 {
-	angular.module('main').controller('siteManagementController', function($scope, $http)
+	angular.module('main').controller('siteManagementController', function($scope, $rootScope)
 	{
-		$scope.loadUserSites	=	function()
+		$rootScope.getData(site_list_url, function(response)
 		{
-			$http.get(fetch_site_url).then(function(response)
-			{
-				$scope.site_list	=	response.data;
-			});
-		};
+			$scope.site_list	=	response;	
+		});
 
-		$scope.loadUserSites();
+		$rootScope.getData(game_list_url, function(response)
+		{
+			$scope.game_list	=	response;
+		});
 	});
 })();
