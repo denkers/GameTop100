@@ -14,6 +14,11 @@ class SitesModel extends Eloquent
 		return $this->hasMany('SiteCommentsModel', 'site_id');
 	}
 
+	public function votes()
+	{
+		return $this->hasMany('SiteVotesModel', 'site_id');
+	}
+
 	public static function getSitesForGame($game_id)
 	{
 		return self::where('game_id', '=', $game_id)->with('comments');
