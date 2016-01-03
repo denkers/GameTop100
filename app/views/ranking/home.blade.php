@@ -133,7 +133,17 @@ Ranking
 												</div>
 											<div>
 									</div>
+								</div>
+
+								<br>
+								<div class='comment_add_controls'>
+									<div class='input-group'>
+										<input data-ng-model='ranking_item.comment_add_field' type='text' class='form-control' placeholder='Enter a comment' />
+										<span class='input-group-btn'>
+											<button class='btn btn-success'>Add</button>
+										</span>
 									</div>
+								</div>
 						</div>
 					</div>
 				</div>
