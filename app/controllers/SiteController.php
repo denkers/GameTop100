@@ -174,7 +174,21 @@ class SiteController extends MasterController
 
 	public function postRateComment()
 	{
-		
+		$success_msg	=	'Successfully rated comment';
+		$fail_msg		=	'Failed to rate comment';
+
+		$validator		=	Validator::make(Input::all(),
+		[
+			'comment_id'	=>	'required|exists:site_comments,id',
+			'is_upvote'		=>	'required'
+		]);	
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$isUpvote	=	Input::get('is_upvote');
+		}
 	}
 
 	private function userCanComment($commentModel)
