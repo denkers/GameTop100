@@ -1,3 +1,9 @@
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	user-controller	
+//==================================
+
 (function()
 {
 	angular.module('main').controller('userController', function($scope, $rootScope, $http, $httpParamSerializer)

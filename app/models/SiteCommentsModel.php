@@ -1,4 +1,9 @@
 <?php
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	SiteCommentsModel
+//==================================
 
 class SiteCommentsModel extends Eloquent
 {

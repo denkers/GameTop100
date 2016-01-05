@@ -1,4 +1,9 @@
 <?php
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	SiteController
+//==================================
 
 class SiteController extends MasterController
 {

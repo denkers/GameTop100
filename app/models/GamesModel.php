@@ -1,4 +1,10 @@
 <?php
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	GamesModel	
+//==================================
+
 
 class GamesModel extends Eloquent
 {

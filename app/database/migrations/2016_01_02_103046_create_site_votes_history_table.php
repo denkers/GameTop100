@@ -1,4 +1,10 @@
 <?php
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	CreateSiteVotesHistoryTable
+//==================================
+
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

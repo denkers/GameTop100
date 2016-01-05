@@ -1,3 +1,9 @@
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	message-modal-directive	
+//==================================
+
 (function()
 {
 	angular.module('main').directive('messageModal', function()

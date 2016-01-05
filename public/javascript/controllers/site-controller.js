@@ -1,3 +1,9 @@
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	site-controller	
+//==================================
+
 (function()
 {
 	angular.module('main').controller('siteController', function($scope, $rootScope, $http)

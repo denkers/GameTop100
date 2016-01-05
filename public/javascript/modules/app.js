@@ -1,3 +1,9 @@
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	app	
+//==================================
+
 angular.module('main', 
 [
 	'ngAnimate',

@@ -1,3 +1,9 @@
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	nav-controller	
+//==================================
+
 (function()
 {
 	angular.module('main').controller('navController', function($scope, $rootScope, $log)

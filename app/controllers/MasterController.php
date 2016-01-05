@@ -1,4 +1,11 @@
 <?php 
+//==================================
+//	Kyle Russell
+//	github.com/denkers/GameTop100
+//	MasterController
+//==================================
+
+
 class MasterController extends Controller
 {
 	protected $invalid_input_msg	=	'Invalid input, please check fields';
