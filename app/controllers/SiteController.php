@@ -107,13 +107,32 @@ class SiteController extends MasterController
 
 	public function getSiteVote()
 	{
-		$site_id	=	Route::current()->parameters['site_id'];
 		return View::make('ranking.site_vote');
 	}
 
 	public function postSiteVote()
 	{
+		$success_msg	=	'You have successfully voted';
+		$fail_msg		=	'Failed to add vote';
 
+		$validator		=	Validator::make(Input::all(),
+		[
+			'site_id'	=>	'required|exists:sites,id',
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$vote			=	new SiteVotesModel();
+			$vote->site_id	=	Input::get('site_id');
+			$vote->ip		=	'0.0.0.0';
+
+			if($vote->save())
+				return MasterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);	
+		}
 	}
 
 	public function getSiteComments()
