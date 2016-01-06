@@ -62,7 +62,7 @@
 				parent_site.comment_response.show	=	true;
 
 				if(response.status)
-					delete parent_site.comments[index];
+					parent_site.comments.splice(index, 1);
 			});
 		};
 	});
