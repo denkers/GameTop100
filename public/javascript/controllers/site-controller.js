@@ -18,16 +18,27 @@
 			$scope.game_list	=	response;
 		});
 
-		$scope.addComment	=	function(parent_site)
+		$scope.addComment	=	function(url, parent_site)
 		{
-			parent_site.comments.push
-			({
-				site_id: parent_site.id,
-				writter_id: 'kyleruss',
-				content: parent_site.comment_add_field
-			});	
+			var params		=	{ site_id: parent_site.id };
+			url				=	$rootScope.setParams(url, params);
+			var data		=	{ comment_content: parent_site.comment_add_field, comment_site: parent_site.id };
 
-			parent_site.comment_add_field = '';
+			$rootScope.postData(url, data, function(response)
+			{
+				console.log(response);
+				if(response.status)
+				{
+					parent_site.comments.push
+					({
+						site_id: parent_site.id,
+						writter_id: 'kyleruss',
+						content: parent_site.comment_add_field
+					});	
+					
+					parent_site.comment_add_field = '';
+				}
+			});
 		};
 
 		$scope.editComment	=	function(url, comment)

@@ -19,7 +19,7 @@ angular.module('main',
 	$httpProvider.defaults.headers.post['Content-Type']	=	'application/x-www-form-urlencoded';	
 });
 
-angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http)
+angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http, $httpParamSerializer)
 {
 	$rootScope.openModal	=	function(template, templateUrl, controller)
 	{
@@ -47,6 +47,26 @@ angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http
 		}).error(function(response)
 		{
 			console.log(response);
+		});
+	};
+
+	$rootScope.postData		=	function(url, data, callBack)
+	{
+		var serializedData	=	 $httpParamSerializer(data);
+		console.log(serializedData);
+		$http
+		({
+			url: url,
+			data: $httpParamSerializer(data),
+			method: 'POST'
+		}).success(function(response)
+		{
+			callBack(response);
+
+		}).error(function(response)
+		{
+			console.log(response);
+			callBack(response);
 		});
 	};
 

@@ -166,7 +166,7 @@ class SiteController extends MasterController
 			$comment->content		=	Input::get('comment_content');
 
 			if($comment->save())
-				return MasterController::encodeReturn(true, $success_msg);
+				return MasterController::encodeReturn(true, $success_msg, ['comment_data' => $comment]);
 			else
 				return MasterController::encodeReturn(false, $fail_msg);
 		}

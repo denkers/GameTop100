@@ -59,7 +59,7 @@ Route::group(['prefix' => 'sites'], function()
 			Route::group(['prefix' => 'comments'], function()
 			{
 				Route::get('/all', ['as' => 'getSiteComments', 'uses' => 'SiteController@getSiteComments']);
-				Route::post('/add', ['as' => 'postAddSiteComment', 'uses' => 'SiteController@postAddSiteComment', 'before' => 'auth']);
+				Route::post('/add', ['as' => 'postAddSiteComment', 'before' => 'auth', 'uses' => 'SiteController@postAddSiteComment']);
 
 				Route::group(['prefix' => 'comment={comment_id}', 'before' => 'auth'], function()
 				{
