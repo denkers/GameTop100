@@ -26,8 +26,8 @@
 
 			$rootScope.postData(url, data, function(response)
 			{
-				parent_site.comment_response = response;
-				parent_site.comment_response.show = true;
+				parent_site.comment_response		=	response;
+				parent_site.comment_response.show	=	true;
 
 				if(response.status)
 				{
@@ -37,16 +37,32 @@
 			});
 		};
 
-		$scope.editComment	=	function(url, comment)
+		$scope.editComment	=	function(url, comment, parent_site)
 		{
 			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
 			url				=	$rootScope.setParams(url, params);
+			var data		=	{ comment_content: comment.content, comment_id: comment.id };
+
+			$rootScope.postData(url, data, function(response)
+			{
+				parent_site.comment_response		=	response;
+				parent_site.comment_response.show	=	true;
+			});
 		};
 
-		$scope.removeComment	=	function(url, comment)
+		$scope.removeComment	=	function(url, comment, parent_site, index)
 		{
 			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
 			url				=	$rootScope.setParams(url, params);
+			var data		=	{ comment_id: comment.id };
+
+			$rootScope.postData(url, data, function(response)
+			{
+				parent_site.comment_response		=	response;
+				parent_site.comment_response.show	=	true;
+				
+				delete parent_site.comments[index];
+			});
 		};
 	});
 })();
