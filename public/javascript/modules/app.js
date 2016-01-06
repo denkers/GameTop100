@@ -49,4 +49,15 @@ angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http
 			console.log(response);
 		});
 	};
+
+	$rootScope.setParams	=	function(url, params)
+	{
+		var start	=	'%7B';
+		var end		=	'%7D';
+
+		for(var key in params)
+			url		=	url.replace(start + key + end, params[key]);
+
+		return url;
+	};
 });

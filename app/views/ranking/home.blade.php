@@ -126,8 +126,8 @@ Ranking
 													</div>
 
 													<div class='comment_controls_container col-md-6'>
-														<span class='glyphicon glyphicon-pencil edit_comment_btn'></span>
-														<span class='glyphicon glyphicon-remove remove_comment_btn'></span>
+														<span data-ng-click='editComment("{{ URL::route("postEditComment") }}", comment)' class='glyphicon glyphicon-pencil edit_comment_btn'></span>
+														<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment)' class='glyphicon glyphicon-remove remove_comment_btn'></span>
 														<span class='glyphicon glyphicon-flag report_comment_btn'></span>
 													</div>
 												</div>

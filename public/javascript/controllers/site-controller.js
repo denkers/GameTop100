@@ -29,5 +29,17 @@
 
 			parent_site.comment_add_field = '';
 		};
+
+		$scope.editComment	=	function(url, comment)
+		{
+			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
+			url				=	$rootScope.setParams(url, params);
+		};
+
+		$scope.removeComment	=	function(url, comment)
+		{
+			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
+			url				=	$rootScope.setParams(url, params);
+		};
 	});
 })();
