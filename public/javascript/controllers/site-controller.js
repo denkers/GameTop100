@@ -26,16 +26,9 @@
 
 			$rootScope.postData(url, data, function(response)
 			{
-				console.log(response);
 				if(response.status)
 				{
-					parent_site.comments.push
-					({
-						site_id: parent_site.id,
-						writter_id: 'kyleruss',
-						content: parent_site.comment_add_field
-					});	
-					
+					parent_site.comments.push(response.comment_data);
 					parent_site.comment_add_field = '';
 				}
 			});
