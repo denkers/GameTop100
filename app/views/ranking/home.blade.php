@@ -97,6 +97,14 @@ Ranking
 
 									<!-- SITE COMMENTS CONTAINER -->
 									<div class='site_comments_container col-md-12' uib-collapse='!ranking_item.showComments'>
+										<!-- SITE COMMENTS ALERT -->
+										<uib-alert data-ng-show='ranking_item.comment_response.show'
+										close='ranking_item.comment_response.show = false'
+										type='<% ranking_item.comment_response.status? "success" : "danger" %>'>
+											<span class='<% ranking_item.comment_response.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+											<% ranking_item.comment_response.message  %>
+										</uib-alert>
+
 										<div class='show_comments_container'>
 											<hr>
 											<span class='show_comments_msg' data-ng-click='ranking_item.showComments = !ranking_item.showComments'>

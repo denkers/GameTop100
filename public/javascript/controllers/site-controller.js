@@ -26,6 +26,9 @@
 
 			$rootScope.postData(url, data, function(response)
 			{
+				parent_site.comment_response = response;
+				parent_site.comment_response.show = true;
+
 				if(response.status)
 				{
 					parent_site.comments.push(response.comment_data);
