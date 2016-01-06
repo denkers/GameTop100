@@ -60,8 +60,9 @@
 			{
 				parent_site.comment_response		=	response;
 				parent_site.comment_response.show	=	true;
-				
-				delete parent_site.comments[index];
+
+				if(response.status)
+					delete parent_site.comments[index];
 			});
 		};
 	});
