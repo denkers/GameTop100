@@ -1,3 +1,5 @@
+@import "../master";
+
 #home_content
 {
 	display:table;
@@ -93,5 +95,26 @@
 			cursor:pointer;
 		}
 	}
+}
+
+.comment_control:hover
+{
+	color:$colour_blue;
+	cursor:pointer;
+}
+
+.comment_downvote
+{
+	top:-0.3em;
+}
+
+.comment_rating_container
+{
+	padding:0;
+}
+
+.comment_controls_container
+{
+	padding:0;
 }
 

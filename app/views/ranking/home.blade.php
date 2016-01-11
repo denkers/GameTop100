@@ -128,15 +128,15 @@ Ranking
 														</span>
 													</div>
 													<div class='comment_rating_controls col-md-3'>
-														<span class='glyphicon glyphicon-chevron-up comment_control comment_upvote'></span>
-														<span class='glyphicon glyphicon-chevron-down comment_control comment_downvote'></span>
+														<span class='comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'></span>
+														<span class='comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'></span>
 													</div>	
 												</div>
 
 												<div class='comment_controls_container col-md-6'>
-													<span data-ng-click='editComment("{{ URL::route("postEditComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-pencil edit_comment_btn'></span>
-													<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-remove remove_comment_btn'></span>
-													<span class='glyphicon glyphicon-flag report_comment_btn'></span>
+													<span data-ng-click='editComment("{{ URL::route("postEditComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control'></span>
+													<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
+													<span class='glyphicon glyphicon-flag report_comment_btn comment_control'></span>
 												</div>
 											</div>
 										</div>

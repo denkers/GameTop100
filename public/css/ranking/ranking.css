@@ -58,4 +58,17 @@
     opacity: 0.6;
     cursor: pointer; }
 
+.comment_control:hover {
+  color: #158cba;
+  cursor: pointer; }
+
+.comment_downvote {
+  top: -0.3em; }
+
+.comment_rating_container {
+  padding: 0; }
+
+.comment_controls_container {
+  padding: 0; }
+
 /*# sourceMappingURL=ranking.css.map */
