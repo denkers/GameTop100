@@ -98,8 +98,8 @@ Ranking
 									<!-- SITE COMMENTS CONTAINER -->
 									<div class='site_comments_container col-md-12' uib-collapse='!ranking_item.showComments'>
 										<!-- SITE COMMENTS ALERT -->
-										<uib-alert data-ng-show='ranking_item.comment_response.show'
-										close='ranking_item.comment_response.show = false'
+										<uib-alert data-ng-if='ranking_item.comment_response.show'
+										close='hideCommentAlert(ranking_item)' dismiss-on-timeout='2000'
 										type='<% ranking_item.comment_response.status? "success" : "danger" %>'>
 											<span class='<% ranking_item.comment_response.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
 											<% ranking_item.comment_response.message  %>
@@ -146,7 +146,7 @@ Ranking
 									<div class='input-group'>
 										<input data-ng-model='ranking_item.comment_add_field' type='text' class='form-control' placeholder='Enter a comment' />
 										<span class='input-group-btn'>
-											<button class='btn btn-success' data-ng-click='addComment("{{ URL::route("postAddSiteComment") }}", ranking_item)'>Add</button>
+											<button {{ Auth::check()? "" : "disabled" }} class='btn btn-success' data-ng-click='addComment("{{ URL::route("postAddSiteComment") }}", ranking_item)'>Add</button>
 										</span>
 									</div>
 								</div>

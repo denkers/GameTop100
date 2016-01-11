@@ -65,5 +65,10 @@
 					parent_site.comments.splice(index, 1);
 			});
 		};
+
+		$scope.hideCommentAlert	=	function(item)
+		{
+			item.comment_response.show	=	false;
+		};
 	});
 })();

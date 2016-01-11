@@ -8,8 +8,6 @@
 
 class HomeController extends MasterController
 {
-
-
 	public function getHome()
 	{
 		return View::make('home');
