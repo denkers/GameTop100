@@ -221,7 +221,7 @@ class SiteController extends MasterController
 			else
 			{
 				$vote				=	new CommentVotesModel();
-				$vote->comment_id	=	$comment;
+				$vote->comment_id	=	$comment_id;
 				$vote->user_id		=	$user;
 				$vote->isUpvote		=	$isUpvote;
 
