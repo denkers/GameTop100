@@ -27,7 +27,11 @@ class SitesModel extends Eloquent
 
 	public static function getSitesForGame($game_id)
 	{
-		return self::where('game_id', '=', $game_id)->with('comments');
+		return self::where('game_id', '=', $game_id)->with('comments')
+			->with(['comments.userVotes' => function($query)
+			{
+				$query->where('comment_votes.user_id', '=', Auth::user()->username);
+			}]);	
 	}
 	
 	public static function getSitesForUser($user_id)

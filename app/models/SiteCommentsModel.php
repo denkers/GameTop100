@@ -19,7 +19,7 @@ class SiteCommentsModel extends Eloquent
 		return self::where('site_id', '=', $site_id)->orderBy('created_at', 'desc')
 			->with(['userVotes', function($query)
 			{
-				$query->where('user_id', '=', Auth::user()->username);
+				$query->where('comment_votes.user_id', '=', Auth::user()->username);
 			}])->get();
 	}
 }

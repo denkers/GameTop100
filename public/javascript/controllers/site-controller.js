@@ -10,6 +10,7 @@
 	{
 		$rootScope.getData(site_list_url, function(response)
 		{
+			console.log(response);
 			$scope.ranking_list		=	response;
 		});
 
@@ -76,6 +77,18 @@
 			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
 			url				=	$rootScope.setParams(url, params);
 			var data		=	{ comment_id: comment.id, is_upvote: isUpvote };
+	
+			if(comment.user_votes.length)
+			{
+				var voteBin	=	(isUpvote)? 1 : 0;
+
+				if(comment.user_votes[0].isUpvote == voteBin)
+				{
+					parent_site.comment_response		=	"You have already voted";
+					parent_site.comment_response.show	=	true;	
+					return;
+				}
+			}
 
 			$rootScope.postData(url, data, function(response)
 			{
