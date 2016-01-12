@@ -188,9 +188,11 @@ class SiteController extends MasterController
 		else
 		{
 			$isUpvote	=	Input::get('is_upvote');
-			$comment	=	Input::get('comment_id');
+			$comment_id	=	Input::get('comment_id');
 			$user		=	Auth::user()->username;
-			$vote		=	CommentVotesModel::getUserVote($comment, $user);
+			$vote		=	CommentVotesModel::getUserVote($comment_id, $user);
+			$comment	=	SiteCommentsModel::find($comment_id);
+			$comment->comment_rating	=	($isUpvote)? $comment->site_rating + 1 : $comment->site_rating - 1; 
 
 			//Vote exists, change or delete existing vote
 			if(count($vote))
@@ -198,7 +200,7 @@ class SiteController extends MasterController
 				//same vote choice, delete users vote
 				if($vote->isUpvote == $isUpvote)
 				{
-					if($vote->delete())
+					if($vote->delete() && $comment->save())
 						return MasterController::encodeReturn(true, $success_msg);
 					else
 						return MasterController::encodeReturn(false, $fail_msg);
@@ -208,7 +210,7 @@ class SiteController extends MasterController
 				else
 				{
 					$vote->isUpvote	=	$isUpvote;
-					if($vote->save())
+					if($vote->save() && $comment->save())
 						return MasterController::encodeReturn(true, $success_msg);
 					else
 						return MasterController::encodeReturn(false, $fail_msg);
@@ -223,7 +225,7 @@ class SiteController extends MasterController
 				$vote->user_id		=	$user;
 				$vote->isUpvote		=	$isUpvote;
 
-				if($vote->save())
+				if($vote->save() && $comment->save())
 					return MasterController::encodeReturn(true, $success_msg);
 				else
 					return MasterController::encodeReturn(false, $fail_msg);

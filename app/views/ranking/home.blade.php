@@ -128,8 +128,13 @@ Ranking
 														</span>
 													</div>
 													<div class='comment_rating_controls col-md-3'>
-														<span class='comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'></span>
-														<span class='comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'></span>
+														<!-- COMMENT UPVOTE -->
+														<span class='comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
+														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, true)'></span>
+
+														<!-- COMMENT DOWNVOTE -->
+														<span class='comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
+														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, false)'></span>
 													</div>	
 												</div>
 

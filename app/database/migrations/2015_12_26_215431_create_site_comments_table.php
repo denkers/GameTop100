@@ -25,6 +25,7 @@ class CreateSiteCommentsTable extends Migration {
 			$table->integer('site_id')->unsigned();
 			$table->string('content', 500);
 			$table->timestamps();
+			$table->integer('comment_rating');
 			$table->foreign('writter_id')->references('username')->on('users')->onDelete('cascade');
 			$table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
 		});

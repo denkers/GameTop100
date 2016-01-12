@@ -70,5 +70,27 @@
 		{
 			item.comment_response.show	=	false;
 		};
+
+		$scope.voteComment	=	function(url, comment, parent_site, isUpvote)
+		{
+			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
+			url				=	$rootScope.setParams(url, params);
+			var data		=	{ comment_id: comment.id, is_upvote: isUpvote };
+
+			$rootScope.postData(url, data, function(response)
+			{
+				if(response.status)
+				{
+					if(isUpvote) comment.comment_rating++;
+					else comment.comment_rating--;
+				}
+				
+				else
+				{
+					parent_site.comment_response		=	"Failed to save comment vote";
+					parent_site.comment_response.show	=	true;	
+				}
+			});
+		};
 	});
 })();
