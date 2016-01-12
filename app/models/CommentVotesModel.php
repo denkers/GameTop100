@@ -16,4 +16,9 @@ class CommentVotesModel extends Eloquent
 					->where('comment_id', '=', $comment_id)
 					->first();
 	}
+
+	public static function getVotesForComment($comment)
+	{
+		return self::where('comment_id', '=', $comment);
+	}
 }
