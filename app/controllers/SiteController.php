@@ -248,7 +248,6 @@ class SiteController extends MasterController
 		[
 			'comment_id'		=>	'required|exists:site_comments,id',
 			'comment_content'	=>	'required|max:300',
-			'comment_rating'	=>	'required|max:5'
 		]);
 		
 		if($validator->fails())
@@ -261,7 +260,6 @@ class SiteController extends MasterController
 				return MasterController::encodeReturn(false, $fail_msg);
 
 			$comment->content			=	Input::get('comment_content');
-			$comment->comment_rating	=	Input::get('comment_rating');
 
 			if($comment->save())
 				return MasterController::encodeReturn(true, $success_msg);

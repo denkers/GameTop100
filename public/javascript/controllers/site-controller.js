@@ -19,12 +19,12 @@
 			$scope.game_list	=	response;
 		});
 
-		$scope.saveComment	=	function(url, parent_site, comment)
+		$scope.saveComment	=	function(url, parent_site)
 		{
-			if(parent_site.isEdit)
+			if(!parent_site.isEdit)
 				$scope.addComment(url, parent_site);
 			else
-				$scope.editComment(url, comment.selectedComment, parent_site);
+				$scope.editComment(url, parent_site);
 		};
 
 		$scope.addComment	=	function(url, parent_site)
@@ -48,14 +48,14 @@
 
 		$scope.toggleEdit	=	function(comment, parent_site)
 		{
-			parent_site.comment_add_field	=	comment.content;
+			parent_site.comment_add_field	=	parent_site.comments[comment].content;
 			parent_site.isEdit				=	true;
-			parent_site.selected_comment	=	comment;
+			parent_site.selectedComment		=	comment;
 		};
 
 		$scope.editComment	=	function(url, parent_site)
 		{
-			var comment		=	parent_site.selectedComment;
+			var comment		=	parent_site.comments[parent_site.selectedComment];
 			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
 			url				=	$rootScope.setParams(url, params);
 			var data		=	{ comment_content: comment.content, comment_id: comment.id };
