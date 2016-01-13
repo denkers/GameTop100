@@ -26,6 +26,11 @@
 				selectedSite.showViewContainer	=	false;
 			}
 
+			if(!site.showViewContainer)
+			{
+				
+			}
+
 			site.showViewContainer = !site.showViewContainer
 		};
 	});
