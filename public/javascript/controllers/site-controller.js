@@ -21,7 +21,7 @@
 
 		$scope.saveComment	=	function(url, parent_site)
 		{
-			if(!parent_site.isEdit)
+			if(parent_site.selectedComment == null)
 				$scope.addComment(url, parent_site);
 			else
 				$scope.editComment(url, parent_site);
@@ -46,11 +46,11 @@
 			});
 		};
 
-		$scope.toggleEdit	=	function(comment, parent_site)
+		$scope.toggleEdit	=	function(comment, index, parent_site)
 		{
-			parent_site.comment_add_field	=	parent_site.comments[comment].content;
-			parent_site.isEdit				=	true;
-			parent_site.selectedComment		=	comment;
+			parent_site.comment_add_field	=	comment.content;
+			comment.isEdit					=	true;
+			parent_site.selectedComment		=	index;
 		};
 
 		$scope.editComment	=	function(url, parent_site)
@@ -69,8 +69,8 @@
 				{
 					comment.content					=	parent_site.comment_add_field;
 					parent_site.comment_add_field	=	"";
-					parent_site.selectedComment		=	{};
-					parent_site.isEdit				=	false;
+					comment.isEdit					=	false;
+					parent_site.selectedComment		=	null;
 				}	
 			});
 		};

@@ -139,7 +139,7 @@ Ranking
 												</div>
 
 												<div class='comment_controls_container col-md-6'>
-													<span data-ng-click='toggleEdit($index, ranking_item)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control <% ranking_item.isEdit? "active_control" : "" %>'></span>
+													<span data-ng-click='toggleEdit(comment, $index, ranking_item)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control <% comment.isEdit? "active_control" : "" %>'></span>
 													<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
 													<span class='glyphicon glyphicon-flag report_comment_btn comment_control'></span>
 												</div>
@@ -151,7 +151,7 @@ Ranking
 									<div class='input-group'>
 										<input data-ng-model='ranking_item.comment_add_field' type='text' class='form-control' placeholder='Enter a comment' />
 										<span class='input-group-btn'>
-											<button {{ Auth::check()? "" : "disabled" }} class='btn btn-success' data-ng-click='saveComment(ranking_item.isEdit?"{{ URL::route("postEditComment") }}" : "{{ URL::route("postAddSiteComment") }}", ranking_item)'>Save</button>
+											<button {{ Auth::check()? "" : "disabled" }} class='btn btn-success' data-ng-click='saveComment(ranking_item.selectedComment != null? "{{ URL::route("postEditComment") }}" : "{{ URL::route("postAddSiteComment") }}", ranking_item)'>Save</button>
 										</span>
 									</div>
 								</div>
