@@ -19,6 +19,14 @@
 			$scope.game_list	=	response;
 		});
 
+		$scope.saveComment	=	function(url, parent_site, comment)
+		{
+			if(parent_site.isEdit)
+				$scope.addComment(url, parent_site);
+			else
+				$scope.editComment(url, comment.selectedComment, parent_site);
+		};
+
 		$scope.addComment	=	function(url, parent_site)
 		{
 			var params		=	{ site_id: parent_site.id };
@@ -38,8 +46,16 @@
 			});
 		};
 
-		$scope.editComment	=	function(url, comment, parent_site)
+		$scope.toggleEdit	=	function(comment, parent_site)
 		{
+			parent_site.comment_add_field	=	comment.content;
+			parent_site.isEdit				=	true;
+			parent_site.selected_comment	=	comment;
+		};
+
+		$scope.editComment	=	function(url, parent_site)
+		{
+			var comment		=	parent_site.selectedComment;
 			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
 			url				=	$rootScope.setParams(url, params);
 			var data		=	{ comment_content: comment.content, comment_id: comment.id };
@@ -48,6 +64,14 @@
 			{
 				parent_site.comment_response		=	response;
 				parent_site.comment_response.show	=	true;
+
+				if(response.status)
+				{
+					comment.content					=	parent_site.comment_add_field;
+					parent_site.comment_add_field	=	"";
+					parent_site.selectedComment		=	{};
+					parent_site.isEdit				=	false;
+				}	
 			});
 		};
 

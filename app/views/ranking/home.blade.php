@@ -129,17 +129,17 @@ Ranking
 													</div>
 													<div class='comment_rating_controls col-md-3'>
 														<!-- COMMENT UPVOTE -->
-														<span class='<% comment.user_votes[0].isUpvote? "vote_active" : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
+														<span class='<% comment.user_votes[0].isUpvote? "active_control" : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
 														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, true)'></span>
 
 														<!-- COMMENT DOWNVOTE -->
-														<span class='<% comment.user_votes[0].isUpvote? "" : "vote_active" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
+														<span class='<% comment.user_votes[0].isUpvote? "" : "active_control" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
 														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, false)'></span>
 													</div>	
 												</div>
 
 												<div class='comment_controls_container col-md-6'>
-													<span data-ng-click='editComment("{{ URL::route("postEditComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control'></span>
+													<span data-ng-click='toggleEdit(comment, ranking_item)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control <% ranking_item.isEdit? "active_control" : "" %>'></span>
 													<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
 													<span class='glyphicon glyphicon-flag report_comment_btn comment_control'></span>
 												</div>
@@ -151,7 +151,7 @@ Ranking
 									<div class='input-group'>
 										<input data-ng-model='ranking_item.comment_add_field' type='text' class='form-control' placeholder='Enter a comment' />
 										<span class='input-group-btn'>
-											<button {{ Auth::check()? "" : "disabled" }} class='btn btn-success' data-ng-click='addComment("{{ URL::route("postAddSiteComment") }}", ranking_item)'>Add</button>
+											<button {{ Auth::check()? "" : "disabled" }} class='btn btn-success' data-ng-click='saveComment(ranking_item.isEdit? "{{ URL::route("postAddSiteComment") }}" : "{{ URL::route("postEditComment") }}", ranking_item)'>Save</button>
 										</span>
 									</div>
 								</div>
