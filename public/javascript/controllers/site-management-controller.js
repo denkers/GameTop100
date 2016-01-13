@@ -17,5 +17,16 @@
 		{
 			$scope.game_list	=	response;
 		});
+
+		$scope.toggleEditSiteContainer = function(site, index)
+		{
+			if($scope.site_list.selectedSite != null && $scope.site_list.selectedSite != index)
+			{
+				var selectedSite				=	$scope.site_list[$scope.site_list.selectedSite];
+				selectedSite.showViewContainer	=	false;
+			}
+
+			site.showViewContainer = !site.showViewContainer
+		};
 	});
 })();

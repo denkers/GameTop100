@@ -83,7 +83,7 @@
 							</a>
 		
 							<!-- EDIT SITE CONTROL -->	
-							<a data-ng-click='site.showViewContainer = !site.showViewContainer; $event.preventDefault()' class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", 1) }}'>
+							<a data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", 1) }}'>
 								<span class='glyphicon glyphicon-pencil'></span>
 							</a>
 
