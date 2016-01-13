@@ -28,7 +28,10 @@
 
 			if(!site.showViewContainer)
 			{
-				
+				site.saveContainer.s_title	=	site.title;
+				site.saveContainer.s_desc	=	site.description;
+				site.saveContainer.s_add	=	site.address;
+				site.saveContainer.s_game	=	site.game_id;
 			}
 
 			site.showViewContainer = !site.showViewContainer
