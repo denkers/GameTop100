@@ -48,9 +48,16 @@
 
 		$scope.toggleEdit	=	function(comment, index, parent_site)
 		{
-			parent_site.comment_add_field	=	comment.content;
-			comment.isEdit					=	true;
-			parent_site.selectedComment		=	index;
+			if(parent_site.selectedComment != null && parent_site.selectedComment != index)
+			{
+				var selectedComment			=	parent_site.comments[parent_site.selectedComment];
+				selectedComment.isEdit		=	false;
+			}
+
+			var isEdit						=	comment.isEdit;
+			parent_site.comment_add_field	=	(isEdit)? "" : comment.content;
+			parent_site.selectedComment		=	(isEdit)? null : index;
+			comment.isEdit					=	!comment.isEdit
 		};
 
 		$scope.editComment	=	function(url, parent_site)
