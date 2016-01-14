@@ -211,7 +211,7 @@ class SiteController extends MasterController
 				{
 					$vote->isUpvote	=	$isUpvote;
 					if($vote->save() && $comment->save())
-						return MasterController::encodeReturn(true, $success_msg);
+						return MasterController::encodeReturn(true, $success_msg); 
 					else
 						return MasterController::encodeReturn(false, $fail_msg);
 				}
@@ -226,7 +226,7 @@ class SiteController extends MasterController
 				$vote->isUpvote		=	$isUpvote;
 
 				if($vote->save() && $comment->save())
-					return MasterController::encodeReturn(true, $success_msg);
+					return MasterController::encodeReturn(true, $success_msg, ['added_vote' => $vote]);
 				else
 					return MasterController::encodeReturn(false, $fail_msg);
 			}

@@ -114,7 +114,6 @@
 
 				if(comment.user_votes[0].isUpvote == voteBin)
 				{
-					console.log('already voted');
 					parent_site.comment_response		=	"You have already voted";
 					parent_site.comment_response.show	=	true;	
 					return;
@@ -127,6 +126,9 @@
 				{
 					if(isUpvote) comment.comment_rating++;
 					else comment.comment_rating--;
+
+					if("added_vote" in response)
+						comment.user_votes.push(response.added_vote);
 				}
 				
 				else
