@@ -129,11 +129,11 @@ Ranking
 													</div>
 													<div class='comment_rating_controls col-md-3'>
 														<!-- COMMENT UPVOTE -->
-														<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote? "active_control" : "") : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
+														<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "active_control" : "") : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
 														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, true)'></span>
 
 														<!-- COMMENT DOWNVOTE -->
-														<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote? "" : "active_control") : "" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
+														<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "" : "active_control") : "" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
 														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, false)'></span>
 													</div>	
 												</div>

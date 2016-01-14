@@ -107,11 +107,10 @@
 			var params		=	{ site_id: comment.site_id, comment_id: comment.id };
 			url				=	$rootScope.setParams(url, params);
 			var data		=	{ comment_id: comment.id, is_upvote: isUpvote };
-	
+			var voteBin		=	(isUpvote)? 1 : 0;
+
 			if(comment.user_votes.length > 0)
 			{
-				var voteBin	=	(isUpvote)? 1 : 0;
-
 				if(comment.user_votes[0].isUpvote == voteBin)
 				{
 					parent_site.comment_response		=	"You have already voted";
@@ -124,8 +123,13 @@
 			{
 				if(response.status)
 				{
-					if(isUpvote) comment.comment_rating++;
-					else comment.comment_rating--;
+					var amount	=	(comment.user_votes.length > 0)? 2 : 1;
+					if(isUpvote) 
+						comment.comment_rating	=	parseInt(comment.comment_rating) + amount;
+					else 
+						comment.comment_rating	=  parseInt(comment.comment_rating) - amount;
+
+					comment.user_votes[0].isUpvote = voteBin;
 
 					if("added_vote" in response)
 						comment.user_votes.push(response.added_vote);

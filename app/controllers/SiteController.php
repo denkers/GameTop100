@@ -187,7 +187,7 @@ class SiteController extends MasterController
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$isUpvote	=	Input::get('is_upvote');
+			$isUpvote	=	Input::get('is_upvote') == 'true';
 			$comment_id	=	Input::get('comment_id');
 			$user		=	Auth::user()->username;
 			$vote		=	CommentVotesModel::getUserVote($comment_id, $user);
