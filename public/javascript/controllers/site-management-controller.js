@@ -34,7 +34,40 @@
 				site.saveContainer.s_game	=	site.game_id;
 			}
 
-			site.showViewContainer = !site.showViewContainer
+			$scope.site_list.selectedSite	=	(!site.showViewContainer)? index : null;
+			site.showViewContainer = !site.showViewContainer;
+		};
+
+		$scope.saveSite = function(url)
+		{
+			if($scope.site_list.selectedSite == null)
+				$scope.addSite(url);
+			else
+				$scope.editSite(url);
+		};
+
+		$scope.addSite	=	function(url)
+		{
+
+		};
+
+		$scope.editSite	=	function(url)
+		{
+			if($scope.site_list.selectedSite == null) return;
+
+			var site	=	$scope.site_list[$scope.site_list.selectedSite];
+			var params	=	{ site_id: site.id };
+			url			=	$rootScope.setParams(url, params);
+			var data	=	site.saveContainer;
+
+			$rootScope.postData(url, data, function(response)
+			{
+				if(response.status)
+				{
+					toggleEditSiteContainer(site, $scope.site_list.selectedSite);
+					$scope.site_list[$scope.site_list.selectedSite] = response.saved_site;
+				}
+			});
 		};
 	});
 })();

@@ -83,7 +83,7 @@
 							</a>
 		
 							<!-- EDIT SITE CONTROL -->	
-							<a data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control' href='{{ URL::route("getSite", 1) }}'>
+							<a data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control' href='#'> 
 								<span class='glyphicon glyphicon-pencil'></span>
 							</a>
 
@@ -125,7 +125,7 @@
 								</select>
 							</div>
 							<button class='btn btn-default cancel_site_btn'>Back</button>
-							<button class='btn btn-primary save_site_btn'>Save</button>
+							<button data-ng-click='saveSite(site_list.selectedSite == $index? "{{ URL::route("postEditSite") }}":  "{{ URL::route("postAddSite") }}")' class='btn btn-primary save_site_btn'>Save</button>
 						</form>
 					</div>
 				</li>
