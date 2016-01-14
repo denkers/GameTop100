@@ -109,30 +109,34 @@
 			var data		=	{ comment_id: comment.id, is_upvote: isUpvote };
 			var voteBin		=	(isUpvote)? 1 : 0;
 
-			if(comment.user_votes.length > 0)
-			{
-				if(comment.user_votes[0].isUpvote == voteBin)
-				{
-					parent_site.comment_response		=	"You have already voted";
-					parent_site.comment_response.show	=	true;	
-					return;
-				}
-			}
-
 			$rootScope.postData(url, data, function(response)
 			{
 				if(response.status)
 				{
 					var amount	=	(comment.user_votes.length > 0)? 2 : 1;
-					if(isUpvote) 
-						comment.comment_rating	=	parseInt(comment.comment_rating) + amount;
-					else 
-						comment.comment_rating	=  parseInt(comment.comment_rating) - amount;
 
-					comment.user_votes[0].isUpvote = voteBin;
+					if(comment.user_votes.length > 0 && comment.user_votes[0].isUpvote == voteBin)
+					{
+						if(isUpvote)
+							comment.comment_rating	=	parseInt(comment.comment_rating) - 1;
+						else 
+							comment.comment_rating	=  parseInt(comment.comment_rating) + 1;
 
-					if("added_vote" in response)
-						comment.user_votes.push(response.added_vote);
+						comment.user_votes.splice(0, 1);
+					}
+
+					else
+					{
+						if(isUpvote)
+							comment.comment_rating	=	parseInt(comment.comment_rating) + amount;
+						else 
+							comment.comment_rating	=  parseInt(comment.comment_rating) - amount;
+
+						if("added_vote" in response)
+							comment.user_votes.push(response.added_vote);
+						else
+							comment.user_votes[0].isUpvote = voteBin;
+					}
 				}
 				
 				else
