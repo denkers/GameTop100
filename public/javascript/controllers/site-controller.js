@@ -56,7 +56,7 @@
 			var isEdit						=	comment.isEdit;
 			parent_site.comment_add_field	=	(isEdit)? "" : comment.content;
 			parent_site.selectedComment		=	(isEdit)? null : index;
-			comment.isEdit					=	!comment.isEdit
+			comment.isEdit					=	!comment.isEdit;
 		};
 
 		$scope.editComment	=	function(url, parent_site)
@@ -108,12 +108,13 @@
 			url				=	$rootScope.setParams(url, params);
 			var data		=	{ comment_id: comment.id, is_upvote: isUpvote };
 	
-			if(comment.user_votes.length)
+			if(comment.user_votes.length > 0)
 			{
 				var voteBin	=	(isUpvote)? 1 : 0;
 
 				if(comment.user_votes[0].isUpvote == voteBin)
 				{
+					console.log('already voted');
 					parent_site.comment_response		=	"You have already voted";
 					parent_site.comment_response.show	=	true;	
 					return;
