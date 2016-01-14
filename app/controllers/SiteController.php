@@ -187,12 +187,16 @@ class SiteController extends MasterController
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$isUpvote	=	Input::get('is_upvote') == 'true';
-			$comment_id	=	Input::get('comment_id');
-			$user		=	Auth::user()->username;
-			$vote		=	CommentVotesModel::getUserVote($comment_id, $user);
-			$comment	=	SiteCommentsModel::find($comment_id);
-			$comment->comment_rating	=	($isUpvote)? $comment->site_rating + 1 : $comment->site_rating - 1; 
+			$isUpvote					=	Input::get('is_upvote') == 'true';
+			$comment_id					=	Input::get('comment_id');
+			$user						=	Auth::user()->username;
+			$vote						=	CommentVotesModel::getUserVote($comment_id, $user);
+			$comment					=	SiteCommentsModel::find($comment_id);
+
+			if(count($vote) && $vote->isUpvote == $isUpvote)
+				$comment->comment_rating	=	($isUpvote)? $comment->comment_rating - 1 : $comment->comment_rating + 1;
+			else		
+				$comment->comment_rating	=	($isUpvote)? $comment->comment_rating + 1 : $comment->comment_rating - 1; 
 
 			//Vote exists, change or delete existing vote
 			if(count($vote))
