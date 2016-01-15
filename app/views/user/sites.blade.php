@@ -104,22 +104,22 @@
 							<input type='hidden' name='s_id' value='<% site.id %>' />
 							<div class='input-group'>
 								<label>Site title</label>
-								<input class='form-control' type='text' data-ng-model='site.saveContainer.s_title' required />
+								<input class='form-control' type='text' data-ng-model='siteSaveData.s_title' required />
 							</div>
 
 							<div class='input-group'>
 								<label>Site description</label>
-								<textarea class='form-control' required data-ng-model='site.saveContainer.s_desc'></textarea>
+								<textarea class='form-control' required data-ng-model='siteSaveData.s_desc'></textarea>
 							</div>
 
 							<div class='input-group'>
 								<label>Site URL</label>
-								<input class='form-control' type='text' data-ng-model='site.saveContainer.s_add' required />
+								<input class='form-control' type='text' data-ng-model='siteSaveData.s_add' required />
 							</div>
 
 							<div class='input-group'>
 								<label>Game</label>
-								<select data-ng-model='site.saveContainer.s_game' class='form-control'>
+								<select data-ng-model='siteSaveData.s_game' class='form-control'>
 									<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
 								</select>
 							</div>

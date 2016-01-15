@@ -23,7 +23,7 @@
 		$scope.openAddSiteModal	=	function()
 		{
 			if($scope.site_list.selectedSite != null)
-				$scope.toggleEditSiteContainer($scope.site_list[$scope.site_list.selectedSite], $scope.site_list.selectedSite]);
+				$scope.toggleEditSiteContainer($scope.site_list[$scope.site_list.selectedSite], $scope.site_list.selectedSite);
 
 			$scope.siteSaveData	=	{};
 			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', 'siteManagementController', 'md'); 
