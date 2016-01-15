@@ -21,15 +21,17 @@ angular.module('main',
 
 angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http, $httpParamSerializer)
 {
-	$rootScope.openModal	=	function(template, templateUrl, controller)
+	$rootScope.openModal	=	function(template, templateUrl, controller, size)
 	{
+		size = (size == 'undefined')? 'lg' : size;
+
 		$uibModal.open
 		({
 			animation:true,
 			template: template,
 			templateUrl: templateUrl,
 			controller: controller,
-			size: 'lg'
+			size: size
 		});
 	};
 

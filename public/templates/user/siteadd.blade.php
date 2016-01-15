@@ -18,7 +18,7 @@
 
 		<div class='input-group'>
 			<label>Site description</label>
-			<textarea class='form-control' required data-ng-model=siteSaveData.s_desc'></textarea>
+			<textarea class='form-control' required data-ng-model='siteSaveData.s_desc'></textarea>
 		</div>
 
 		<div class='input-group'>
@@ -29,7 +29,7 @@
 		<div class='input-group'>
 			<label>Game</label>
 			<select data-ng-model='siteSaveData.s_game' class='form-control'>
-				<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
+				<option selected='<% $index == 0 %>' data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
 			</select>
 		</div>
 	</div>
