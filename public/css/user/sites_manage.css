@@ -17,4 +17,10 @@
   font-size: 1.5em;
   line-height: 3em; }
 
+.site_add_inputs .input-group {
+  padding-bottom: 20px;
+  width: 100%; }
+  .site_add_inputs .input-group input {
+    width: 100%; }
+
 /*# sourceMappingURL=sites_manage.css.map */

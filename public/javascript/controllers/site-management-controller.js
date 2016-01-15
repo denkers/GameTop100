@@ -20,7 +20,7 @@
 
 		$scope.openAddSiteModal	=	function()
 		{
-			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', 'siteManagementController'); 
+			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', 'siteManagementController', 'md'); 
 		};
 
 		$scope.toggleEditSiteContainer = function(site, index)

@@ -10,7 +10,8 @@
 		<% addSiteResponse.message %>
 	</uib-alert> 
 
-	<div class='form-group'>
+	
+	<div class='form-group site_add_inputs'>
 		<div class='input-group'>
 			<label>Site title</label>
 			<input class='form-control' type='text' data-ng-model='siteSaveData.s_title' required />
@@ -34,6 +35,10 @@
 		</div>
 	</div>
 
-	<button data-ng-click='$root.closeModal()' class='btn btn-default'>Cancel</button>
-	<button data-ng-click='saveData()' class='btn btn-success'>Save</button>
+	<center>
+		<div class='btn-group'>
+			<button data-ng-click='$root.closeModal()' class='btn btn-default'>Cancel</button>
+			<button data-ng-click='saveData()' class='btn btn-success'>Save</button>
+		</div>
+	</center>
 </div>
