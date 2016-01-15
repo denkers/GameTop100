@@ -13,7 +13,7 @@
 */
 
 
-Route::get('/', ['as' => 'getHome', 'uses' => 'MasterController@getHome']);
+Route::get('/', ['as' => 'getRankingHome', 'uses' => 'SiteController@getRankingHome']);
 Route::get('/error', ['as' => 'getError', 'uses' => 'MasterController@getError']);
 Route::get('/register', ['as' => 'getRegister', 'uses' => 'UserController@getRegister']);
 Route::post('/checkusername', ['as' => 'postCheckUsername', 'uses' => 'UserController@postCheckUsername']);
@@ -50,7 +50,6 @@ Route::group(['prefix' => 'sites'], function()
 
 	Route::group(['prefix' => 'ranking'], function()
 	{
-		Route::get('/', ['as' => 'getRankingHome', 'uses' => 'SiteController@getRankingHome']);
 		Route::get('/all', ['as' => 'getRankingSiteList', 'uses' => 'SiteController@getRankingSiteList']);
 
 		Route::group(['prefix' => 'site={site_id}'], function()

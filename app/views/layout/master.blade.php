@@ -37,13 +37,8 @@
 					<ul class='nav navbar-nav navbar-right'>
 
 						<!-- HOME NAV BTN -->
-						<li class='active'><a href='#' id='nav_home_btn'>
-							<span class='glyphicon glyphicon-home'></span> Home</a>
-						</li>
-
-						<!-- RANKING NAV BTN -->
 						<li>
-							<a href='{{ URL::route("getRankingHome"); }}' id='nav_ranking_btn'><span class='glyphicon glyphicon-star'></span> Ranking</a>
+							<a href='{{ URL::route("getRankingHome"); }}' id='nav_ranking_btn'><span class='glyphicon glyphicon-home'></span> Home</a>
 						</li>
 
 						<? 
