@@ -8,6 +8,8 @@
 {
 	angular.module('main').controller('siteManagementController', function($scope, $rootScope)
 	{
+		$scope.siteSaveData	=	{};
+
 		$rootScope.getData(site_list_url, function(response)
 		{
 			$scope.site_list	=	response;	
@@ -20,6 +22,10 @@
 
 		$scope.openAddSiteModal	=	function()
 		{
+			if($scope.site_list.selectedSite != null)
+				$scope.toggleEditSiteContainer($scope.site_list[$scope.site_list.selectedSite], $scope.site_list.selectedSite]);
+
+			$scope.siteSaveData	=	{};
 			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', 'siteManagementController', 'md'); 
 		};
 
@@ -33,10 +39,10 @@
 
 			if(!site.showViewContainer)
 			{
-				site.saveContainer.s_title	=	site.title;
-				site.saveContainer.s_desc	=	site.description;
-				site.saveContainer.s_add	=	site.address;
-				site.saveContainer.s_game	=	site.game_id;
+				$scope.siteSaveData.s_title	=	site.title;
+				$scope.siteSaveData.s_desc	=	site.description;
+				$scope.siteSaveData.s_add	=	site.address;
+				$scope.siteSaveData.s_game	=	site.game_id;
 			}
 
 			$scope.site_list.selectedSite	=	(!site.showViewContainer)? index : null;
@@ -62,7 +68,7 @@
 			var site	=	$scope.site_list[$scope.site_list.selectedSite];
 			var params	=	{ site_id: site.id };
 			url			=	$rootScope.setParams(url, params);
-			var data	=	site.saveContainer;
+			var data	=	$scope.saveSiteData;
 
 			$rootScope.postData(url, data, function(response)
 			{
