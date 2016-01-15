@@ -44,11 +44,11 @@
 		</div>
 		<br>
 
-		<div class='alert alert-dismissable fade in' id='site_alert'>
-			<strong>Site notice</strong>
-			<p id='site_alert_msg'></p>
-		</div>
-
+		<uib-alert data-ng-if='siteManageResponse.show' close='closeManageResponseAlert()' dismiss-on-timeout='2000'
+		type='siteManageResponse.status? "success" : "danger"'>
+			<span class='<% siteManageResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+			<% siteManageResponse.message  %>
+		</uib-alert>	
 		<!-- SITE LIST -->
 		<ul class='list-group site_group'>
 				<li data-ng-repeat='site in site_list' class='list-group-item list_site_item clearifx'>
