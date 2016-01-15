@@ -127,22 +127,26 @@ Ranking
 															<% (comment.comment_rating > 0? '+' : '') + comment.comment_rating; %>
 														</span>
 													</div>
-													<div class='comment_rating_controls col-md-3'>
-														<!-- COMMENT UPVOTE -->
-														<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "active_control" : "") : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
-														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, true)'></span>
+													@if(Auth::check())
+														<div class='comment_rating_controls col-md-3'>
+															<!-- COMMENT UPVOTE -->
+															<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "active_control" : "") : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
+															data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, true)'></span>
 
-														<!-- COMMENT DOWNVOTE -->
-														<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "" : "active_control") : "" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
-														data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, false)'></span>
-													</div>	
+															<!-- COMMENT DOWNVOTE -->
+															<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "" : "active_control") : "" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
+															data-ng-click='voteComment("{{ URL::route("postRateComment"); }}", comment, ranking_item, false)'></span>
+														</div>
+													@endif	
 												</div>
 
-												<div class='comment_controls_container col-md-6'>
-													<span data-ng-click='toggleEdit(comment, $index, ranking_item)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control <% comment.isEdit? "active_control" : "" %>'></span>
-													<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
-													<span class='glyphicon glyphicon-flag report_comment_btn comment_control'></span>
-												</div>
+												@if(Auth::check())
+													<div class='comment_controls_container col-md-6'>
+														<span data-ng-click='toggleEdit(comment, $index, ranking_item)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control <% comment.isEdit? "active_control" : "" %>'></span>
+														<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, ranking_item, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
+														<span class='glyphicon glyphicon-flag report_comment_btn comment_control'></span>
+													</div>
+												@endif
 											</div>
 										</div>
 

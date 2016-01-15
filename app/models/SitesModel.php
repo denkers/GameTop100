@@ -34,7 +34,8 @@ class SitesModel extends Eloquent
 			}])
 			->with(['comments.userVotes' => function($query)
 			{
-				$query->where('comment_votes.user_id', '=', Auth::user()->username);
+				if(Auth::check())
+					$query->where('comment_votes.user_id', '=', Auth::user()->username);
 			}]);	
 	}
 	
