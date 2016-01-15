@@ -18,6 +18,11 @@
 			$scope.game_list	=	response;
 		});
 
+		$scope.openAddSiteModal	=	function()
+		{
+			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', 'siteManagementController'); 
+		};
+
 		$scope.toggleEditSiteContainer = function(site, index)
 		{
 			if($scope.site_list.selectedSite != null && $scope.site_list.selectedSite != index)
@@ -41,14 +46,13 @@
 		$scope.saveSite = function(url)
 		{
 			if($scope.site_list.selectedSite == null)
-				$scope.addSite(url);
+				$scope.addSite();
 			else
 				$scope.editSite(url);
 		};
 
-		$scope.addSite	=	function(url)
+		$scope.addSite	=	function()
 		{
-
 		};
 
 		$scope.editSite	=	function(url)

@@ -18,6 +18,7 @@
 <script>
 	var site_list_url	=	'{{ URL::route("getMySiteList"); }}';
 	var game_list_url	=	'{{ URL::route("getGameList"); }}';
+	var add_site_url	=	'{{ URL::route("postAddSite"); }}';
 </script>
 
 <div data-ng-controller='siteManagementController'>
@@ -31,10 +32,8 @@
 		<div id='site_controls'>
 			<div class='btn-group'>
 				<!-- ADD SITE CONTROL -->
-				<button id='add_site_btn' class='btn btn-default'>
-					<a href='{{ URL::route("postAddSite"); }}'>
-						<span class='glyphicon glyphicon-plus'></span> Add
-					</a>
+				<button id='add_site_btn' class='btn btn-default' data-ng-click='openAddSiteModal()'>
+					<span class='glyphicon glyphicon-plus'></span> Add
 				</button>
 
 				<!-- PREMIUM SITE CONTROL -->
