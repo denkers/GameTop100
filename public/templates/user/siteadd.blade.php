@@ -30,7 +30,7 @@
 		<div class='input-group'>
 			<label>Game</label>
 			<select data-ng-model='siteSaveData.s_game' class='form-control'>
-				<option selected='<% $index == 0 %>' data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
+				<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
 			</select>
 		</div>
 	</div>

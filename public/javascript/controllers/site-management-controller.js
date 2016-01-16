@@ -19,6 +19,7 @@
 		$rootScope.getData(game_list_url, function(response)
 		{
 			$scope.game_list	=	response;
+			console.log($scope.game_list);
 		});
 
 		$scope.openAddSiteModal	=	function()
@@ -26,7 +27,7 @@
 			if($scope.site_list.selectedSite != null)
 				$scope.toggleEditSiteContainer($scope.site_list[$scope.site_list.selectedSite], $scope.site_list.selectedSite);
 
-			$scope.siteSaveData	=	{};
+			$scope.siteSaveData	=	{ s_game: $scope.game_list[0].id };
 			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', null, 'md', $scope);
 		};
 
@@ -67,9 +68,8 @@
 				if(response.status)
 				{
 					$rootScope.closeModal();
-					$scope.siteManageResponse.message	=	response.message;
-					$scope.siteManageResponse.status	=	response.status;
-					$scope.siteManageResponse.show		=	true;
+					$scope.siteManageResponse		=	response;
+					$scope.siteManageResponse.show	=	true;
 					$scope.site_list.push(response.addedSite);
 				}
 			});
