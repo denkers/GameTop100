@@ -45,7 +45,7 @@
 		<br>
 
 		<uib-alert data-ng-if='siteManageResponse.show' close='closeManageResponseAlert()' dismiss-on-timeout='2000'
-		type='siteManageResponse.status? "success" : "danger"'>
+		type='<% siteManageResponse.status? "success" : "danger" %>'>
 			<span class='<% siteManageResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
 			<% siteManageResponse.message  %>
 		</uib-alert>	

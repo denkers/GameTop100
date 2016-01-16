@@ -21,7 +21,7 @@ angular.module('main',
 
 angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http, $httpParamSerializer)
 {
-	$rootScope.openModal	=	function(template, templateUrl, controller, size)
+	$rootScope.openModal	=	function(template, templateUrl, controller, size, scope)
 	{
 		size = (size == 'undefined')? 'lg' : size;
 
@@ -31,6 +31,7 @@ angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http
 			template: template,
 			templateUrl: templateUrl,
 			controller: controller,
+			scope: scope,
 			size: size
 		});
 	};

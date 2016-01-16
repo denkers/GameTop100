@@ -8,7 +8,8 @@
 {
 	angular.module('main').controller('siteManagementController', function($scope, $rootScope)
 	{
-		$scope.siteSaveData	=	{};
+		$scope.siteSaveData			=	{};
+		$scope.siteManageResponse	=	{};	
 
 		$rootScope.getData(site_list_url, function(response)
 		{
@@ -26,7 +27,7 @@
 				$scope.toggleEditSiteContainer($scope.site_list[$scope.site_list.selectedSite], $scope.site_list.selectedSite);
 
 			$scope.siteSaveData	=	{};
-			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', 'siteManagementController', 'md'); 
+			$rootScope.openModal(null, root_url + '/templates/user/siteadd.blade.php', null, 'md', $scope);
 		};
 
 		$scope.toggleEditSiteContainer = function(site, index)
@@ -63,12 +64,12 @@
 
 			$rootScope.postData(add_site_url, data, function(response)
 			{
-				console.log(response);
 				if(response.status)
 				{
 					$rootScope.closeModal();
-					$scope.siteManageResponse		=	response;
-					$scope.siteManageResponse.show	=	true;
+					$scope.siteManageResponse.message	=	response.message;
+					$scope.siteManageResponse.status	=	response.status;
+					$scope.siteManageResponse.show		=	true;
 					$scope.site_list.push(response.addedSite);
 				}
 			});
@@ -92,5 +93,10 @@
 				}
 			});
 		};
+
+		$scope.closeManageResponseAlert	=	function()
+		{
+			$scope.siteManageResponse	=	{};
+		}
 	});
 })();
