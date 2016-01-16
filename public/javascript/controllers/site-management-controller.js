@@ -94,6 +94,23 @@
 			});
 		};
 
+		$scope.removeSite	=	function(index, url)
+		{
+			var site		=	$scope.site_list[index];
+			var data		=	{ s_id:	site.id };	
+			var params		=	{ site_id: site.id };
+			url				=	$rootScope.setParams(url, params);
+
+			$rootScope.postData(url, data, function(response)
+			{
+				$scope.siteManageResponse	=	response;
+
+				if(response.status)
+					$scope.site_list.splice(index, 1);
+			});
+			
+		};
+
 		$scope.closeManageResponseAlert	=	function()
 		{
 			$scope.siteManageResponse	=	{};
