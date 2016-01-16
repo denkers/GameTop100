@@ -82,7 +82,7 @@
 							</a>
 		
 							<!-- EDIT SITE CONTROL -->	
-							<a data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control' href='#'> 
+							<a data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control <% site_list.selectedSite == $index? "active_control" : "" %>' href='#'> 
 								<span class='glyphicon glyphicon-pencil'></span>
 							</a>
 
