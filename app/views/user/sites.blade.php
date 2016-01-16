@@ -129,25 +129,5 @@
 				</li>
 		</ul>
 	</div>
-
-	<div class='modal fade confirm_modal' id='remove_site_modal' role='dialog'>
-		<div class='modal-dialog'>
-			<div class='modal-content'>
-				<div class='modal-header'>
-					<button class='close' data-dismiss='modal'>&times;</button>
-					<h3 class='modal-title'>Confirm removal</h3>
-				</div>
-
-				<div class='modal-body'>
-					<h4>Are you sure you want to remove this site?</h4>
-
-					<div class='btn-group'>
-						<button class='btn btn-default' data-dismiss='modal'>Cancel</button>
-						<button class='btn btn-danger' id='remove_site_confirm'>Remove</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 @stop
