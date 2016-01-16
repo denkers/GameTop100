@@ -14,24 +14,25 @@ class SiteController extends MasterController
 
 		$validator			=	Validator::make(Input::all(),
 		[
-			'site_title'	=>	'required|min:5|max:30',
-			'site_desc'		=>	'required|min:10|max:200',
-			'site_address'	=>	'required',
-			'site_owner'	=>	'required|exists:users,username'
+			's_title'	=>	'required|min:5|max:30',
+			's_desc'	=>	'required|min:10|max:200',
+			's_add'		=>	'required',
+			's_game'	=>	'required|exists:games,id'
 		]);	
 
 		if($validator->fails())
-			return MasterController::encodeReturn(false, $invalid_input_msg);
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
 			$site				=	new SitesModel();
-			$site->title		=	Input::get('site_title');
-			$site->description	=	Input::get('site_desc');
-			$site->address		=	Input::get('site_address');
-			$site->owner		=	Input::get('site_owner');
+			$site->title		=	Input::get('s_title');
+			$site->description	=	Input::get('s_desc');
+			$site->address		=	Input::get('s_add');
+			$site->game_id		=	Input::get('s_game');
+			$site->owner		=	Auth::user()->username;	
 
 			if($site->save())
-				return MasterController::encodeReturn(true, $success_message);
+				return MasterController::encodeReturn(true, $success_message, ['addedSite' => $site]);
 			else
 				return MasterController::encodeReturn(false, $fail_message);
 		}

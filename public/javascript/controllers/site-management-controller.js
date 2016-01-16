@@ -59,10 +59,12 @@
 
 		$scope.addSite	=	function()
 		{
-			var data	=	$scope.saveSiteData;
-			
+			var data	=	$scope.siteSaveData;
+			console.log(data);
+
 			$rootScope.postData(add_site_url, data, function(response)
 			{
+				console.log(response);
 				if(response.status)
 				{
 					$rootScope.closeModal();

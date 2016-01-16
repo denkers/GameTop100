@@ -38,7 +38,7 @@
 	<center>
 		<div class='btn-group'>
 			<button data-ng-click='$root.closeModal()' class='btn btn-default'>Cancel</button>
-			<button data-ng-click='saveData()' class='btn btn-success'>Save</button>
+			<button data-ng-click='saveSite()' class='btn btn-success'>Save</button>
 		</div>
 	</center>
 </div>
