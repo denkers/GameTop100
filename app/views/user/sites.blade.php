@@ -101,7 +101,6 @@
 					<!-- SITE VIEW CONTAINER -->
 					<div uib-collapse='!site.showViewContainer' class='site_view_container col-md-12'> 
 						<form class='site_edit_form' name='site.saveContainer'>
-							<input type='hidden' name='s_id' value='<% site.id %>' />
 							<div class='input-group'>
 								<label>Site title</label>
 								<input class='form-control' type='text' data-ng-model='siteSaveData.s_title' required />

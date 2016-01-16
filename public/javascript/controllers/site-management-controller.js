@@ -79,16 +79,20 @@
 		{
 			if($scope.site_list.selectedSite == null) return;
 
-			var site	=	$scope.site_list[$scope.site_list.selectedSite];
-			var params	=	{ site_id: site.id };
-			url			=	$rootScope.setParams(url, params);
-			var data	=	$scope.saveSiteData;
+			var site		=	$scope.site_list[$scope.site_list.selectedSite];
+			var params		=	{ site_id: site.id };
+			url				=	$rootScope.setParams(url, params);
+			var data		=	$scope.siteSaveData;
+			data.s_id	=	site.id;	
 
 			$rootScope.postData(url, data, function(response)
 			{
+				$scope.siteManageResponse		=	response;
+				$scope.siteManageResponse.show	=	true;
+
 				if(response.status)
 				{
-					toggleEditSiteContainer(site, $scope.site_list.selectedSite);
+					$scope.toggleEditSiteContainer(site, $scope.site_list.selectedSite);
 					$scope.site_list[$scope.site_list.selectedSite] = response.saved_site;
 				}
 			});
