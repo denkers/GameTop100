@@ -59,6 +59,18 @@
 
 		$scope.addSite	=	function()
 		{
+			var data	=	$scope.saveSiteData;
+			
+			$rootScope.postData(add_site_url, data, function(response)
+			{
+				if(response.status)
+				{
+					$rootScope.closeModal();
+					siteManageResponse		=	response;
+					siteManageResponse.show	=	true;
+					$scope.site_list.push(response.addedSite);
+				}
+			});
 		};
 
 		$scope.editSite	=	function(url)
