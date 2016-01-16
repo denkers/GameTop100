@@ -60,7 +60,6 @@
 		$scope.addSite	=	function()
 		{
 			var data	=	$scope.siteSaveData;
-			console.log(data);
 
 			$rootScope.postData(add_site_url, data, function(response)
 			{
@@ -68,8 +67,8 @@
 				if(response.status)
 				{
 					$rootScope.closeModal();
-					siteManageResponse		=	response;
-					siteManageResponse.show	=	true;
+					$scope.siteManageResponse		=	response;
+					$scope.siteManageResponse.show	=	true;
 					$scope.site_list.push(response.addedSite);
 				}
 			});
