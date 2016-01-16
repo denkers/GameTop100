@@ -77,7 +77,7 @@
 						<div class='site_item_controls col-md-4'>
 
 							<!-- REMOVE SITE CONTROl -->
-							<a class='site_control_link plain_link remove_site_control' href='{{ URL::route("postRemoveSite", 1); }}'>
+							<a data-ng-click='removeSite($index, "{{ URL::route("postRemoveSite", 1); }}"); $event.preventDefault()' class='site_control_link plain_link remove_site_control'> 
 								<span class='glyphicon glyphicon-remove'></span>
 							</a>
 		

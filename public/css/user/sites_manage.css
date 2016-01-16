@@ -17,6 +17,9 @@
   font-size: 1.5em;
   line-height: 3em; }
 
+.site_control_link:hover {
+  cursor: pointer; }
+
 .site_add_inputs .input-group {
   padding-bottom: 20px;
   width: 100%; }
