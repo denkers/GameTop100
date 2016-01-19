@@ -84,7 +84,13 @@
 						</div>
 
 						<!-- SITE VIEW CONTAINER -->
-						<div uib-collapse='!site.showViewContainer' class='site_view_container col-md-12'> 
+						<div uib-collapse='!site.showViewContainer' class='site_view_container col-md-12'>
+							<div class='col-md-12'>
+								<div class='page-header'>
+									<h3>Edit site</h3>
+								</div> 
+							</div>
+
 							<form class='site_edit_form col-md-6' name='site.saveContainer'>
 								<div class='input-group'>
 									<label>Site title</label>
@@ -107,7 +113,7 @@
 										<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
 									</select>
 								</div>
-								<button class='btn btn-default cancel_site_btn'>Cancel</button>
+								<button data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='btn btn-default cancel_site_btn'>Cancel</button>
 								<button data-ng-click='saveSite(site_list.selectedSite == $index? "{{ URL::route("postEditSite") }}":  "{{ URL::route("postAddSite") }}")' class='btn btn-primary save_site_btn'>Save</button>
 							</form>
 						</div>
