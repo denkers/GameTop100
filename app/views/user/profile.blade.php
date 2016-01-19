@@ -1,6 +1,5 @@
-@extends('layout.master)
+@extends('layout.user')
 
-@section('head')
-	@parent
-	<title>MegaTop100 - Profile</title>
+@section('content')
+
 @stop
