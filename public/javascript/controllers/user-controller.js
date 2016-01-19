@@ -28,7 +28,7 @@
 				{
 					setTimeout(function()
 					{
-						$rootScope.closeModal();
+						window.location = root_url;
 					}, 2000);
 				}
 			})
@@ -61,7 +61,7 @@
 			$http.get(root_url + '/user/logout')
 			.success(function(response)
 			{
-				console.log(response);
+				window.location = root_url;
 
 			}).error(function(response)
 			{

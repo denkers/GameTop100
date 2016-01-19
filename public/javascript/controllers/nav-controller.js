@@ -21,7 +21,7 @@
 		$scope.openLogout	=	function()
 		{
 			var template	=	'<message-modal title="Sign-out" message="Signing out, one moment please"></message-modal>';
-			$rootScope.openModal(template, null, 'userController');
+			$rootScope.openModal(template, null,  'userController');
 
 			setTimeout(function()
 			{

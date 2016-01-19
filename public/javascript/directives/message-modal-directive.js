@@ -36,5 +36,6 @@
 				scope.cancelClick	=	attr.cancelClick;
 				scope.confirmClick	=	attr.confirmClick;
 			}
+		};
 	});
 })();
