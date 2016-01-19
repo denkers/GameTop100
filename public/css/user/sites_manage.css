@@ -26,4 +26,10 @@
   .site_add_inputs .input-group input {
     width: 100%; }
 
+.site_edit_form .input-group {
+  padding-bottom: 1em;
+  width: 100%; }
+  .site_edit_form .input-group input {
+    width: 100%; }
+
 /*# sourceMappingURL=sites_manage.css.map */

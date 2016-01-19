@@ -85,7 +85,7 @@
 
 						<!-- SITE VIEW CONTAINER -->
 						<div uib-collapse='!site.showViewContainer' class='site_view_container col-md-12'> 
-							<form class='site_edit_form' name='site.saveContainer'>
+							<form class='site_edit_form col-md-6' name='site.saveContainer'>
 								<div class='input-group'>
 									<label>Site title</label>
 									<input class='form-control' type='text' data-ng-model='siteSaveData.s_title' required />
@@ -107,7 +107,7 @@
 										<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
 									</select>
 								</div>
-								<button class='btn btn-default cancel_site_btn'>Back</button>
+								<button class='btn btn-default cancel_site_btn'>Cancel</button>
 								<button data-ng-click='saveSite(site_list.selectedSite == $index? "{{ URL::route("postEditSite") }}":  "{{ URL::route("postAddSite") }}")' class='btn btn-primary save_site_btn'>Save</button>
 							</form>
 						</div>
