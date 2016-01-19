@@ -1,6 +1,6 @@
 @extends('layout.user')
 
-@section('content')
+@section('user_content')
 <script>
 	var site_list_url	=	'{{ URL::route("getMySiteList"); }}';
 	var game_list_url	=	'{{ URL::route("getGameList"); }}';
@@ -8,7 +8,7 @@
 </script>
 
 <div data-ng-controller='siteManagementController'>
-	<div id='site_list_container' class='container col-md-5'>
+	<div id='site_list_container' class='container'>
 		<div class='page-header'>
 			<h3>Manage sites
 				<br><small>Add, remove and edit your sites</small>
