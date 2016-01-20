@@ -16,11 +16,12 @@
 
 
 @section('content')
-<div class='container'>
+<div class='container col-md-8'>
 	<div class='center-block user_container'>
 		<!-- USER MANAGE CONTROLS -->
 		<div id='user_manage_controls' class='col-md-4'>
-
+			<div class='list-group'>
+			</div>
 		</div>
 
 		<!-- USER MANAGE CONTENT -->
