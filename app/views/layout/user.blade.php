@@ -22,6 +22,11 @@
 		<!-- USER MANAGE CONTROLS -->
 		<div id='user_manage_controls' class='col-md-4'>
 			<div class='list-group'>
+				<a href='#' class='list-group-item'><h4>Manage sites</h4></a>
+				<a href='#' class='list-group-item'><h4>Premium</h4></a>
+				<a href='#' class='list-group-item'><h4>Subscriptions</h4></a>
+				<a href='#' class='list-group-item'><h4>Notifications</h4></a>
+				<a href='#' class='list-group-item'><h4>Settings</h4></a>
 			</div>
 		</div>
 
