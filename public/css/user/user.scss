@@ -4,4 +4,29 @@
 	margin-top:3em;
 	left:50%;
 	transform:translateX(-50%);
+	padding-left:0;
+}
+
+#user_manage_controls
+{
+	padding-left:0;
+	height:30em;
+
+	.list-group
+	{
+		border:0;
+		height:100%;
+	}
+
+	.list-group-item
+	{
+		border-radius:0;
+		border-left:0;
+		height:4em;
+
+		&:first-child
+		{
+			border-top:0;
+		}
+	}
 }
