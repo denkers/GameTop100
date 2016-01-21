@@ -8,7 +8,7 @@
 </script>
 
 <div data-ng-controller='siteManagementController'>
-	<div id='site_list_container' class='container'>
+	<div id='site_list_container'>
 		<div class='page-header'>
 			<h3>Manage sites
 				<br><small>Add, remove and edit your sites</small>

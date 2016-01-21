@@ -2,7 +2,8 @@
 
 @section('head')
 	@parent
-	{{ HTML::style('css/user/sites_manage.css'); }}	
+	{{ HTML::style('css/user/user.css'); }}
+	{{ HTML::style('css/user/sites_manage.css'); }}
 @stop
 
 @section('title_postfix')
@@ -16,8 +17,8 @@
 
 
 @section('content')
-<div class='container col-md-8'>
-	<div class='center-block user_container'>
+<div class='container col-md-12'>
+	<div class='center-block col-md-8' id='user_container'> 
 		<!-- USER MANAGE CONTROLS -->
 		<div id='user_manage_controls' class='col-md-4'>
 			<div class='list-group'>
