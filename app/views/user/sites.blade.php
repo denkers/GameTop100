@@ -63,12 +63,12 @@
 						<div class='site_item_controls col-md-4'>
 
 							<!-- REMOVE SITE CONTROl -->
-							<a data-ng-click='removeSite($index, "{{ URL::route("postRemoveSite", 1); }}"); $event.preventDefault()' class='site_control_link plain_link remove_site_control'> 
+							<a uib-tooltip='Remove site' tooltip-placement='top' data-ng-click='removeSite($index, "{{ URL::route("postRemoveSite", 1); }}"); $event.preventDefault()' class='site_control_link plain_link remove_site_control'> 
 								<span class='glyphicon glyphicon-remove'></span>
 							</a>
 		
 							<!-- EDIT SITE CONTROL -->	
-							<a data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control <% site_list.selectedSite == $index? "active_control" : "" %>' href='#'> 
+							<a uib-tooltip='Edit site' tooltip-placement='top' data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='site_control_link plain_link edit_site_control <% site_list.selectedSite == $index? "active_control" : "" %>' href='#'> 
 								<span class='glyphicon glyphicon-pencil'></span>
 							</a>
 
@@ -78,7 +78,7 @@
 							</a>
 
 							<!-- VIEW SITE CONTROL -->
-							<a class='site_control_link plain_link view_site_control' href='<% site.address %>'>
+							<a uib-tooltip='Go to site' tooltip-placement='top' class='site_control_link plain_link view_site_control' href='<% site.address %>'>
 								<span class='glyphicon glyphicon-share-alt'></span>
 							</a>
 						</div>

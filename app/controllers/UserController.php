@@ -1,4 +1,5 @@
 <?php
+
 //==================================
 //	Kyle Russell
 //	github.com/denkers/GameTop100
