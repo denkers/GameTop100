@@ -107,7 +107,8 @@
 
 			$rootScope.postData(url, data, function(response)
 			{
-				$scope.siteManageResponse	=	response;
+				$scope.siteManageResponse		=	response;
+				$scope.siteManageResponse.show	=	true;	
 
 				if(response.status)
 					$scope.site_list.splice(index, 1);
