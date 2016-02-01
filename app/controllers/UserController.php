@@ -32,7 +32,23 @@ class UserController extends MasterController
 			], $remember_user);
 
 			if($attempt)
-				return MasterController::encodeReturn(true, $success_message);
+			{
+				$user		=	Auth::user();
+				$client_ip	=	Request::getClientIp();	
+
+				if($user->ip != $client_ip)
+				{
+					$user->ip	=	$client_ip;
+					if($user->save()) 	
+						return MasterController::encodeReturn(true, $success_message);
+					else
+						return MasterController::encodeReturn(false, $fail_message);
+				}
+
+				else
+					return MasterController::encodeReturn(true, $success_message);
+			}
+
 			else
 				return MasterController::encodeReturn(false, $fail_message);
 		}
