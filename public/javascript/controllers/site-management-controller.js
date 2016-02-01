@@ -92,8 +92,8 @@
 
 				if(response.status)
 				{
+					$scope.site_list[$scope.site_list.selectedSite]	=	response.saved_site;
 					$scope.toggleEditSiteContainer(site, $scope.site_list.selectedSite);
-					$scope.site_list[$scope.site_list.selectedSite] = response.saved_site;
 				}
 			});
 		};

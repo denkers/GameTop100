@@ -84,7 +84,7 @@ class SiteController extends MasterController
 			$site->address		=	Input::get('s_add');
 
 			if($site->save())
-				return MasterController::encodeReturn(true, $success_msg);
+				return MasterController::encodeReturn(true, $success_msg, ['saved_site' => $site]);
 			else
 				return MasterController::encodeReturn(false, $fail_msg);		
 		}

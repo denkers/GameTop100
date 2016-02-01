@@ -1,7 +1,5 @@
 @extends('layout.user')
 
-
-@section('content)
-
+@section('user_content')
 
 @stop
