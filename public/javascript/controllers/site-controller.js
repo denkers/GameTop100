@@ -45,6 +45,12 @@
 			});
 		};
 
+		$scope.toggleCommentContainer = function(index)
+		{
+			$scope.ranking_list.selectedSite	=	$scope.ranking_list.selectedSite == index? null : index;
+			console.log($scope.ranking_list.selectedSite);
+		};
+
 		$scope.toggleEdit	=	function(comment, index, parent_site)
 		{
 			if(parent_site.selectedComment != null && parent_site.selectedComment != index)

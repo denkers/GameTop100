@@ -89,14 +89,14 @@ Ranking
 											</span>
 
 											<!-- SITE COMMENTS -->
-											<a uib-tooltip='Site comments' tooltip-placement='top' class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments' data-ng-click='ranking_item.showComments = !ranking_item.showComments'>
+											<a uib-tooltip='Site comments' tooltip-placement='top' class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments' data-ng-click='toggleCommentContainer($index)'>
 												<span class='site_comments'><% ranking_item.comments.length %></span> <span class='glyphicon glyphicon-comment'></span>
 											</a>
 										</h3>
 									</div> 
 
 									<!-- SITE COMMENTS CONTAINER -->
-									<div class='site_comments_container col-md-12' uib-collapse='!ranking_item.showComments'>
+									<div class='site_comments_container col-md-12' uib-collapse='ranking_list.selectedSite != $index'>
 										<!-- SITE COMMENTS ALERT -->
 										<uib-alert data-ng-if='ranking_item.comment_response.show'
 										close='hideCommentAlert(ranking_item)' dismiss-on-timeout='2000'
