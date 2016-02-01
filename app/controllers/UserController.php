@@ -90,6 +90,7 @@ class UserController extends MasterController
 				$user->username	=	$reg_username;
 				$user->password	=	Hash::make($reg_pass);
 				$user->email	=	$reg_email;
+				$user->ip		=	Request::getClientIp();
 
 				if($user->save())
 					return MasterController::encodeReturn(true, $success_message);
