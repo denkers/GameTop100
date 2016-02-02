@@ -83,4 +83,6 @@ angular.module('main').run(function($rootScope, $uibModal, $uibModalStack, $http
 
 		return url;
 	};
+
+	$rootScope.siteKey		=	'6LeRHhcTAAAAABqEN1byR1XemWEYOI6_7ozNDL71';
 });
