@@ -22,6 +22,7 @@
 			{{ HTML::script('javascript/directives/message-modal-directive.js'); }}
 			{{ HTML::script('javascript/controllers/user-controller.js'); }}
 			{{ HTML::script('javascript/controllers/nav-controller.js'); }}
+			{{ HTML::script('https://www.google.com/recaptcha/api.js'); }}
 		@show
 	</head>
 
