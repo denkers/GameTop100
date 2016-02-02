@@ -7,7 +7,7 @@
 			templateUrl: root_url + '/templates/sites/site.blade.php',
 			link: function(scope, elim, attr)
 			{
-				scope.siteData		=	attr.siteData;
+				scope.siteData		=	JSON.parse(attr.siteData);
 			}
 		};
 	});
