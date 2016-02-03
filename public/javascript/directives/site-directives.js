@@ -8,6 +8,10 @@
 			link: function(scope, elim, attr)
 			{
 				scope.siteData		=	JSON.parse(attr.siteData);
+				scope.editUrl		=	attr.editUrl;
+				scope.addUrl		=	attr.addUrl;
+				scope.rateUrl		=	attr.rateUrl;
+				scope.deleteUrl		=	attr.deleteUrl;
 			}
 		};
 	});

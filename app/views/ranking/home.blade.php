@@ -49,12 +49,17 @@ Ranking
 					<div class='panel-body'>
 						<div class='list-group'>
 							<div class='list-group-item' data-ng-repeat='ranking_item in ranking_list'>
-									<site site-data='<% ranking_item %>'></site>
+									<site site-data='<% ranking_item %>' 
+									edit-url='{{ URL::route("postEditComment"); }}' 
+									add-url='{{ URL::route("postAddSiteComment"); }}' 
+									rate-url='{{ URL::route("postRateComment"); }}' 
+									delete-url='{{ URL::route("postRemoveComment"); }}'></site>
 							</div>
-								<!-- -->
+						</div>
+					</div>
 				</div>
-			</div>
+			</div> 
 		</div>
-	</div> 
+	</div>
 </div>
 @stop
