@@ -1,5 +1,10 @@
 @extends('layout.master')
 
+@section('head')
+	@parent
+	{{ HTML::style('css/ranking/ranking.css'); }}
+@stop
+
 @section('js')
 	@parent
 	{{ HTML::script('javascript/directives/site-directives.js'); }}
@@ -18,12 +23,14 @@
 
 		<div class='row'>
 			<div class='col-md-12'>
-				<site site-data='{{ $site_data }}' 
-									edit-url='{{ URL::route("postEditComment"); }}' 
-									add-url='{{ URL::route("postAddSiteComment"); }}' 
-									rate-url='{{ URL::route("postRateComment"); }}' 
-									delete-url='{{ URL::route("postRemoveComment"); }}'>
-				</site>
+				<div class='list-group-item'>
+					<site site-data='{{ $site_data }}' 
+						edit-url='{{ URL::route("postEditComment"); }}' 
+						add-url='{{ URL::route("postAddSiteComment"); }}' 
+						rate-url='{{ URL::route("postRateComment"); }}' 
+						delete-url='{{ URL::route("postRemoveComment"); }}'>
+					</site>
+				</div>
 			</div>
 
 			<div class='col-md-4'>	
