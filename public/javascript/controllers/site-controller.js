@@ -32,6 +32,7 @@
 			url				=	$rootScope.setParams(url, params);
 			var data		=	{ comment_content: parent_site.comment_add_field, comment_site: parent_site.id };
 
+			console.log(url);
 			$rootScope.postData(url, data, function(response)
 			{
 				parent_site.comment_response		=	response;

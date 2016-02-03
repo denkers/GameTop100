@@ -83,18 +83,18 @@
 					<div class='comment_rating_controls col-md-3'>
 						<!-- COMMENT UPVOTE -->
 						<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "active_control" : "") : "" %> comment_control glyphicon glyphicon-chevron-up comment_control comment_upvote'
-						data-ng-click='voteComment("", comment, siteData, true)'></span>
+						data-ng-click='voteComment(rateUrl, comment, siteData, true)'></span>
 
 						<!-- COMMENT DOWNVOTE -->
 						<span class='<% comment.user_votes.length > 0? (comment.user_votes[0].isUpvote > 0? "" : "active_control") : "" %> comment_control glyphicon glyphicon-chevron-down comment_control comment_downvote'
-						data-ng-click='voteComment("", comment, siteData, false)'></span>
+						data-ng-click='voteComment(rateUrl, comment, siteData, false)'></span>
 					</div>
 				</div>
 
 				<!-- COMMENT CONTROLS -->
 				<div class='comment_controls_container col-md-6'>
 					<span data-ng-click='toggleEdit(comment, $index, siteData)' class='glyphicon glyphicon-pencil edit_comment_btn comment_control <% comment.isEdit? "active_control" : "" %>'></span>
-					<span data-ng-click='removeComment("{{ URL::route("postRemoveComment") }}", comment, siteData, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
+					<span data-ng-click='removeComment(deleteUrl, comment, siteData, $index)' class='glyphicon glyphicon-remove remove_comment_btn comment_control'></span>
 					<span class='glyphicon glyphicon-flag report_comment_btn comment_control'></span>
 				</div>
 			</div>
@@ -106,7 +106,7 @@
 			<div class='input-group'>
 				<input data-ng-model='siteData.comment_add_field' type='text' class='form-control' placeholder='Enter a comment' />
 				<span class='input-group-btn'>
-					<button  class='btn btn-success' data-ng-click='saveComment(siteData.selectedComment != null? "" : "", siteData)'>Save</button>
+					<button  class='btn btn-success' data-ng-click='saveComment(siteData.selectedComment != null? editUrl : addUrl, siteData)'>Save</button>
 				</span>
 			</div>
 		</div>
