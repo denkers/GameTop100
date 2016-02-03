@@ -114,7 +114,8 @@ class SiteController extends MasterController
 	public function getSiteVote()
 	{
 		$site_id	=	Route::current()->getParameter('site_id');	
-		return View::make('ranking.site_vote');
+		$site		=	json_encode(SitesModel::getSite($site_id)->first());
+		return View::make('ranking.site_vote')->with('site_data', $site);
 	}
 
 	public function postSiteVote()

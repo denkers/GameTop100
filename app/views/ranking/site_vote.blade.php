@@ -2,6 +2,7 @@
 
 @section('js')
 	@parent
+	{{ HTML::script('javascript/directives/site-directives.js'); }}
 	{{ HTML::script('javascript/controllers/vote-controller.js'); }}
 @stop
 
@@ -17,7 +18,7 @@
 
 		<div class='row'>
 			<div class='col-md-12'>
-				<site site-data='<% ranking_item %>' 
+				<site site-data='{{ $site_data }}' 
 									edit-url='{{ URL::route("postEditComment"); }}' 
 									add-url='{{ URL::route("postAddSiteComment"); }}' 
 									rate-url='{{ URL::route("postRateComment"); }}' 
