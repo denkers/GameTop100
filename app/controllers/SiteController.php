@@ -113,6 +113,7 @@ class SiteController extends MasterController
 
 	public function getSiteVote()
 	{
+		$site_id	=	Route::current()->getParameter('site_id');	
 		return View::make('ranking.site_vote');
 	}
 
