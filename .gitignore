@@ -1,6 +1,10 @@
 vendor/
 node_modules/
 bower_components/
+*.css
+*.map
+!public/dependencies/*.css
+!public/dependencies/*.map
 
 # Laravel 4 specific
 bootstrap/compiled.php
