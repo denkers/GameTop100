@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAKA,SACA;EACC,QAAQ,EAAC,QAAQ;EACjB,IAAI,EAAC,GAAG;EACR,SAAS,EAAC,gBAAgB;;AAG3B,SACA;EACC,QAAQ,EAAC,QAAQ;EACjB,GAAG,EAAC,GAAG;EACP,SAAS,EAAC,gBAAgB",
-"sources": ["master.scss"],
-"names": [],
-"file": "master.css"
-}
