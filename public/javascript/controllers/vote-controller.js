@@ -8,7 +8,7 @@
 		{
 			var params	=	{ site_id: $scope.site.id };
 			url			=	$rootScope.setParams(url, params);
-			console.log($scope.voteData);
+			console.log(this.voteData);
 		};
 
 	});

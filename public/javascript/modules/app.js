@@ -8,7 +8,8 @@ angular.module('main',
 [
 	'ngAnimate',
 	'ui.bootstrap',
-	'ui.bootstrap.tpls'
+	'ui.bootstrap.tpls',
+	'vcRecaptcha'
 ], function($interpolateProvider)
 {
 	$interpolateProvider.startSymbol('<%');

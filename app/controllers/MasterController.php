@@ -35,6 +35,6 @@ class MasterController extends Controller
 
 	public function postRobotVerify()
 	{
-		
+		return json_encode(Input::all());		
 	}
 }

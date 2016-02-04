@@ -17,6 +17,7 @@
 
 			{{ HTML::script('dependencies/angular.js'); }}
 			{{ HTML::script('dependencies/angular-animate.min.js'); }}
+			{{ HTML::script('dependencies/angular-recaptcha.min.js'); }}
 			{{ HTML::script('dependencies/ui-bootstrap-tpls.min.js'); }}
 			{{ HTML::script('javascript/modules/app.js'); }}
 			{{ HTML::script('javascript/directives/message-modal-directive.js'); }}

@@ -8,7 +8,7 @@
 
 @section('js')
 	@parent
-	{{ HTML::script('https://www.google.com/recaptcha/api.js'); }}
+	<script src='https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit' async defer></script>
 	{{ HTML::script('javascript/directives/site-directives.js'); }}
 	{{ HTML::script('javascript/controllers/vote-controller.js'); }}
 	{{ HTML::script('javascript/controllers/site-controller.js'); }}
@@ -42,8 +42,11 @@
 			<div class='row'>
 				<div id='vote-container'>	
 					<div class='col-md-4'>
-						<form name='voteData' method='post'>
-							<div data-ng-model='voteData.vote_captcha' class="g-recaptcha" data-sitekey="<% $root.siteKey %>"></div>
+						<form name='voteData' method='post' data-ng-submit='saveVote("{{ URL::route("postRobotVerify"); }}")' novalidate>
+							<input name='test' data-ng-model='voteData.test' value='qweqwe' />
+							<div vc-recaptcha key="$root.siteKey">
+							</div>
+							<input type='submit' value='submit' />
 						</form>
 						<div id='robot_field'></div>
 					</div>
