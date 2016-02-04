@@ -3,3 +3,16 @@ $colour_red: #ff4136;
 $colour_blue: #158cba;
 $colour_yellow: #ff851b;
 
+.center-x
+{
+	position:relative;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+.center-y
+{
+	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+}

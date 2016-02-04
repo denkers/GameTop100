@@ -1,3 +1,13 @@
+.center-x {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.center-y {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
 #home_content {
   display: table;
   width: 100%;
