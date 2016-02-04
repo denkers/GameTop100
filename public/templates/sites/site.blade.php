@@ -40,14 +40,14 @@
 			</span>
 
 			<!-- SITE COMMENTS -->
-			<a uib-tooltip='Site comments' tooltip-placement='top' class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments' data-ng-click='toggleCommentContainer($index)'>
+			<a uib-tooltip='Site comments' tooltip-placement='top' class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments' data-ng-click='toggleCommentContainer(siteData)'>
 				<span class='site_comments'><% siteData.comments.length %></span> <span class='glyphicon glyphicon-comment'></span>
 			</a>
 		</h3>
 	</div> 
 
 	<!-- SITE COMMENTS CONTAINER -->
-	<div class='site_comments_container col-md-12' uib-collapse='ranking_list.selectedSite != $index'>
+	<div class='site_comments_container col-md-12' uib-collapse='!siteData.showComments'>
 		<!-- SITE COMMENTS ALERT -->
 		<uib-alert data-ng-if='siteData.comment_response.show'
 		close='hideCommentAlert(siteData)' dismiss-on-timeout='2000'

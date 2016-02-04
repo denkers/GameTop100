@@ -9,6 +9,7 @@
 	@parent
 	{{ HTML::script('javascript/directives/site-directives.js'); }}
 	{{ HTML::script('javascript/controllers/vote-controller.js'); }}
+	{{ HTML::script('javascript/controllers/site-controller.js'); }}
 @stop
 
 @section('title_postfix')
@@ -23,8 +24,8 @@
 
 		<div class='row'>
 			<div class='col-md-12'>
-				<div class='list-group-item'>
-					<site site-data='{{ $site_data }}' 
+				<div class='list-group-item' data-ng-controller='siteController' data-ng-init='site = {{ $site_data }}'>
+					<site site-data='<% site %>' 
 						edit-url='{{ URL::route("postEditComment"); }}' 
 						add-url='{{ URL::route("postAddSiteComment"); }}' 
 						rate-url='{{ URL::route("postRateComment"); }}' 
