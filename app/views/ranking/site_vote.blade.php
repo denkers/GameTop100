@@ -3,6 +3,7 @@
 @section('head')
 	@parent
 	{{ HTML::style('css/ranking/ranking.css'); }}
+	{{ HTML::style('css/ranking/vote.css'); }}	
 @stop
 
 @section('js')
@@ -24,7 +25,7 @@
 			</div>
 
 			<div class='row'>
-				<div class='col-md-12'>
+				<div class='col-md-12' id='site-container'>
 					<div class='list-group-item' data-ng-controller='siteController'> 
 						<site site-data='<% site %>' 
 							edit-url='{{ URL::route("postEditComment"); }}' 
@@ -34,14 +35,17 @@
 						</site>
 					</div>
 				</div>
+			</div>
 
 
+			<div class='row'>
 				<div id='vote-container'>	
 					<div class='col-md-4'>	
 						<div data-ng-model='voteData.vote_captcha' class="g-recaptcha" data-sitekey="<% $root.siteKey %>"></div>
 					</div>
+					<div class='col-md-2'></div>
 
-					<div class='col-md-8'>
+					<div class='col-md-6'>
 						<h4><span class='glyphicon glyphicon-info-sign'></span> By voting, you agree to the <a href='#'>terms of service</a></h4>
 						<button class='btn btn-lg btn-success col-md-3'><span class='glyphicon glyphicon-ok-sign'></span> Vote</button>
 					</div>
