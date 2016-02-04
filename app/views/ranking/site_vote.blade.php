@@ -8,6 +8,7 @@
 
 @section('js')
 	@parent
+	{{ HTML::script('https://www.google.com/recaptcha/api.js'); }}
 	{{ HTML::script('javascript/directives/site-directives.js'); }}
 	{{ HTML::script('javascript/controllers/vote-controller.js'); }}
 	{{ HTML::script('javascript/controllers/site-controller.js'); }}
@@ -40,14 +41,19 @@
 
 			<div class='row'>
 				<div id='vote-container'>	
-					<div class='col-md-4'>	
-						<div data-ng-model='voteData.vote_captcha' class="g-recaptcha" data-sitekey="<% $root.siteKey %>"></div>
+					<div class='col-md-4'>
+						<form name='voteData' method='post'>
+							<div data-ng-model='voteData.vote_captcha' class="g-recaptcha" data-sitekey="<% $root.siteKey %>"></div>
+						</form>
+						<div id='robot_field'></div>
 					</div>
 					<div class='col-md-2'></div>
 
 					<div class='col-md-6'>
-						<h4><span class='glyphicon glyphicon-info-sign'></span> By voting, you agree to the <a href='#'>terms of service</a></h4>
-						<button class='btn btn-lg btn-success col-md-3'><span class='glyphicon glyphicon-ok-sign'></span> Vote</button>
+						<h4 id='terms-notice'><span class='glyphicon glyphicon-info-sign'></span> By voting, you agree to the <a href='#'>terms of service</a></h4>
+						<button class='btn btn-lg btn-success col-md-3' data-ng-click='saveVote("{{ URL::route("postSiteVote") }}"); $event.preventDefault()'>
+							<span class='glyphicon glyphicon-ok-sign'></span> Vote
+						</button>
 					</div>
 				</div>
 			</div>

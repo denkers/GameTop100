@@ -32,4 +32,9 @@ class MasterController extends Controller
 	{
 		return View::make('error');
 	}
+
+	public function postRobotVerify()
+	{
+		
+	}
 }

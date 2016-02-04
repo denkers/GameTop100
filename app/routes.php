@@ -19,6 +19,7 @@ Route::get('/register', ['as' => 'getRegister', 'uses' => 'UserController@getReg
 Route::post('/checkusername', ['as' => 'postCheckUsername', 'uses' => 'UserController@postCheckUsername']);
 Route::post('/login', ['as' => 'postLogin', 'uses' => 'UserController@postLogin']);
 Route::post('/register', ['as' => 'postRegister', 'uses' => 'UserController@postRegister']);
+Route::post('/robot/verify', ['as' => 'postRobotVerify', 'uses' => 'MasterController@postRobotVerify']);
 
 Route::group(['prefix' => 'games'], function()
 {
