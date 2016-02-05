@@ -8,7 +8,6 @@
 
 @section('js')
 	@parent
-	<script src='https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit' async defer></script>
 	{{ HTML::script('javascript/directives/site-directives.js'); }}
 	{{ HTML::script('javascript/controllers/vote-controller.js'); }}
 	{{ HTML::script('javascript/controllers/site-controller.js'); }}
