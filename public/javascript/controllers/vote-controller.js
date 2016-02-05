@@ -10,7 +10,7 @@
 			url				=	$rootScope.setParams(url, params);
 			var cResponse	=	vcRecaptchaService.getResponse();
 			var siteID		=	$scope.site.id;
-			var data		=	{ site-id: siteID, g-capthca-response: cResponse };
+			var data		=	{ 'site-id': siteID, 'g-captcha-response': cResponse };
 
 			$rootScope.postData(url, data, function(response)
 			{

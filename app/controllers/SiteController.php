@@ -121,26 +121,38 @@ class SiteController extends MasterController
 	public function postSiteVote()
 	{
 		$success_msg	=	'You have successfully voted';
+		$robot_msg		=	'Invalid chaptcha response';
 		$fail_msg		=	'Failed to add vote';
 
 		$validator		=	Validator::make(Input::all(),
 		[
 			'site-id'				=>	'required|exists:sites,id',
-			'g-capthca-response'	=>	'required'
+			'g-captcha-response'	=>	'required'
 		]);
 
 		if($validator->fails())
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
-			$vote			=	new SiteVotesModel();
-			$vote->site_id	=	Input::get('site-id');
-			$vote->ip		=	Request::getClientIp();
+			$response		=	Input::get('g-captcha-response');
+			$secret			=	Config::get('app-utils.captchaSecret');
+			$captcha		=	new \ReCaptcha\ReCaptcha($secret);
+			$clientIP		=	Request::getClientIp();
+			$cValidator		=	$captcha->verify($response, $clientIP);
 
-			if($vote->save())
-				return MasterController::encodeReturn(true, $success_msg);
-			else
-				return MasterController::encodeReturn(false, $fail_msg);	
+			if($cValidator->isSuccess())
+			{
+				$vote			=	new SiteVotesModel();
+				$vote->site_id	=	Input::get('site-id');
+				$vote->ip		=	Request::getClientIp();
+
+				if($vote->save())
+					return MasterController::encodeReturn(true, $success_msg);
+				else
+					return MasterController::encodeReturn(false, $fail_msg);	
+			}
+
+			else return MasterController::encodeReturn(false, $robot_msg);
 		}
 	}
 
