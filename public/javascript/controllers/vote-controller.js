@@ -6,10 +6,17 @@
 
 		$scope.saveVote	=	function(url)
 		{
-			var params	=	{ site_id: $scope.site.id };
-			url			=	$rootScope.setParams(url, params);
-			var resp	=	vcRecaptchaService.getResponse();
-		};
+			var params		=	{ site_id: $scope.site.id };
+			url				=	$rootScope.setParams(url, params);
+			var cResponse	=	vcRecaptchaService.getResponse();
+			var siteID		=	$scope.site.id;
+			var data		=	{ site-id: siteID, g-capthca-response: cResponse };
 
+			$rootScope.postData(url, data, function(response)
+			{
+				console.log(response);
+			});
+
+		};
 	});
 })();

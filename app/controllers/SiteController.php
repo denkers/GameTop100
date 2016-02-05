@@ -125,7 +125,8 @@ class SiteController extends MasterController
 
 		$validator		=	Validator::make(Input::all(),
 		[
-			'site_id'	=>	'required|exists:sites,id',
+			'site-id'				=>	'required|exists:sites,id',
+			'g-capthca-response'	=>	'required'
 		]);
 
 		if($validator->fails())
@@ -133,8 +134,8 @@ class SiteController extends MasterController
 		else
 		{
 			$vote			=	new SiteVotesModel();
-			$vote->site_id	=	Input::get('site_id');
-			$vote->ip		=	'0.0.0.0';
+			$vote->site_id	=	Input::get('site-id');
+			$vote->ip		=	Request::getClientIp();
 
 			if($vote->save())
 				return MasterController::encodeReturn(true, $success_msg);
