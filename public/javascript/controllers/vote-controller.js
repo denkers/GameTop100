@@ -1,6 +1,6 @@
 (function()
 {
-	angular.module('main').controller('voteController', function($scope, $rootScope)
+	angular.module('main').controller('voteController', function($scope, $rootScope, vcRecaptchaService)
 	{
 		$scope.voteData	=	{};
 
@@ -8,7 +8,7 @@
 		{
 			var params	=	{ site_id: $scope.site.id };
 			url			=	$rootScope.setParams(url, params);
-			console.log(this.voteData);
+			var resp	=	vcRecaptchaService.getResponse();
 		};
 
 	});

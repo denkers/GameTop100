@@ -41,15 +41,11 @@
 
 			<div class='row'>
 				<div id='vote-container'>	
+					<!-- ROBOT FIELD -->
 					<div class='col-md-4'>
-						<form name='voteData' method='post' data-ng-submit='saveVote("{{ URL::route("postRobotVerify"); }}")' novalidate>
-							<input name='test' data-ng-model='voteData.test' value='qweqwe' />
-							<div vc-recaptcha key="$root.siteKey">
-							</div>
-							<input type='submit' value='submit' />
-						</form>
-						<div id='robot_field'></div>
+						<div vc-recaptcha key="$root.siteKey"></div>
 					</div>
+
 					<div class='col-md-2'></div>
 
 					<div class='col-md-6'>
