@@ -135,10 +135,7 @@ class SiteController extends MasterController
 		else
 		{
 			$response		=	Input::get('g-captcha-response');
-			$secret			=	Config::get('app-utils.captchaSecret');
-			$captcha		=	new \ReCaptcha\ReCaptcha($secret);
-			$clientIP		=	Request::getClientIp();
-			$cValidator		=	$captcha->verify($response, $clientIP);
+			$cValidator		=	MasterController::getRobotValidator($response);
 
 			if($cValidator->isSuccess())
 			{

@@ -33,8 +33,13 @@ class MasterController extends Controller
 		return View::make('error');
 	}
 
-	public function postRobotVerify()
+	public static function getRobotValidator($response, $ip = null)
 	{
-		return json_encode(Input::all());		
+		$secret			=	Config::get('app-utils.captchaSecret');
+		$captcha		=	new \ReCaptcha\ReCaptcha($secret);
+		$clientIP		=	isset($ip)? $ip : Request::getClientIp();
+		$cValidator		=	$captcha->verify($response, $clientIP);
+
+		return $cValidator;
 	}
 }
