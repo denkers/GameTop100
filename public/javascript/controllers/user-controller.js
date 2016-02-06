@@ -50,10 +50,13 @@
 
 		$scope.register		=	function()
 		{
+			var data						=	$httpParamSerializer($scope.registerData);
+			data['g-captcha-response']		=	vcRecaptchaService.getResponse();
+
 			$http
 			({
 				url: root_url + '/register',
-				data: $httpParamSerializer($scope.registerData),
+				data: data, 
 				method: 'POST'
 
 			}).success(function(response)

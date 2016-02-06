@@ -77,6 +77,12 @@
 			</div>
 		</div>
 
+		
+		<center>
+			<div vc-recaptcha key="$root.siteKey"></div>
+		</center>
+
+		<br>
 		<div class='register_controls btn-group'>
 			<button class='btn btn-default' id='register_cancel_btn' data-ng-click='$root.closeModal(); $event.preventDefault()'>Cancel</button>
 			<button class='btn btn-success' id='register_submit_btn' data-ng-click='register(); $event.preventDefault()'>Register</button>
