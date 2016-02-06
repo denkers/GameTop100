@@ -23,6 +23,15 @@ class UserController extends MasterController
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
+			if(Input::has('g-captcha-response'))
+			{
+				$response	=	Input::get('g-captcha-response');
+				$cValidator	=	MasterController::getRobotValidator($response);
+				
+				if(!$cValidator->isSuccess())	
+					return MasterController::encodeReturn(false, $this->invalid_input_msg);
+			}
+
 			$user_id		=	Input::get('username');
 			$user_pass		=	Input::get('password');
 			$remember_user	=	Input::has('remember');
