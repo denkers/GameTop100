@@ -6,15 +6,19 @@
 
 (function()
 {
-	angular.module('main').controller('userController', function($scope, $rootScope, $http, $httpParamSerializer)
+	angular.module('main').controller('userController', function($scope, $rootScope, $http, $httpParamSerializer, vcRecaptchaService)
 	{
 		$scope.loginData		=	{};
 		$scope.registerData		=	{};
 		$scope.loginResponse	=	null;
 		$scope.registerResponse	=	null;
+		$scope.loginAttempts	=	0;
+		$scope.attemptLimit		=	3;
 
 		$scope.login		=	function()
 		{
+			$scope.loginAttempts++;
+
 			$http
 			({
 				url: root_url + '/login',

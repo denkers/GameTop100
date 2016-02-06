@@ -40,6 +40,7 @@
 	</div>
 
 	<div id='login_controls'>
+		<div data-ng-if='loginAttempts >= attemptLimit' vc-recaptcha key="$root.siteKey"></div><br>
 		<div class='btn-group'>
 			<button class='btn btn-default' id='forgot_btn'>Forgot password</button>
 			<button class='btn btn-primary' id='login_btn' data-ng-click='login(); $event.preventDefault();'>Login</button>
