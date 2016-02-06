@@ -79,15 +79,21 @@ class UserController extends MasterController
 
 		$validator			=	Validator::make(Input::all(),
 		[
-			'username'		=>	'required|min:4|max:18',
-			'password'		=>	'required|min:6|max:18',
-			'email'			=>	'required|email'
+			'username'				=>	'required|min:4|max:18',
+			'password'				=>	'required|min:6|max:18',
+			'email'					=>	'required|email',
+			'g-captcha-response'	=>	'required'	
 		]);
 		
 		if($validator->fails())
 			return MasterController::encodeReturn(false, $this->invalid_input_msg);
 		else
 		{
+			$response		=	Input::get('g-captcha-response');
+			$cValidator		=	MasterController::getRobotValidator($response);
+			if(!$cValidator->isSuccess())
+				Return MasterController::encodeReturn(false, $this->invalid_input_msg);	
+
 			$reg_username	=	Input::get('username');
 			$reg_pass		=	Input::get('password');
 			$reg_email		=	Input::get('email');
