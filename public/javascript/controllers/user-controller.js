@@ -18,11 +18,17 @@
 		$scope.login		=	function()
 		{
 			$scope.loginAttempts++;
+			var data	=	$httpParamSerializer($scope.loginData);	
+			if($scope.loginAttempts >= $scope.attemptLimit)
+			{
+				var response				=	vcRecaptchaService.getResponse();
+				data['g-captcha-response']	=	response;
+			}
 
 			$http
 			({
 				url: root_url + '/login',
-				data: $httpParamSerializer($scope.loginData),
+				data: data,
 				method: 'POST'
 			}).success(function(response)
 			{
