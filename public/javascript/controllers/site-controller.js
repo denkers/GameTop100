@@ -144,6 +144,29 @@
 					parent_site.comment_response.show	=	true;	
 				}
 			});
+
+		};
+
+		$scope.getSiteVoteCount	=	function(site)
+		{
+			var votes		=	site.votes;
+			var voteCount	=	{ in_votes: 0, out_votes: 0 };
+
+			if(votes.length > 0)
+			{
+				for(var i = 0; i < votes.length; i++)
+				{
+					var vote		=	votes[i];
+					var num_votes	=	parseInt(vote.num_votes);
+
+					if(vote.isOut == '1')
+						voteCount.out_votes	=	num_votes;
+					else
+						voteCount.in_votes	=	num_votes;	
+				}
+			}
+
+			return voteCount;
 		};
 	});
 })();

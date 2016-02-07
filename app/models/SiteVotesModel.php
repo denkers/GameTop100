@@ -14,4 +14,6 @@ class SiteVotesModel extends Eloquent
 	{
 		return self::where('site_id', '=', $site_id)->count();
 	}
+
+
 }

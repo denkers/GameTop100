@@ -4,6 +4,7 @@
 	{
 		$rootScope.getData(site_list_url, function(response)
 		{
+			console.log(response);
 			$scope.ranking_list		=	response;
 		});
 

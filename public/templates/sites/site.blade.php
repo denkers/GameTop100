@@ -31,12 +31,12 @@
 		<h3 class='vote_text'>
 			<!-- SITE IN VOTES -->
 			<span uib-tooltip='Votes in' tooltip-placement='top' class='site_in_group' data-toggle='tooltip' data-placement='bottom' data-title='Site in-votes'>
-				<span class='site_in'>5</span> <span class='glyphicon glyphicon-arrow-up'></span>
+				<span class='site_in'><% getSiteVoteCount(siteData).in_votes %></span> <span class='glyphicon glyphicon-arrow-up'></span>
 			</span>
 
 			<!-- SITE OUT VOTES -->
 			<span uib-tooltip='Votes out' tooltip-placement='top' class='site_out_group' data-toggle='tooltip' data-placement='bottom' data-title='Site out-votes'>
-				<span class='site_out'>10</span> <span class='glyphicon glyphicon-arrow-down'></span>
+				<span class='site_out'><%  getSiteVoteCount(siteData).out_votes %></span> <span class='glyphicon glyphicon-arrow-down'></span>
 			</span>
 
 			<!-- SITE COMMENTS -->

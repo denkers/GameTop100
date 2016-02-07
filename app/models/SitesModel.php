@@ -45,7 +45,12 @@ class SitesModel extends Eloquent
 		{
 			if(Auth::check())
 				$query->where('comment_votes.user_id', '=', Auth::user()->username);
-		}]);	
+		}])
+		->with(['votes' => function($query)
+		{
+			$query->selectRaw('id, site_id, isOut, COUNT(*) as num_votes');
+			$query->groupBy('isOut');
+		}]);
 	}
 	
 	public static function getSitesForUser($user_id)
