@@ -24,6 +24,7 @@ class SiteVotesTable extends Migration {
 			$table->integer('site_id')->unsigned();
 			$table->timestamps();
 			$table->string('ip');
+			$table->boolean('isOut')->default(false);
 			$table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
 		});
 	}
