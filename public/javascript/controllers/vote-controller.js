@@ -38,7 +38,19 @@
 
 		$scope.voteCountdownTask	=	function()
 		{
-			$scope.voteTime			=	moment($scope.voteTime, $scope.countdownFormat).subtract(1, 's').format($scope.countdownFormat);
+			var voteMoment			=	moment($scope.voteTime, $scope.countdownFormat);
+			var hour				=	voteMoment.hour();
+			var minute				=	voteMoment.minute();
+			var second				=	voteMoment.second();
+			
+			if(hour == 0 && minute == 0 && second == 0)
+			{
+				$interval.cancel($scope.voteCountdownTask);
+				$scope.voteTime		=	null;
+			}
+
+			else
+				$scope.voteTime		=	voteMoment.subtract(1, 's').format($scope.countdownFormat);
 		};
 
 		$scope.initTimeFromResponse	=	function(time)
