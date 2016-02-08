@@ -66,7 +66,7 @@
 			<!-- VOTE COUNTDOWN -->
 			<div class='row' data-ng-show='voteTime != null'>
 				<div class='col-md-12'>
-					<h1><% voteTime %></h1>
+					<h1>Vote again in <% voteTime %></h1>
 				</div>
 			</div>
 		</div>

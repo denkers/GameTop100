@@ -1,9 +1,10 @@
 (function()
 {
-	angular.module('main').controller('voteController', function($scope, $rootScope, vcRecaptchaService)
+	angular.module('main').controller('voteController', function($scope, $rootScope, $interval, vcRecaptchaService)
 	{
-		$scope.voteData		=	{};
-		$scope.voteResponse	=	{};
+		$scope.voteData			=	{};
+		$scope.voteResponse		=	{};
+		$scope.countdownFormat	=	'h [hours,] m [minutes,] s [seconds]';
 
 		$scope.saveVote	=	function(url)
 		{
@@ -35,6 +36,11 @@
 			return timeStr;
 		};
 
+		$scope.voteCountdownTask	=	function()
+		{
+			$scope.voteTime			=	moment($scope.voteTime, $scope.countdownFormat).subtract(1, 's').format($scope.countdownFormat);
+		};
+
 		$scope.initTimeFromResponse	=	function(time)
 		{
 			if(time != undefined && time != null)
@@ -46,9 +52,10 @@
 				var targetTime		=	moment('12:00:00', 'hh:mm:ss');
 				var voterDiff		=	$scope.getTimeDifference(currentTime, voterTime);
 				var targetDiff		=	$scope.getTimeDifference(targetTime, moment(voterDiff, 'hh:mm:ss'));
-				var formattedDiff	=	moment(targetDiff, 'hh:mm:ss').format('h [hours,] m [minutes,] s [seconds]');
+				var formattedDiff	=	moment(targetDiff, 'hh:mm:ss').format($scope.countdownFormat);
 
 				$scope.voteTime		=	formattedDiff;
+				$interval($scope.voteCountdownTask, 1000);
 			}
 
 			else
