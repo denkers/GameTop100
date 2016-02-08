@@ -18,7 +18,9 @@
 @stop
 
 @section('content')
-	<div class='container' data-ng-controller='voteController' data-ng-init='site = {{ $site_data }}'>
+	<div class='container' data-ng-controller='voteController' 
+	data-ng-init='site = {{ $site_data }}; prev_vote = getTimeFromResponse({{ $recent_vote }})'>
+		<pre><% prev_vote %></pre>
 		<div class='col-md-9 center-x'>
 			<div class='page-header'>
 				<h4>Site vote<br><small>Vote for your site</small></h4>

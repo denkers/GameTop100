@@ -111,11 +111,28 @@ class SiteController extends MasterController
 		return $site_list;
 	}
 
+	public function getSiteVoteCheck()
+	{
+		$site_id	=	Route::current()->getParameter('site_id');
+		$prev_vote	=	SiteVotesModel::getRecentVoteForSite($site_id)->select('created_at')->get()->first();
+		if($prev_vote != null)
+			$prev_vote	=	$prev_vote['created_at']->toDateTimeString();
+
+		$current	=	new DateTime(null, new DateTimeZone('NZ'));
+		$current	=	$current->format('Y-m-d H:i:s');
+
+		return json_encode(['current_time' => $current, 'voter_time' => $prev_vote]);
+	}
+
 	public function getSiteVote()
 	{
 		$site_id	=	Route::current()->getParameter('site_id');	
 		$site		=	json_encode(SitesModel::getSite($site_id)->first());
-		return View::make('ranking.site_vote')->with('site_data', $site);
+		$vote_times	=	$this->getSiteVoteCheck();
+
+		return View::make('ranking.site_vote')
+				->with('site_data', $site)
+				->with('recent_vote', $vote_times);
 	}
 
 	public function postSiteVote()
@@ -140,13 +157,12 @@ class SiteController extends MasterController
 
 			if($cValidator->isSuccess())
 			{
-				$carbon			=	new \Carbon\Carbon();
-				$time			=	$carbon->subHours(12);
-				if(SiteVotesModel::where('created_at', '>', $time)->exists())
+				$site			=	Input::get('site-id');
+				if(SiteVotesModel::getRecentVoteForSite($site)->exists())
 					return MasterController::encodeReturn(false, $vote_exist_msg);
 
 				$vote			=	new SiteVotesModel();
-				$vote->site_id	=	Input::get('site-id');
+				$vote->site_id	=	$site;
 				$vote->ip		=	Request::getClientIp();
 
 				if($vote->save())

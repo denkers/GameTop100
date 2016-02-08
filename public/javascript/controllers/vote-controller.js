@@ -25,5 +25,19 @@
 		{
 			$scope.voteResponse		=	{};
 		};
+
+		$scope.getTimeFromResponse	=	function(time)
+		{
+			if(time == undefined || time == null)
+				return null;
+
+			else
+			{
+				console.log(time);
+				var timeStr	=	time.created_at;
+				console.log(timeStr);
+				return moment(timeStr).format("YYYY-MM-DD hh:mm:ss");	
+			}
+		};
 	});
 })();
