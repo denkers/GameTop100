@@ -59,8 +59,9 @@ Route::group(['prefix' => 'sites'], function()
 			Route::group(['prefix' => 'vote'], function()
 			{
 				Route::get('/', ['as' => 'getSiteVote', 'uses' => 'SiteController@getSiteVote']);
-				Route::post('/', ['as' => 'postSiteVote', 'uses' => 'SiteController@postSiteVote']);
+				Route::post('/in', ['as' => 'postSiteVote', 'uses' => 'SiteController@postSiteVote']);
 				Route::get('/check', ['as' => 'getSiteVoteCheck', 'uses' => 'SiteController@getSiteVoteCheck']);
+				Route::post('/out', ['as' => 'postOutSiteVote', 'uses' => 'SiteController@postOutSiteVote']);
 			});
 		});
 	});

@@ -180,6 +180,32 @@ class SiteController extends MasterController
 		}
 	}
 
+	public function postOutSiteVote()
+	{
+		$success_msg	=	'Successfully added outgoing vote';
+		$fail_msg		=	'Failed to add outgoing vote';
+
+		$validator		=	Validator::make(Input::all(),
+		[
+			'site-id'	=>	'required|exists:sites,id',
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+
+		else
+		{
+			$vote			=	new SiteVotesModel();
+			$vote->site_id	=	Input::get('site-id');
+			$vote->ip		=	Request::getClientIp();
+
+			if($vote->save())
+				return masterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);
+		}
+	}
+
 	public function getSiteComments()
 	{
 		$site_id	=	Route::current()->getParameter('site_id');
