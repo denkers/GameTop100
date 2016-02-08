@@ -18,6 +18,7 @@
 			{{ HTML::script('dependencies/angular.js'); }}
 			{{ HTML::script('dependencies/angular-animate.min.js'); }}
 			{{ HTML::script('dependencies/angular-recaptcha.min.js'); }}
+			{{ HTML::script('dependencies/moment.js'); }}
 			{{ HTML::script('https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit', 
 			['async', 'defer']); }}
 			{{ HTML::script('dependencies/ui-bootstrap-tpls.min.js'); }}

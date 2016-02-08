@@ -60,6 +60,7 @@ Route::group(['prefix' => 'sites'], function()
 			{
 				Route::get('/', ['as' => 'getSiteVote', 'uses' => 'SiteController@getSiteVote']);
 				Route::post('/', ['as' => 'postSiteVote', 'uses' => 'SiteController@postSiteVote']);
+				Route::get('/check', ['as' => 'getSiteVoteCheck', 'uses' => 'SiteController@getSiteVoteCheck']);
 			});
 		});
 	});
