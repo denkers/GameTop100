@@ -35,12 +35,9 @@
 			return timeStr;
 		};
 
-		$scope.getTimeFromResponse	=	function(time)
+		$scope.initTimeFromResponse	=	function(time)
 		{
-			if(time == undefined || time == null)
-				return null;
-
-			else
+			if(time != undefined && time != null)
 			{
 				console.log(time);
 				var formatStr		=	'YYYY-MM-DD hh:mm:ss';	
@@ -49,10 +46,13 @@
 				var targetTime		=	moment('12:00:00', 'hh:mm:ss');
 				var voterDiff		=	$scope.getTimeDifference(currentTime, voterTime);
 				var targetDiff		=	$scope.getTimeDifference(targetTime, moment(voterDiff, 'hh:mm:ss'));
+				var formattedDiff	=	moment(targetDiff, 'hh:mm:ss').format('h [hours,] m [minutes,] s [seconds]');
 
-				console.log(targetDiff);
-				return targetDiff;
+				$scope.voteTime		=	formattedDiff;
 			}
+
+			else
+				$scope.voteTime		=	null;
 		};
 	});
 })();

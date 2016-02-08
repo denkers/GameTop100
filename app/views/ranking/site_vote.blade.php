@@ -19,20 +19,13 @@
 
 @section('content')
 	<div class='container' data-ng-controller='voteController' 
-	data-ng-init='site = {{ $site_data }}; prev_vote = getTimeFromResponse({{ $recent_vote }})'>
-		<pre><% prev_vote %></pre>
+	data-ng-init='site = {{ $site_data }}; initTimeFromResponse({{ $recent_vote }})'>
 		<div class='col-md-9 center-x'>
 			<div class='page-header'>
 				<h4>Site vote<br><small>Vote for your site</small></h4>
 			</div>
 
 			<div class='row'>
-				<uib-alert data-ng-if='voteResponse.show' close='closeVoteResponse()' dismiss-on-timeout='2000'
-				type='<% voteResponse.status? "success" : "danger" %>'>
-					<span class='<% voteResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
-					<% voteResponse.message  %>
-				</uib-alert>	
-		
 				<div class='col-md-12' id='site-container'>
 					<div class='list-group-item' data-ng-controller='siteController'> 
 						<site site-data='<% site %>' 
@@ -45,8 +38,14 @@
 				</div>
 			</div>
 
-
-			<div class='row'>
+			<!-- VOTE CONTROLS -->
+			<div class='row' data-ng-show='voteTime == null'>
+				<uib-alert data-ng-if='voteResponse.show' close='closeVoteResponse()' dismiss-on-timeout='2000'
+				type='<% voteResponse.status? "success" : "danger" %>'>
+					<span class='<% voteResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+					<% voteResponse.message  %>
+				</uib-alert>	
+		
 				<div id='vote-container'>	
 					<!-- ROBOT FIELD -->
 					<div class='col-md-4'>
@@ -61,6 +60,13 @@
 							<span class='glyphicon glyphicon-ok-sign'></span> Vote
 						</button>
 					</div>
+				</div>
+			</div>
+
+			<!-- VOTE COUNTDOWN -->
+			<div class='row' data-ng-show='voteTime != null'>
+				<div class='col-md-12'>
+					<h1><% voteTime %></h1>
 				</div>
 			</div>
 		</div>
