@@ -206,11 +206,6 @@ class SiteController extends MasterController
 		}
 	}
 
-	public function getSiteComments()
-	{
-		$site_id	=	Route::current()->getParameter('site_id');
-	}
-
 	public function postAddSiteComment()
 	{
 		$success_msg	=	'Successfully added comment';
