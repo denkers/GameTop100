@@ -26,6 +26,15 @@
 			$scope.voteResponse		=	{};
 		};
 
+		$scope.getTimeDifference	=	function(timeA, timeB)
+		{
+			var difference			=	timeA.diff(timeB);
+			var dur					=	moment.duration(difference);
+			var timeStr				=	Math.floor(dur.asHours()) + moment.utc(difference).format(':mm:ss');
+			
+			return timeStr;
+		};
+
 		$scope.getTimeFromResponse	=	function(time)
 		{
 			if(time == undefined || time == null)
@@ -34,9 +43,15 @@
 			else
 			{
 				console.log(time);
-				var timeStr	=	time.created_at;
-				console.log(timeStr);
-				return moment(timeStr).format("YYYY-MM-DD hh:mm:ss");	
+				var formatStr		=	'YYYY-MM-DD hh:mm:ss';	
+				var currentTime		=	moment(time.current_time, formatStr);
+				var voterTime		=	moment(time.voter_time, formatStr);
+				var targetTime		=	moment('12:00:00', 'hh:mm:ss');
+				var voterDiff		=	$scope.getTimeDifference(currentTime, voterTime);
+				var targetDiff		=	$scope.getTimeDifference(targetTime, moment(voterDiff, 'hh:mm:ss'));
+
+				console.log(targetDiff);
+				return targetDiff;
 			}
 		};
 	});

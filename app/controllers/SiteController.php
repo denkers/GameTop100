@@ -114,12 +114,17 @@ class SiteController extends MasterController
 	public function getSiteVoteCheck()
 	{
 		$site_id	=	Route::current()->getParameter('site_id');
+		$dateFormat	=	'Y-m-d h:i:s';
 		$prev_vote	=	SiteVotesModel::getRecentVoteForSite($site_id)->select('created_at')->get()->first();
+
 		if($prev_vote != null)
-			$prev_vote	=	$prev_vote['created_at']->toDateTimeString();
+		{
+			$prev_vote	=	new DateTime($prev_vote['created_at']->toDateTimeString());
+			$prev_vote	=	$prev_vote->format($dateFormat);
+		}
 
 		$current	=	new DateTime(null, new DateTimeZone('NZ'));
-		$current	=	$current->format('Y-m-d H:i:s');
+		$current	=	$current->format($dateFormat);
 
 		return json_encode(['current_time' => $current, 'voter_time' => $prev_vote]);
 	}
