@@ -2,7 +2,8 @@
 {
 	angular.module('main').controller('voteController', function($scope, $rootScope, vcRecaptchaService)
 	{
-		$scope.voteData	=	{};
+		$scope.voteData		=	{};
+		$scope.voteResponse	=	{};
 
 		$scope.saveVote	=	function(url)
 		{
@@ -14,9 +15,15 @@
 
 			$rootScope.postData(url, data, function(response)
 			{
-				console.log(response);
+				$scope.voteResponse			=	response;
+				$scope.voteResponse.show	=	true;	
 			});
 
+		};
+
+		$scope.closeVoteResponse	=	function()
+		{
+			$scope.voteResponse		=	{};
 		};
 	});
 })();

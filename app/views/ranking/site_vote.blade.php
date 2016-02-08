@@ -25,6 +25,12 @@
 			</div>
 
 			<div class='row'>
+				<uib-alert data-ng-if='voteResponse.show' close='closeVoteResponse()' dismiss-on-timeout='2000'
+				type='<% voteResponse.status? "success" : "danger" %>'>
+					<span class='<% voteResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+					<% voteResponse.message  %>
+				</uib-alert>	
+		
 				<div class='col-md-12' id='site-container'>
 					<div class='list-group-item' data-ng-controller='siteController'> 
 						<site site-data='<% site %>' 
