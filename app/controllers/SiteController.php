@@ -123,6 +123,7 @@ class SiteController extends MasterController
 		$success_msg	=	'You have successfully voted';
 		$robot_msg		=	'Invalid chaptcha response';
 		$fail_msg		=	'Failed to add vote';
+		$vote_exist_msg	=	'You have already voted within 12 hours';
 
 		$validator		=	Validator::make(Input::all(),
 		[
@@ -139,6 +140,11 @@ class SiteController extends MasterController
 
 			if($cValidator->isSuccess())
 			{
+				$carbon			=	new \Carbon\Carbon();
+				$time			=	$carbon->subHours(12);
+				if(SiteVotesModel::where('created_at', '>', $time)->exists())
+					return MasterController::encodeReturn(false, $vote_exist_msg);
+
 				$vote			=	new SiteVotesModel();
 				$vote->site_id	=	Input::get('site-id');
 				$vote->ip		=	Request::getClientIp();
