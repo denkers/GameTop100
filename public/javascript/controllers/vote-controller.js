@@ -57,7 +57,6 @@
 		{
 			if(time != undefined && time != null)
 			{
-				console.log(time);
 				var formatStr		=	'YYYY-MM-DD hh:mm:ss';	
 				var currentTime		=	moment(time.current_time, formatStr);
 				var voterTime		=	moment(time.voter_time, formatStr);

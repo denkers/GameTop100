@@ -368,7 +368,7 @@ class SiteController extends MasterController
 
 	public function getRankingSiteList()
 	{
-		return SitesModel::getSitesForGame(1)->orderBy('title')->get();
+		return SitesModel::getSitesWithComments()->orderBy('title')->get();
 	}
 
 	public function getRankingHome()
