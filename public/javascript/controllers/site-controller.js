@@ -168,5 +168,23 @@
 
 			return voteCount;
 		};
+
+		$scope.redirectSite	=	function(site, outVoteUrl)
+		{
+			var params		=	{ site_id: site.id };
+			outVoteUrl		=	$rootScope.setParams(outVoteUrl, params);
+			var data		=	{ site-id: site.id };	
+			var msgTemplate	=	'<message-modal title="Redirect notice" message="Redirecting, one moment please"></message-modal>';
+			$rootScope.openModal(template, null, 'siteController');
+
+			setTimeout(function()
+			{
+				$rootScope.postData(outVoteUrl, data, function(response)
+				{
+					var url			=	site.address;
+					window.location	=	url;
+				});
+			}, 1500);
+		};
 	});
 })();
