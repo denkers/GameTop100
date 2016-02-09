@@ -62,7 +62,8 @@ Ranking
 											edit-url='{{ URL::route("postEditComment"); }}' 
 											add-url='{{ URL::route("postAddSiteComment"); }}' 
 											rate-url='{{ URL::route("postRateComment"); }}' 
-											delete-url='{{ URL::route("postRemoveComment"); }}'>
+											delete-url='{{ URL::route("postRemoveComment"); }}'
+											redirect-url='{{ URL::route("postOutSiteVote"); }}'>
 										</site>
 								</div>
 							</div>

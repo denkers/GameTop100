@@ -16,7 +16,7 @@
 
 			<!-- SITE DESCRIPTION -->
 			<div class='site_content'>
-				<a href='<% siteData.address %>' class='site_link'>
+				<a data-ng-click='redirectSite(siteData, redirectUrl); $event.preventDefault()' href='<% siteData.address %>' class='site_link'>
 					<% siteData.title %>
 				</a>
 

@@ -12,6 +12,7 @@
 				scope.addUrl		=	attr.addUrl;
 				scope.rateUrl		=	attr.rateUrl;
 				scope.deleteUrl		=	attr.deleteUrl;
+				scope.redirectUrl	=	attr.redirectUrl;
 			}
 		};
 	});

@@ -169,20 +169,20 @@
 			return voteCount;
 		};
 
-		$scope.redirectSite	=	function(site, outVoteUrl)
+		$scope.redirectSite	=	function(site, url)
 		{
 			var params		=	{ site_id: site.id };
-			outVoteUrl		=	$rootScope.setParams(outVoteUrl, params);
-			var data		=	{ site-id: site.id };	
+			url				=	$rootScope.setParams(url, params);
+			var data		=	{ 'site-id': site.id };	
 			var msgTemplate	=	'<message-modal title="Redirect notice" message="Redirecting, one moment please"></message-modal>';
-			$rootScope.openModal(template, null, 'siteController');
+			$rootScope.openModal(msgTemplate, null, 'siteController');
 
 			setTimeout(function()
 			{
-				$rootScope.postData(outVoteUrl, data, function(response)
+				$rootScope.postData(url, data, function(response)
 				{
-					var url			=	site.address;
-					window.location	=	url;
+					var addr			=	site.address;
+					window.location		=	addr;
 				});
 			}, 1500);
 		};
