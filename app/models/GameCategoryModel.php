@@ -15,4 +15,12 @@ class GameCategoryModel extends Eloquent
 	{
 		return $this->hasMany('GamesModel', 'category_id');
 	}	
+
+	public static function getCategoriesWithGames()
+	{
+		return self::with(['games' => function($query)
+		{
+			$query->orderBy('games.name');
+		}]);
+	}
 }

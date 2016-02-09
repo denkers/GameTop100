@@ -20,6 +20,6 @@ class HomeController extends MasterController
 
 	public function getGameList()
 	{
-		return GamesModel::getGames();
+		return GameCategoryModel::getCategoriesWithGames()->get();
 	}
 }

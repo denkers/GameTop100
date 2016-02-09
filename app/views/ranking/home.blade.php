@@ -28,12 +28,19 @@ Ranking
 		<div id='home_content'>
 			<div id='game_nav'>
 				<ul id='games_list' class='list-group'>
-					<div class='list-group-item game_list_item clearfix' data-ng-repeat='game in game_list'>
-						<div class='game_item_container'>
-							<a href='' class='game_item_link'>
-								<h4><% game.name %></h4>
-							</a>
+					<div class='list-group-item game_list_item clearfix' data-ng-repeat='category in game_category_list'>
+
+						<div class='category_item_container'>
+							<h3><strong><% category.name %></strong></h3>
 						</div>
+
+						<ul class='list-group'>
+							<div class='list-group-item game_item_container' data-ng-repeat='game in category.games'>
+								<a href='' class='game_item_link'>
+									<h4><% game.name %></h4>
+								</a>
+							</div>
+						</ul>
 					</div>
 				</ul>
 			</div>
