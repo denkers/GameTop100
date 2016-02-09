@@ -55,7 +55,7 @@
 
 		$scope.initTimeFromResponse	=	function(time)
 		{
-			if(time != undefined && time != null)
+			if(time != undefined && time != null && time.voter_time != null)
 			{
 				var formatStr		=	'YYYY-MM-DD hh:mm:ss';	
 				var currentTime		=	moment(time.current_time, formatStr);

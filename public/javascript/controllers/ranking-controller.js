@@ -10,6 +10,7 @@
 
 		$rootScope.getData(game_list_url, function(response)
 		{
+			console.log(response);
 			$scope.game_list	=	response;
 		});	
 	});
