@@ -198,6 +198,7 @@ class SiteController extends MasterController
 			$vote			=	new SiteVotesModel();
 			$vote->site_id	=	Input::get('site-id');
 			$vote->ip		=	Request::getClientIp();
+			$vote->isOut	=	true;
 
 			if($vote->save())
 				return masterController::encodeReturn(true, $success_msg);

@@ -161,7 +161,8 @@
 
 					if(vote.isOut == '1')
 						voteCount.out_votes	=	num_votes;
-					else
+
+					else 
 						voteCount.in_votes	=	num_votes;	
 				}
 			}
