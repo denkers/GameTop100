@@ -80,47 +80,5 @@
 			</div>
 		</nav>	
 		@yield('content')
-
-		<div class='modal fade' id='logout_modal' role='dialog'>
-			<div class='modal-dialog'>
-				<div class='modal-content'>
-					<div class='modal-body'>
-						<h3 class='logout_modal_message'>Please wait one moment</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class='modal fade' id='register_modal' role='dialog'>
-			<div class='modal-dialog'>
-				<div class='modal-content'>
-					<div class='modal-header'>
-						<button class='close' data-dismiss='modal'>&times;</button>
-						<h4 class='modal-title'>Registration
-							<br><small>Create your MegaTop100 account</small>
-						</h4>
-					</div>
-
-					<div class='modal-body'>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class='modal fade' id='login_modal' role='dialog'>
-			<div class='modal-dialog'>
-				<div class='modal-content'>
-					<div class='modal-header'>
-						<button class='close' data-dismiss='modal'>&times;</button>
-						<h4 class='modal-title'>Sign-in
-							<br><small>Enter your MegaTop100 account credentials</small>
-						</h4>
-					</div>
-
-					<div class='modal-body'>
-					</div>
-				</div>
-			</div>
-		</div>
 	</body>
 </html>
