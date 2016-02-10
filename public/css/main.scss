@@ -51,7 +51,17 @@ body
 	position:absolute;
 	bottom:0;
 	height:200px;
+	min-width:500px;
 	border:1px solid #ccc;
 	padding:2em;
 	border-radius:20px 20px 0 0;
+}
+
+.footer-list
+{
+	.list-group-item
+	{
+		padding:0;
+		border:0;
+	}
 }
