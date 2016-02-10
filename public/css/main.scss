@@ -45,3 +45,13 @@ body
 {
 	color: $colour_blue;
 }
+
+#main-footer
+{
+	position:absolute;
+	bottom:0;
+	height:200px;
+	border:1px solid #ccc;
+	padding:2em;
+	border-radius:20px 20px 0 0;
+}

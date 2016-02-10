@@ -80,5 +80,11 @@
 			</div>
 		</nav>	
 		@yield('content')
+
+		<footer id='main-footer' class='center-x'>
+			<div class='footer-container'>
+				@include('layout.footer')
+			</div>
+		</footer>
 	</body>
 </html>
