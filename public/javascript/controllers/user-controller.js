@@ -18,13 +18,13 @@
 		$scope.login		=	function()
 		{
 			$scope.loginAttempts++;
-			var data	=	$httpParamSerializer($scope.loginData);	
 			if($scope.loginAttempts >= $scope.attemptLimit)
 			{
-				var response				=	vcRecaptchaService.getResponse();
-				data['g-captcha-response']	=	response;
+				var response							=	vcRecaptchaService.getResponse();
+				$scope.loginData['g-captcha-response']	=	response;
 			}
 
+			var data	=	$httpParamSerializer($scope.loginData);
 			$http
 			({
 				url: root_url + '/login',
@@ -50,8 +50,9 @@
 
 		$scope.register		=	function()
 		{
-			var data						=	$httpParamSerializer($scope.registerData);
-			data['g-captcha-response']		=	vcRecaptchaService.getResponse();
+			var response									=	vcRecaptchaService.getResponse();
+			$scope.registerData['g-captcha-response']		=	response;
+			var data										=	$httpParamSerializer($scope.registerData);
 
 			$http
 			({
