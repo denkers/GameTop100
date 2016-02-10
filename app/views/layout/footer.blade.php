@@ -1,6 +1,6 @@
 <div class='row'>
 	<div class='col-md-4'>
-		<h4>Info</h4>
+		<h4><span class='glyphicon glyphicon-info-sign'></span> Info</h4>
 		<div class='list-group footer-list'>
 			<a href='#' class='list-group-item'>About</a>
 			<a href='#' class='list-group-item'>Site map</a>
@@ -9,7 +9,7 @@
 	</div>
 
 	<div class='col-md-4'>
-		<h4>Account</h4>
+		<h4><span class='glyphicon glyphicon-user'></span> Account</h4>
 		<div class='list-group footer-list'>
 			<a href='#' class='list-group-item'>Register</a>
 			<a href='#' class='list-group-item'>Login</a>
@@ -18,7 +18,7 @@
 	</div>
 
 	<div class='col-md-4'>
-		<h4>Advertise</h4>
+		<h4><span class='glyphicon glyphicon-signal'></span> Advertise</h4>
 		<div class='list-group footer-list'>
 			<a href='#' class='list-group-item'>Ranking</a>
 			<a href='#' class='list-group-item'>Premium</a>
