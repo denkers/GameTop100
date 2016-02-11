@@ -90,6 +90,12 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 
 	Route::group(['prefix' => 'notifications'], function()
 	{
-		
+		Route::get('/', ['as' => 'getNotifications', 'uses' => 'UserController@getNotifications']);
+		Route::get('/all', ['as' => 'getNotificationsList', 'uses' => 'UserController@getNotificationsList']);
+
+		Route::group(['prefix' => 'notification={notification_id}'], function()
+		{
+			Route::post('/delete', ['as' => 'postDeleteNotification', 'uses' => 'UserController@postDeleteNotification']);
+		});	
 	});
 });
