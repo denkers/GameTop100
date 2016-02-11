@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration {
 			$table->string('url', 100)->nullable();
 			$table->string('user', 16);
 			$table->string('content', 200);
+			$table->string('subject', 80);
 			$table->boolean('isRead')->default(false);
 			$table->timestamps();
 			$table->foreign('user')->references('username')->on('users')->onDelete('cascade');
