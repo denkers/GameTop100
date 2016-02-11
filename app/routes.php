@@ -74,7 +74,7 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 		Route::get('/', ['as' => 'getProfile', 'uses' => 'UserController@getProfile']);
 	});
 
-	Route::group(['prefix' => 'sites', 'before' => 'auth'], function()
+	Route::group(['prefix' => 'sites'], function()
 	{
 		Route::get('/', ['as' => 'getMySites', 'uses' => 'SiteController@getMySites']);
 		Route::get('/all', ['as' => 'getMySiteList', 'uses' => 'SiteController@getMySiteList']);
@@ -88,4 +88,8 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 		});
 	});
 
+	Route::group(['prefix' => 'notifications'], function()
+	{
+		
+	});
 });
