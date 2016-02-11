@@ -96,6 +96,7 @@ Route::group(['prefix' => 'user', 'before' => 'auth'], function()
 		Route::group(['prefix' => 'notification={notification_id}'], function()
 		{
 			Route::post('/delete', ['as' => 'postDeleteNotification', 'uses' => 'UserController@postDeleteNotification']);
+			Route::post('/read', ['as' => 'postReadNotification', 'uses' => 'UserController@postReadNotification']);
 		});	
 	});
 });

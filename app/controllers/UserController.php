@@ -154,4 +154,24 @@ class UserController extends MasterController
 		Auth::logout();
 		return MasterController::encodeReturn(true, $success_msg);
 	}
+
+	public function getNotifications()
+	{
+		return View::make('user.notifications');
+	}
+
+	public function getNotificationsList()
+	{
+
+	}
+
+	public function postDeleteNotification()
+	{
+		
+	}
+
+	public function postReadNotification()
+	{
+
+	}
 }
