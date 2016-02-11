@@ -45,7 +45,7 @@
 							<a href='{{ URL::route("getRankingHome"); }}' id='nav_ranking_btn'><span class='glyphicon glyphicon-home'></span> Home</a>
 						</li>
 
-						<? 
+						<?php 
 							$auth_user		=	Auth::check(); 
 							$guest_class	=	$auth_user? 'hide' : '';
 							$auth_class		=	!$auth_user? 'hide' : '';	
