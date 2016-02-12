@@ -13,18 +13,20 @@ class NotificationsModel extends Eloquent
 	public static function getUsersNotifications($readNotifications)
 	{
 		$user	=	Auth::user();
+		$isRead	=	$readNotifications;
+
 		return self::where('user', '=', $user)
-			->where(function($query) use ($readNotifications)
+			->where(function($query) use ($isRead)
 			{
-				if($readNotifications != null)
-					$query->where('isRead', '=', $readNotifications)
+				if($isRead != null)
+					$query->where('isRead', '=', $isRead);
 
 			})->orderBy('created_at');
 	}
 
 	public static function getNumNotifications($readNotifications)
 	{
-		return self::getUsersNotifications($readNotifcations)->count();
+		return self::getUsersNotifications($readNotifications)->count();
 	}
 
 	public static function readNotification($notificationID)

@@ -18,7 +18,8 @@
 
 
 @section('content')
-<div class='container col-md-12' data-ng-controller='userManagementController'>
+<div class='container col-md-12' data-ng-controller='userManagementController' 
+data-ng-init='notificationCount={{ NotificationsModel::getNumNotifications(false); }}'>
 	<div class='center-block col-md-8' id='user_container'> 
 		<!-- USER MANAGE CONTROLS -->
 		<div id='user_manage_controls' class='col-md-4'>
@@ -26,8 +27,11 @@
 				<a href='#' class='list-group-item'><h4><span class='glyphicon glyphicon-signal'></span> Manage sites</h4></a>
 				<a href='#' class='list-group-item'><h4><span class='glyphicon glyphicon-star'></span> Premium</h4></a>
 				<a href='#' class='list-group-item'><h4><span class=' glyphicon glyphicon-heart'></span> Subscriptions</h4></a>
-				<a href='#' class='list-group-item'><h4>
-					<span class='glyphicon glyphicon-bullhorn'></span> Notifications</h4>
+				<a href='#' class='list-group-item'>
+					<h4>
+						<span class='glyphicon glyphicon-bullhorn'></span> Notifications 
+						<span class='badge'><% notificationCount %></span>
+					</h4>
 				</a>
 				<a href='#' class='list-group-item'><h4><span class='glyphicon glyphicon-cog'></span> Settings</h4></a>
 			</div>
