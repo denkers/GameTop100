@@ -3,7 +3,7 @@
 	<head>
 		@section('head')
 		<meta charset='utf-8' />
-			{{ HTML::style('dependencies/bootstrap/boostrap.min.css'); }}
+			{{ HTML::style('dependencies/bootstrap.min.css'); }}
 			{{ HTML::style('dependencies/bootstrap_theme.min.css'); }}
 			{{ HTML::style('css/main.css'); }}
 		@show
