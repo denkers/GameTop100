@@ -24,10 +24,10 @@ data-ng-init='notificationCount={{ NotificationsModel::getNumNotifications(false
 		<!-- USER MANAGE CONTROLS -->
 		<div id='user_manage_controls' class='col-md-4'>
 			<div class='list-group'>
-				<a href='#' class='list-group-item'><h4><span class='glyphicon glyphicon-signal'></span> Manage sites</h4></a>
+				<a href='{{ URL::route("getMySites"); }}' class='list-group-item'><h4><span class='glyphicon glyphicon-signal'></span> Manage sites</h4></a>
 				<a href='#' class='list-group-item'><h4><span class='glyphicon glyphicon-star'></span> Premium</h4></a>
 				<a href='#' class='list-group-item'><h4><span class=' glyphicon glyphicon-heart'></span> Subscriptions</h4></a>
-				<a href='#' class='list-group-item'>
+				<a href='{{ URL::route("getNotifications"); }}' class='list-group-item'>
 					<h4>
 						<span class='glyphicon glyphicon-bullhorn'></span> Notifications 
 						<span class='badge'><% notificationCount %></span>
