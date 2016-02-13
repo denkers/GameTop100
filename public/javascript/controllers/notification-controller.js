@@ -8,6 +8,6 @@
 {
 	angular.module('main').controller('notificationController', function($scope, $rootScope)
 	{
-
+		$scope.notifications	=	{};
 	});
 })();
