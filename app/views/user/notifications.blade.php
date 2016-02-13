@@ -35,7 +35,24 @@
 
 				<div class='panel-body notification-body' uib-collapse='selectedNotification != $index'>
 					<div class='notification-content'>
+						<div class='form-group notify-content-group'>
+							<h3><strong>Subject:</strong> <% notification.subject %></h3>
+						</div>
 
+						<div class='form-group notify-content-group'>
+							<h3><strong>Date sent:</strong> <% notification.created_at %></h3>
+						</div>
+
+						<div class='form-group notify-content-group'>
+							<h3><strong>Referral link:</strong> <a href='<% notification.url %>'></a>
+						</div>
+
+						<div class='form-group notify-content-group'>
+							<h3><strong>Content:</strong></h3>
+							<div class='notify-content-container'>
+								<% notification.content %>
+							</div>	
+						</div>
 					</div>
 
 					<div class='notification-controls'>
