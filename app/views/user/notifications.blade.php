@@ -1,5 +1,10 @@
 @extends('layout.user')
 
+@section('head')
+	@parent
+	{{ HTML::style("css/user/notifications.css"); }}
+@stop
+
 @section('js')
 	@parent
 	{{ HTML::script("javascript/controllers/notification-controller.js"); }}
