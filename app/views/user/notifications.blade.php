@@ -63,7 +63,10 @@
 					<div class='notification-controls'>
 						<div class='btn-group'>
 							<button class='btn btn-default'><span class='glyphicon glyphicon-arrow-left'></span> Back</button>
-							<button class='btn btn-danger'><span class=' glyphicon glyphicon-remove'></span> Remove</button>	
+							<button class='btn btn-danger' 
+							data-ng-click='removeNotification("{{ URL::route("postDeleteNotification"); }}")'>
+								<span class=' glyphicon glyphicon-remove'></span> Remove
+							</button>	
 						</div>
 					</div>
 				</div>
