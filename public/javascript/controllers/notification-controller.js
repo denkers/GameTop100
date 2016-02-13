@@ -9,6 +9,7 @@
 	angular.module('main').controller('notificationController', function($scope, $rootScope)
 	{
 		$scope.notifications		=	{};
+		$scope.notificationResponse	=	{};
 
 		$scope.toggleNotification	=	function(index)
 		{
@@ -30,6 +31,9 @@
 
 				$rootScope.postData(url, data, function(response)
 				{
+					$scope.notificationResponse			=	response;
+					$scope.notificationResponse.show	=	true;
+
 					if(response.status)
 					{	
 						notifications.splice(selectedNotification, 1);

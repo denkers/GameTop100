@@ -17,6 +17,11 @@
 
 	<div data-ng-controller='notificationController' data-ng-init='notifications = {{ $notifications}}'>
 		<div id='notification-container'>
+			<uib-alert data-ng-if='notificationResponse.show' close='closeManageResponseAlert()' dismiss-on-timeout='2000'
+			type='<% notificationResponse.status? "success" : "danger" %>'>
+				<span class='<% notificationResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+				<% notificationResponse.message  %>
+			</uib-alert>
 			<div class='panel panel-default' data-ng-repeat='notification in notifications'>
 				<div class='panel-heading' data-ng-click='toggleNotification($index)'>
 					<h3 class='panel-title'>
