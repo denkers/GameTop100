@@ -18,7 +18,7 @@
 	<div data-ng-controller='notificationController' data-ng-init='notifications = {{ $notifications}}'>
 		<div id='notification-container'>
 			<div class='panel panel-default' data-ng-repeat='notification in notifications'>
-				<div class='panel-heading'>
+				<div class='panel-heading' data-ng-click='toggleNotification($index)'>
 					<h3 class='panel-title'>
 						<span class='notification-subject notification-header'>
 							<span class='glyphicon glyphicon-bullhorn'></span> 
@@ -62,7 +62,11 @@
 
 					<div class='notification-controls'>
 						<div class='btn-group'>
-							<button class='btn btn-default'><span class='glyphicon glyphicon-arrow-left'></span> Back</button>
+							<button class='btn btn-default'
+							data-ng-click='toggleNotification($index)'>
+								<span class='glyphicon glyphicon-arrow-left'></span> Close
+							</button>
+
 							<button class='btn btn-danger' 
 							data-ng-click='removeNotification("{{ URL::route("postDeleteNotification"); }}")'>
 								<span class=' glyphicon glyphicon-remove'></span> Remove

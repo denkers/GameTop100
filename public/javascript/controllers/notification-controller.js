@@ -10,6 +10,14 @@
 	{
 		$scope.notifications		=	{};
 
+		$scope.toggleNotification	=	function(index)
+		{
+			if(index == selectedNotification) 
+				selectedNotification = null;
+			else 
+				selectedNotification	=	index;
+		};
+
 		$scope.removeNotification	=	function(url)
 		{
 			if(selectedNotification == null) return;
