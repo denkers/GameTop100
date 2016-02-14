@@ -157,13 +157,14 @@ class UserController extends MasterController
 
 	public function getNotifications()
 	{
-		$notifications =	NotificationsModel::getUsersNotifications(null)->get();
+		$notifications =	self::getNotificationsList();
 		return View::make('user.notifications')->with('notifications', $notifications);
 	}
 
 	public function getNotificationsList()
 	{
-
+		$notifications	=	NotificationsModel::getUsersNotifications(null)-get();
+		return json_encode($notifications);
 	}
 
 	public function postDeleteNotification()
