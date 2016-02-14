@@ -23,7 +23,7 @@
 				<% notificationResponse.message  %>
 			</uib-alert>
 			<div class='panel panel-default' data-ng-repeat='notification in notifications'>
-				<div class='panel-heading' data-ng-click='toggleNotification($index)'>
+				<div class='panel-heading notification-heading' data-ng-click='toggleNotification($index)'>
 					<h3 class='panel-title'>
 						<span class='notification-subject notification-header'>
 							<span class='glyphicon glyphicon-bullhorn'></span> 

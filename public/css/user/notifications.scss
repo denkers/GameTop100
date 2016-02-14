@@ -1,0 +1,14 @@
+.notification-header
+{
+	padding-right:5em;
+
+}
+
+.notification-heading
+{
+	&:hover
+	{
+		cursor:pointer;
+		opacity:0.7;
+	}
+}
