@@ -163,7 +163,7 @@ class UserController extends MasterController
 
 	public function getNotificationsList()
 	{
-		$notifications	=	NotificationsModel::getUsersNotifications(null)-get();
+		$notifications	=	NotificationsModel::getUsersNotifications(null)->get();
 		return json_encode($notifications);
 	}
 

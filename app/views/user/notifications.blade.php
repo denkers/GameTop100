@@ -36,8 +36,8 @@
 						</span> 
 	
 						<span class='notification-read notification-header'>
-							<span class='label label-<% notification.read? "default" : "success" %>'>
-								<% notification.read? "new" : "old" %>
+							<span class='label label-<% notification.isRead? "success" : "default" %>'>
+								<% notification.isRead? "old" : "new" %>
 							</span>
 						</span>
 					</h3>

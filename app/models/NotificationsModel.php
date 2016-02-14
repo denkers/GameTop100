@@ -12,7 +12,7 @@ class NotificationsModel extends Eloquent
 
 	public static function getUsersNotifications($readNotifications)
 	{
-		$user	=	Auth::user();
+		$user	=	Auth::user()->username;
 		$isRead	=	$readNotifications;
 
 		return self::where('user', '=', $user)
