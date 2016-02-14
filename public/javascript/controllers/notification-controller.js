@@ -21,10 +21,10 @@
 
 		$scope.removeNotification	=	function(url)
 		{
-			if(selectedNotification == null) return;
+			if($scope.selectedNotification == null) return;
 			else
 			{
-				var notification	=	$scope.notifications[selectedNotification];
+				var notification	=	$scope.notifications[$scope.selectedNotification];
 				var params			=	{ notification_id: notification.id };
 				var data			=	params;
 				url					=	$rootScope.setParams(url, params);
@@ -36,8 +36,8 @@
 
 					if(response.status)
 					{	
-						notifications.splice(selectedNotification, 1);
-						selectedNotification	=	null;
+						notifications.splice($scope.selectedNotification, 1);
+						$scope.selectedNotification	=	null;
 					}
 				});
 			}

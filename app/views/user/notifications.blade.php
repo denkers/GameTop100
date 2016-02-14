@@ -54,7 +54,9 @@
 						</div>
 
 						<div class='form-group notify-content-group'>
-							<h3><strong>Referral link:</strong> <a href='<% notification.url %>'></a>
+							<h3><strong>Referral link:</strong> 
+							<a ng-if='notification.url != null' href='<% notification.url %>'><% notification.url %></a>
+							<span ng-if='notification.url == null'>None</span>
 						</div>
 
 						<div class='form-group notify-content-group'>
