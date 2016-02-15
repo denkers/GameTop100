@@ -27,11 +27,16 @@
 	</div>
 </div>
 
-<div class='footer-container col-md-6 center-x'>
+<div id='footer-top' class='center-y'>
+	<a href='#'><span class='glyphicon glyphicon-chevron-up'></span></a>
+</div>
+
+<div class='footer-container col-md-4 center-x'>
 	<div id='footer-subscribe-container' class='row'>
 		<h2>Get the latest GameTop100 updates <button class='btn btn-lg btn-primary'>Subscribe</button></h2>
 	</div>
 	<div class='row'>
+		<div class='center-x'>
 		<div class='col-md-4'>
 			<h3 class='footer-heading'><span class='glyphicon glyphicon-info-sign'></span> Info</h4>
 			<div class='list-group footer-list'>
@@ -59,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-
+	</div>
 	<div id='footer-copyright-container'>
 		<h4><small>Copyright Kyle Russell 2016</small></h4>
 	</div>
