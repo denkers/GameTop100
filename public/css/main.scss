@@ -70,6 +70,7 @@ body > #content-container
 	{
 		border-bottom:0;
 		padding:2em;
+		padding-bottom:1em;
 	}
 }
 
@@ -80,4 +81,45 @@ body > #content-container
 		padding:0;
 		border:0;
 	}
+}
+
+.footer-heading
+{
+	font-weight:bold;
+}
+
+.footer-list
+{
+	.list-group-item
+	{
+		font-size:1.2em;
+	}
+}	
+
+#footer-copyright-container
+{
+	border-top:1px solid #ccc;
+	text-align:center;
+	margin-top:1.5em;
+}
+
+#footer-media-content
+{
+	text-align:center;
+	text-transform:uppercase;
+}
+
+#footer-media-container
+{
+}
+
+.media-circle
+{
+	width:5em;
+	height:5em;
+	background-color:black;
+	border-radius:5em;
+	text-align:center;
+	display:inline-block;
+	margin-left:2.5em;
 }

@@ -85,9 +85,7 @@
 		</div>
 
 		<footer id='main-footer'> 
-			<div class='footer-container col-md-4 center-x'>
-				@include('layout.footer')
-			</div>
+			@include('layout.footer')
 		</footer>
 	</body>
 </html>
