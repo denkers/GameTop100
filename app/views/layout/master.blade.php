@@ -5,6 +5,7 @@
 		<meta charset='utf-8' />
 			{{ HTML::style('dependencies/bootstrap.min.css'); }}
 			{{ HTML::style('dependencies/bootstrap_theme.min.css'); }}
+			{{ HTML::style('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'); }}
 			{{ HTML::style('css/main.css'); }}
 		@show
 

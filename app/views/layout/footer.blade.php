@@ -5,22 +5,22 @@
 
 		<!-- FACEBOOK MEDA -->
 		<div class='media-circle'>
-
+			<i class="fa fa-facebook"></i>
 		</div>
 
 		<!-- TWITTER MEDIA -->
 		<div class='media-circle'>
-
+			<i class="fa fa-twitter"></i>
 		</div>
 
 		<!-- GOOGLE+ MEDIA -->
 		<div class='media-circle'>
-
+			<i class="fa fa-google-plus"></i>			
 		</div>
 
 		<!-- RSS MEDIA -->
 		<div class='media-circle'>
-
+			<i class="fa fa-rss"></i>
 		</div>
 	</div>
 </div>
