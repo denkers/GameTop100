@@ -78,11 +78,14 @@
 					</ul>
 				</div>
 			</div>
-		</nav>	
-		@yield('content')
+		</nav>
 
-		<footer id='main-footer' class='center-x'>
-			<div class='footer-container'>
+		<div id='content-container'>
+			@yield('content')
+		</div>
+
+		<footer id='main-footer'> 
+			<div class='footer-container col-md-4 center-x'>
 				@include('layout.footer')
 			</div>
 		</footer>
