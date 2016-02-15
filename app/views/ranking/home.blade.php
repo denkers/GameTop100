@@ -25,8 +25,8 @@ Ranking
 
 <div data-ng-controller='rankingController'>
 	<div data-ng-controller='siteController'>
-		<div id='home_content'>
-			<div id='game_nav'>
+		<div id='home_content' class='container-fluid'>
+			<div id='game_nav' class='col-md-2'>
 				<ul id='games_list' class='list-group'>
 					<div class='list-group-item game_list_item clearfix' data-ng-repeat='category in game_category_list'>
 
@@ -45,7 +45,7 @@ Ranking
 				</ul>
 			</div>
 
-			<div id='ranking_content'>
+			<div id='ranking_content' class='col-md-10'>
 				<div class='container ranking_content_container'>
 					<div class='page-header'>
 						<h3>Game title
