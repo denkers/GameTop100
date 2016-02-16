@@ -24,8 +24,8 @@
 			</uib-alert>
 
 			<!-- NO NOTIFICATIONS NOTICE -->
-			<div class='jumbotron' data-ng-if='notifications == null || notifications.length == 0'>
-				<h1><span class='glyphicon glyphicon-info-sign'></span> You have no notifications</h1>	
+			<div id='notification-notice' class='jumbotron' data-ng-if='notifications == null || notifications.length == 0'>
+				<h2><span class='glyphicon glyphicon-info-sign'></span> You have no notifications</h2>	
 			</div>
 
 			<div class='page-header' data-ng-if='notifications != null && notifications.length > 0'>

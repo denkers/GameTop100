@@ -38,6 +38,7 @@
 					{	
 						$scope.notifications.splice($scope.selectedNotification, 1);
 						$scope.selectedNotification	=	null;
+						$rootScope.$broadcast('decNotificationCount', []);
 					}
 				});
 			}
