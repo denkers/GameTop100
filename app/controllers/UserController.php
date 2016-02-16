@@ -194,6 +194,30 @@ class UserController extends MasterController
 
 	public function postReadNotification()
 	{
+		$success_msg	=	'Successfully read notification';
+		$fail_msg		=	'Failed to read notification';
 
+		$validator		=	Validator::make(Input::all(),
+		[
+			'notification_id'	=>	'required|exists,id'
+		]);
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$notification	=	NotificationsModel::find(Input::get('notification_id'));
+
+			if($notification == null)
+				return MasterController::encodeReturn(false, $this->invalid_input_msg);
+			else
+			{
+				$notification->isRead	=	true;
+				if($notification->save())
+					return MasterController::encodeReturn(true, $success_msg);
+				else
+					return MasterController::encodeReturn(false, $fail_msg);
+			}
+		}
 	}
 }
