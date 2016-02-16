@@ -19,10 +19,21 @@
 		<div id='notification-container'>
 			<uib-alert data-ng-if='notificationResponse.show' close='closeManageResponseAlert()' dismiss-on-timeout='2000'
 			type='<% notificationResponse.status? "success" : "danger" %>'>
-				<span class='<% notificationResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> 
+					<span class='<% notificationResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span>
 				<% notificationResponse.message  %>
 			</uib-alert>
-			<div class='panel panel-default' data-ng-repeat='notification in notifications'>
+
+			<!-- NO NOTIFICATIONS NOTICE -->
+			<div class='jumbotron' data-ng-if='notifications == null || notifications.length == 0'>
+				<h1><span class='glyphicon glyphicon-info-sign'></span> You have no notifications</h1>	
+			</div>
+
+			<div class='page-header' data-ng-if='notifications != null && notifications.length > 0'>
+				<h2>Your notifications<br><small>View and manage notifications</small</h2>
+			</div>
+
+			<!-- NOTIFICATIONS -->
+			<div class='panel panel-default notification-panel' data-ng-repeat='notification in notifications'>
 				<div class='panel-heading notification-heading' data-ng-click='toggleNotification($index)'>
 					<h3 class='panel-title'>
 						<span class='notification-subject notification-header'>
