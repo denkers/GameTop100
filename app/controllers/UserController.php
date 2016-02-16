@@ -169,7 +169,27 @@ class UserController extends MasterController
 
 	public function postDeleteNotification()
 	{
+		$success_msg	=	'Successfully removed notification';
+		$fail_msg		=	'Failed to remove notification';
 		
+		$validator		=	Validator::make(Input::all(),
+		[
+			'notification_id'	=>	'required|exists:notifications,id'
+		]);	
+
+		if($validator->fails())
+			return MasterController::encodeReturn(false, $this->invalid_input_msg);
+		else
+		{
+			$notification	=	NotificationsModel::find(Input::get('notification_id'));
+			if($notification == null)
+				return MasterController::encodeReturn(false, $this->invalid_input_msg);
+
+			else if($notification->delete())
+				return MasterController::encodeReturn(true, $success_msg);
+			else
+				return MasterController::encodeReturn(false, $fail_msg);	
+		}
 	}
 
 	public function postReadNotification()

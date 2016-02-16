@@ -36,11 +36,16 @@
 
 					if(response.status)
 					{	
-						notifications.splice($scope.selectedNotification, 1);
+						$scope.notifications.splice($scope.selectedNotification, 1);
 						$scope.selectedNotification	=	null;
 					}
 				});
 			}
+		};
+
+		$scope.closeResponseAlert	=	function()
+		{
+			$scope.notificationResponse	=	null;
 		};
 	});
 })();

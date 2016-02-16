@@ -17,7 +17,7 @@
 
 	<div data-ng-controller='notificationController' data-ng-init='notifications = {{ $notifications}}'>
 		<div id='notification-container'>
-			<uib-alert data-ng-if='notificationResponse.show' close='closeManageResponseAlert()' dismiss-on-timeout='2000'
+			<uib-alert data-ng-if='notificationResponse.show' close='closeResponseAlert()' dismiss-on-timeout='2000'
 			type='<% notificationResponse.status? "success" : "danger" %>'>
 					<span class='<% notificationResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span>
 				<% notificationResponse.message  %>
