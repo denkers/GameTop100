@@ -23,6 +23,14 @@ class MasterController extends Controller
 		return json_encode($return_message);
 	}
 
+	public static function encodeReturnMessage($result, $success_msg, $fail_msg, $success_data = [])
+	{
+		if($result)
+			return MasterController::encodeReturn(true, $success_msg, $success_data);
+		else
+			return MasterController::encodeReturn(false, $fail_msg);		
+	}
+
 	public function getHome()
 	{
 		return View::make('home');

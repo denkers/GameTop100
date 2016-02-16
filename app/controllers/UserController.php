@@ -185,10 +185,7 @@ class UserController extends MasterController
 			if($notification == null)
 				return MasterController::encodeReturn(false, $this->invalid_input_msg);
 
-			else if($notification->delete())
-				return MasterController::encodeReturn(true, $success_msg);
-			else
-				return MasterController::encodeReturn(false, $fail_msg);	
+			return MasterController::encodeReturnMessage($notification->delete(), $success_msg, $fail_msg);
 		}
 	}
 
@@ -213,10 +210,7 @@ class UserController extends MasterController
 			else
 			{
 				$notification->isRead	=	true;
-				if($notification->save())
-					return MasterController::encodeReturn(true, $success_msg);
-				else
-					return MasterController::encodeReturn(false, $fail_msg);
+				return MasterController::encodeReturnMessage($notification->save(), $success_msg, $fail_msg);
 			}
 		}
 	}
