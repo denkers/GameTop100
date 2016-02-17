@@ -15,7 +15,7 @@ class UserController extends MasterController
 
 		$validator = Validator::make(Input::all(), 
 		[
-			'username'		=>	'required|exists:users,username',
+			'username'		=>	'required',
 			'password'		=>	'required|max:16'
 		]);
 

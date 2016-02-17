@@ -25,6 +25,7 @@
 			}
 
 			var data	=	$httpParamSerializer($scope.loginData);
+			console.log(data);
 			$http
 			({
 				url: root_url + '/login',
