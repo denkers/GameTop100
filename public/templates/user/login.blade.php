@@ -4,14 +4,14 @@
 </div>
 
 <div class='modal-body'>
-	<div id='login-success-container' data-ng-if='!loginResponse.status'>
+	<div id='login-success-container' data-ng-if='loginResponse.status'>
 		<center>
 			<h2><span class='glyphicon glyphicon-ok-sign'></span> Login successful</h2>
 			<h2><small>One moment while we redirect you</small></h2>
 		</center>
 	</div>
 
-	<div id='login-attempt-container' data-ng-if='loginResponse.status'>
+	<div id='login-attempt-container' data-ng-if='!loginResponse.status'>
 		<!-- LOGIN STATUS ALERT -->
 		<uib-alert type='<% loginResponse.status? "success" : "danger" %>' data-ng-show='loginResponse' close='loginResponse = null'>
 			<span class='<% loginResponse.status? "glyphicon glyphicon-ok-sign" : "glyphicon glyphicon-remove-sign" %>'></span> <% loginResponse.message %>
