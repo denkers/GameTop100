@@ -32,7 +32,8 @@
 							edit-url='{{ URL::route("postEditComment"); }}' 
 							add-url='{{ URL::route("postAddSiteComment"); }}' 
 							rate-url='{{ URL::route("postRateComment"); }}' 
-							delete-url='{{ URL::route("postRemoveComment"); }}'>
+							delete-url='{{ URL::route("postRemoveComment"); }}'
+							site-view-url='{{ URL::route("getSite"); }}'>
 						</site>
 					</div>
 				</div>
