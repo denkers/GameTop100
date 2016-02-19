@@ -187,5 +187,11 @@
 				});
 			}, 1500);
 		};
+
+		$scope.viewSitePage	=	function(site, url)
+		{
+			url				=	$rootScope.setParams(url, { site_id: site.id });
+			window.location	=	url;
+		};
 	});
 })();

@@ -44,7 +44,8 @@
 				<span class='site_comments'><% siteData.comments.length %></span> <span class='glyphicon glyphicon-comment'></span>
 			</a>
 
-			<a uib-tooltip='View site GameTop100 page' tooltip-placement='top' class='plain_link' data-ng-click='viewSitePage()'>
+			<!-- SITE VIEW -->
+			<a uib-tooltip='View site GameTop100 page' tooltip-placement='top' class='plain_link' data-ng-click='viewSitePage(siteData, siteViewUrl)'>
 				<span class='glyphicon glyphicon-share-alt'></span>
 			</a>
 		</h4>
