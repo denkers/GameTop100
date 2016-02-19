@@ -45,7 +45,7 @@
 			</a>
 
 			<!-- SITE VIEW -->
-			<a uib-tooltip='View site GameTop100 page' tooltip-placement='top' class='plain_link' data-ng-click='viewSitePage(siteData, siteViewUrl)'>
+			<a uib-tooltip='View page' tooltip-placement='top' class='plain_link' href='#' data-ng-click='viewSitePage(siteData, siteViewUrl)'>
 				<span class='glyphicon glyphicon-share-alt'></span>
 			</a>
 		</h4>
