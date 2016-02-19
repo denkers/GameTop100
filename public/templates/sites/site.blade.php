@@ -28,7 +28,7 @@
 	</div>
 
 	<div class='vote_details col-md-3'>
-		<h3 class='vote_text'>
+		<h4 class='vote_text'>
 			<!-- SITE IN VOTES -->
 			<span uib-tooltip='Votes in' tooltip-placement='top' class='site_in_group' data-toggle='tooltip' data-placement='bottom' data-title='Site in-votes'>
 				<span class='site_in'><% getSiteVoteCount(siteData).in_votes %></span> <span class='glyphicon glyphicon-arrow-up'></span>
@@ -43,7 +43,11 @@
 			<a uib-tooltip='Site comments' tooltip-placement='top' class='site_comments_group plain_link' data-toggle='tooltip' data-placement='bottom' data-title='Site comments' data-ng-click='toggleCommentContainer(siteData)'>
 				<span class='site_comments'><% siteData.comments.length %></span> <span class='glyphicon glyphicon-comment'></span>
 			</a>
-		</h3>
+
+			<a uib-tooltip='View site GameTop100 page' tooltip-placement='top' class='plain_link' data-ng-click='viewSitePage()'>
+				<span class='glyphicon glyphicon-share-alt'></span>
+			</a>
+		</h4>
 	</div> 
 
 	<!-- SITE COMMENTS CONTAINER -->
