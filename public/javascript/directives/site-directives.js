@@ -17,4 +17,12 @@
 			}
 		};
 	});
+
+	angular.module('main').directive('siteform', function()
+	{
+		return {
+			restrict: 'E',
+			templateUrl: root_url + '/templates/user/siteform.blade.php'
+		};
+	};
 })();
