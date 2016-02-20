@@ -31,10 +31,10 @@ Ranking
 					<div class='list-group-item game_list_item clearfix' data-ng-repeat='category in game_category_list'>
 
 						<div class='category_item_container'>
-							<h3><strong><% category.name %></strong></h3>
+							<h3 data-ng-click='toggleGameCategory($index)'><strong><% category.name %></strong></h3>
 						</div>
 
-						<ul class='list-group'>
+						<ul class='list-group' uib-collapse='selectedCategory != $index'>
 							<div class='list-group-item game_item_container' data-ng-repeat='game in category.games'>
 								<a href='' class='game_item_link'>
 									<h4><% game.name %></h4>
