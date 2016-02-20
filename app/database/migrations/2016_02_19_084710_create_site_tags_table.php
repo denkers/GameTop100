@@ -16,7 +16,6 @@ class CreateSiteTagsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name', 18);
-			$table->string('description', 50);
 			$table->integer('site_id')->unsigned();
 			$table->timestamps();
 			$table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
