@@ -108,6 +108,11 @@
 								</div>
 
 								<div class='input-group'>
+									<label>Site tags</label>
+									<input class='form-control' type='text' data-ng-model='siteSaveData.s_tags' required />
+								</div>
+
+								<div class='input-group'>
 									<label>Game</label>
 									<select data-ng-model='siteSaveData.s_game' class='form-control'>
 										<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
