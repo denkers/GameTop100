@@ -57,6 +57,7 @@ class SiteController extends MasterController
 			
 			if($site->delete())
 				return MasterController::encodeReturn(true, $success_message);
+
 			else
 				return MasterController::encodeReturn(false, $fail_message);
 		}

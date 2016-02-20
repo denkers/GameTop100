@@ -26,6 +26,11 @@
 			<label>Site URL</label>
 			<input class='form-control' type='text' data-ng-model='siteSaveData.s_add' required />
 		</div>
+	
+		<div class='input-group'>
+			<label>Site tags</label>
+			<input class='form-control' type='text' data-ng-model='siteSaveData.s_add' required />
+		</div>
 
 		<div class='input-group'>
 			<label>Game</label>
