@@ -17,7 +17,8 @@ class SiteController extends MasterController
 			's_title'	=>	'required|min:5|max:30',
 			's_desc'	=>	'required|min:10|max:200',
 			's_add'		=>	'required',
-			's_game'	=>	'required|exists:games,id'
+			's_game'	=>	'required|exists:games,id',
+			's_tags'	=>	'required'
 		]);	
 
 		if($validator->fails())
@@ -71,7 +72,8 @@ class SiteController extends MasterController
 			's_id'		=>	'required|exists:sites,id',
 			's_title'	=>	'required|max:30',
 			's_desc'	=>	'required|max:120',
-			's_add'		=>	'required'
+			's_add'		=>	'required',
+			's_tags'	=>	'required'
 		]);
 
 		if($validator->fails())

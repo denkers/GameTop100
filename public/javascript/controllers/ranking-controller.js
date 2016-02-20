@@ -2,7 +2,7 @@
 {
 	angular.module('main').controller('rankingController', function($scope, $rootScope)
 	{
-		$scope.selectedCategory	=	null;
+		$scope.selectedCategory	=	0;
 
 		$rootScope.getData(site_list_url, function(response)
 		{

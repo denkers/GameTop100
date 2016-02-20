@@ -62,6 +62,8 @@
 		$scope.addSite	=	function()
 		{
 			var data	=	$scope.siteSaveData;
+			var tags	=	[ {'name': 'test', 'desc': 'test description'} ];
+			data.s_tags	=	JSON.stringify(tags);
 
 			$rootScope.postData(add_site_url, data, function(response)
 			{
@@ -83,7 +85,9 @@
 			var params		=	{ site_id: site.id };
 			url				=	$rootScope.setParams(url, params);
 			var data		=	$scope.siteSaveData;
-			data.s_id	=	site.id;	
+			var tags		=	[ {'name': 'test', 'desc': 'test description'} ];
+			data.s_id		=	site.id;	
+			data.s_tags		=	JSON.stringify(tags);
 
 			$rootScope.postData(url, data, function(response)
 			{
