@@ -22,7 +22,14 @@
 	{
 		return {
 			restrict: 'E',
-			templateUrl: root_url + '/templates/user/siteform.blade.php'
+			templateUrl: root_url + '/templates/user/siteform.blade.php',
+			link: function(scope, elim, attr)
+			{
+				if(attr.siteSaveData != null)
+					scope.siteSaveData	=	attr.siteSaveData;
+				else
+					scope.siteSaveData	=	{};
+			}
 		};
-	};
+	});
 })();
