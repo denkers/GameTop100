@@ -1,5 +1,10 @@
 @extends('layout.user')
 
+@section('js')
+	@parent
+	{{ HTML::script('javascript/directives/site-directives.js'); }}
+@stop
+
 @section('user_content')
 <script>
 	var site_list_url	=	'{{ URL::route("getMySiteList"); }}';
@@ -91,36 +96,9 @@
 								</div> 
 							</div>
 
-							<form class='site_edit_form col-md-6' name='site.saveContainer'>
-								<div class='input-group'>
-									<label>Site title</label>
-									<input class='form-control' type='text' data-ng-model='siteSaveData.s_title' required />
-								</div>
-
-								<div class='input-group'>
-									<label>Site description</label>
-									<textarea class='form-control' required data-ng-model='siteSaveData.s_desc'></textarea>
-								</div>
-
-								<div class='input-group'>
-									<label>Site URL</label>
-									<input class='form-control' type='text' data-ng-model='siteSaveData.s_add' required />
-								</div>
-
-								<div class='input-group'>
-									<label>Site tags</label>
-									<input class='form-control' type='text' data-ng-model='siteSaveData.s_tags' required />
-								</div>
-
-								<div class='input-group'>
-									<label>Game</label>
-									<select data-ng-model='siteSaveData.s_game' class='form-control'>
-										<option data-ng-repeat='game in game_list' value='<% game.id %>'><% game.name %></option>
-									</select>
-								</div>
-								<button data-ng-click='toggleEditSiteContainer(site, $index); $event.preventDefault()' class='btn btn-default cancel_site_btn'>Cancel</button>
-								<button data-ng-click='saveSite(site_list.selectedSite == $index? "{{ URL::route("postEditSite") }}":  "{{ URL::route("postAddSite") }}")' class='btn btn-primary save_site_btn'>Save</button>
-							</form>
+							<siteform site-save-data='<% siteSaveData %>' game-list='<% game_list %>' response='<%  %>'>
+							</siteform>
+							
 						</div>
 					</div>
 				</li>
