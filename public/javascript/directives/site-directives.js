@@ -29,6 +29,9 @@
 					scope.siteSaveData	=	attr.siteSaveData;
 				else
 					scope.siteSaveData	=	{};
+
+				scope.gameList	=	attr.gameList;
+				scope.response	=	attr.response;
 			}
 		};
 	});
