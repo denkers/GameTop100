@@ -53,7 +53,7 @@
 						<!-- SITE RANK DETAILS -->
 						<div class='site_rank_details col-md-1'>
 							<div class='rank_display'>
-								2
+								<% $index + 1 %>
 							</div>
 						</div>
 

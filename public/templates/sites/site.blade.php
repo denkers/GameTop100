@@ -3,7 +3,7 @@
 		<!-- RANK NUMBER -->
 		<div class='col-md-2 rank_details'>
 			<h5 class='rank_display'>
-				1
+				<% $index + 1 %>
 			</h5>
 		</div>
 
